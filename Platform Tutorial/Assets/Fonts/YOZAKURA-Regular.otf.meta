@@ -1,21 +1,23 @@
 fileFormatVersion: 2
-guid: ea45ac12ac9d60542b04c5a24b99914f
-timeCreated: 1523532869
+guid: 901e8b341fc9b99449624a03864eae8c
+timeCreated: 1524220130
 licenseType: Free
 TrueTypeFontImporter:
+  externalObjects: {}
   serializedVersion: 4
   fontSize: 16
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Magnolia Script
+  fontName: YOZAKURA
   fontNames:
-  - Magnolia Script
+  - YOZAKURA
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
