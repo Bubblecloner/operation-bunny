@@ -35,7 +35,7 @@ public class PlatformInputs : MonoBehaviour {
         transform.Translate(new Vector3(horizontalDirection, 0, 0) * speed * Time.deltaTime);
 
 
-        grounded = Physics2D.OverlapPoint(groundCheckR.position) || Physics2D.OverlapPoint(groundCheckL.position);
+        grounded = (Physics2D.OverlapPoint(groundCheckR.position) || Physics2D.OverlapPoint(groundCheckL.position)) && rgbd2d.velocity.y < 0.1f;
         if (grounded)
         {
             jumpsLeft = totalJumps;
@@ -46,11 +46,12 @@ public class PlatformInputs : MonoBehaviour {
         if (jumpsLeft > 0 && Input.GetButtonDown("Jump"))
             Jump();
 
+
         //Cuts the jump of the player when the jump button is released
         if (Input.GetButtonUp("Jump") && rgbd2d.velocity.y > 0)
             StopJump();
 
-        if (!Input.GetButton("Jump") && jumpTimer < 0.1f && jumpTimer > 0)
+        if (!Input.GetButton("Jump") && jumpTimer < 0.2f && jumpTimer > 0)
             StopJump();
 
 
@@ -78,6 +79,7 @@ public class PlatformInputs : MonoBehaviour {
             jumpsLeft--;
         }
         jumpTimer = 0;
+        grounded = false;
     }
 
     private void StopJump()
@@ -86,7 +88,7 @@ public class PlatformInputs : MonoBehaviour {
         {
             rgbd2d.velocity = Vector2.Lerp(rgbd2d.velocity, new Vector2(rgbd2d.velocity.x, 0), 0.8f);
         }
-        else
+        else if(!grounded)
             Invoke("StopJump", minimumJumpTime - jumpTimer);
     }
 
