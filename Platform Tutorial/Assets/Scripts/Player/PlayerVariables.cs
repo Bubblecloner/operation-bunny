@@ -16,7 +16,7 @@ public class PlayerVariables : MonoBehaviour {
 
 	void Start ()
     {
-        health = 3;
+        health = 100;
         myAudioSource = GetComponent<AudioSource>();
         rgbd2d = GetComponent<Rigidbody2D>();
 	}
@@ -47,7 +47,7 @@ public class PlayerVariables : MonoBehaviour {
     public void Respawn()
     {
         transform.position = startPosition.position;
-        health = 3;
+        health = 100;
     }
 
     //Call this when the player should bounce of something

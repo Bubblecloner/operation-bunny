@@ -9,8 +9,7 @@ public class GameController : MonoBehaviour {
 
     public static GameController gameControllerInstance;
     public Text coinText;
-    public GameObject heartIcon;
-    public Transform heartRefrence;
+    public Slider healthSlider;
 
     public float playerHealth;
 
@@ -24,23 +23,15 @@ public class GameController : MonoBehaviour {
         gameControllerInstance = this;
         coins = 0;
         originalCameraRotation = Camera.main.transform.rotation;
-    }
+	}
 	
 	void Update ()
     {
         coinText.text = coins.ToString();
+        healthSlider.value = playerHealth;
 
-        if (heartRefrence.childCount  < playerHealth)
-            Instantiate(heartIcon, new Vector3(50* (heartRefrence.childCount) + 20, 520, 0), Quaternion.identity, heartRefrence);
-        if (heartRefrence.childCount  > playerHealth)
-            DestroyHeart();
-
-    }
-
-    private void DestroyHeart()
-    {
-        Destroy(heartRefrence.GetChild(heartRefrence.childCount - 1).gameObject);
-        Debug.Log("test");
+        healthSlider.GetComponentInChildren<Image>().color = new Color32((byte)(int)(120 * playerHealth / 100), 0, 0, 255);
+        healthSlider.GetComponentsInChildren<RectTransform>()[2].GetComponentInChildren<Image>().color = new Color32((byte)(int)(255 - 255 * Mathf.Pow(playerHealth / 100,2)), (byte)(int)(255 * playerHealth / 100), 0, 255);
     }
 
     public void ScreenShake()
