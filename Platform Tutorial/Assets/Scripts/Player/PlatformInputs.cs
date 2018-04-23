@@ -61,8 +61,8 @@ public class PlatformInputs : MonoBehaviour {
         else if (horizontalDirection < 0)
             Flip(-1);
 
-        anim.SetFloat("speed", Mathf.Abs(horizontalDirection));
-        anim.SetBool("grounded", grounded);
+        //anim.SetFloat("speed", Mathf.Abs(horizontalDirection));
+        //anim.SetBool("grounded", grounded);
 	}
 
     private void FixedUpdate()
