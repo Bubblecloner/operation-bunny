@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerVariables : MonoBehaviour {
 
     public float bounceHeight = 3f;
-    public float health = 3;
+    public float health = 100;
     public Transform startPosition;
     public GameObject coinParticles;
     public AudioClip coinPickup;
@@ -16,7 +16,7 @@ public class PlayerVariables : MonoBehaviour {
 
 	void Start ()
     {
-        health = 3;
+        health = 100;
         myAudioSource = GetComponent<AudioSource>();
         rgbd2d = GetComponent<Rigidbody2D>();
 	}

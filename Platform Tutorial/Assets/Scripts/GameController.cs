@@ -9,8 +9,7 @@ public class GameController : MonoBehaviour {
 
     public static GameController gameControllerInstance;
     public Text coinText;
-    public GameObject heartParent;
-    public GameObject heartIcon;
+    public Slider healthSlider;
 
     public float playerHealth;
 
@@ -29,7 +28,9 @@ public class GameController : MonoBehaviour {
 	void Update ()
     {
         coinText.text = coins.ToString();
+        healthSlider.value = playerHealth;
 
+<<<<<<< HEAD
         if (playerHealth > heartParent.transform.childCount)
             RegenHeart();
         else if (playerHealth < heartParent.transform.childCount)
@@ -47,6 +48,10 @@ public class GameController : MonoBehaviour {
     private void DestroyHeart()
     {
         Destroy(heartParent.transform.GetChild(heartParent.transform.childCount - 1));
+=======
+        healthSlider.GetComponentInChildren<Image>().color = new Color32((byte)(int)(120 * playerHealth / 100), 0, 0, 255);
+        healthSlider.GetComponentsInChildren<RectTransform>()[2].GetComponentInChildren<Image>().color = new Color32((byte)(int)(255 - 255 * Mathf.Pow(playerHealth / 100,2)), (byte)(int)(255 * playerHealth / 100), 0, 255);
+>>>>>>> 112c40aecfccf7628b510d36344c4bf45cbea7c6
     }
 
     public void ScreenShake()
