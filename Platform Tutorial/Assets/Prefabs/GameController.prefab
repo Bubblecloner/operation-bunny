@@ -51,8 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba95994d056ed9c45aa1c2cdd8e7a5f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinText: {fileID: 0}
-  heartParent: {fileID: 0}
+  coinText: {fileID: 114438821560088640, guid: 08a4bbbc42c02e44c85db2be8cca913d, type: 2}
+  heartParent: {fileID: 1717998443288594, guid: 08a4bbbc42c02e44c85db2be8cca913d,
+    type: 2}
   heartIcon: {fileID: 1414324093336838, guid: ded84826440039248834eac9d8c3f6e9, type: 2}
   playerHealth: 0
   coins: 0
