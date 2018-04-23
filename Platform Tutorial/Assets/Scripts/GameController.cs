@@ -28,7 +28,7 @@ public class GameController : MonoBehaviour {
 	
 	void Update ()
     {
-        coinText.text = coins.ToString();
+        //coinText.text = coins.ToString();
 
 
         if (playerHealth > heartParent.transform.childCount)
