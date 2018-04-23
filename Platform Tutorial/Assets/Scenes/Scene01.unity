@@ -331,7 +331,6 @@ Transform:
 --- !u!1 &355088918
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 >>>>>>> c75ab13b34da87aeac76236efe9ef23419b00422
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,8 +405,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &5523853
-=======
->>>>>>> c75ab13b34da87aeac76236efe9ef23419b00422
 =======
 >>>>>>> c75ab13b34da87aeac76236efe9ef23419b00422
 =======
@@ -1025,7 +1022,6 @@ Transform:
 --- !u!1 &650220483
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 >>>>>>> c75ab13b34da87aeac76236efe9ef23419b00422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1100,8 +1096,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &15872951
-=======
->>>>>>> c75ab13b34da87aeac76236efe9ef23419b00422
 =======
 >>>>>>> c75ab13b34da87aeac76236efe9ef23419b00422
 =======
@@ -1853,7 +1847,6 @@ SpriteRenderer:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 --- !u!1 &22713819
 GameObject:
   m_ObjectHideFlags: 0
@@ -1929,8 +1922,6 @@ SpriteRenderer:
   m_MaskInteraction: 0
 --- !u!1 &23425166
 =======
-=======
->>>>>>> c75ab13b34da87aeac76236efe9ef23419b00422
 =======
 >>>>>>> c75ab13b34da87aeac76236efe9ef23419b00422
 =======
@@ -2399,7 +2390,6 @@ Transform:
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
-<<<<<<< HEAD
 --- !u!212 &29053963
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2519,8 +2509,6 @@ SpriteRenderer:
   m_MaskInteraction: 0
 --- !u!1 &30639650
 =======
-=======
->>>>>>> c75ab13b34da87aeac76236efe9ef23419b00422
 =======
 >>>>>>> c75ab13b34da87aeac76236efe9ef23419b00422
 =======
