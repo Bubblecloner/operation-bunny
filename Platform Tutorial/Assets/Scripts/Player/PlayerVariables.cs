@@ -47,7 +47,7 @@ public class PlayerVariables : MonoBehaviour {
     public void Respawn()
     {
         transform.position = startPosition.position;
-        health = 100;
+        health = 3;
     }
 
     //Call this when the player should bounce of something

@@ -42,7 +42,6 @@ public class GameController : MonoBehaviour {
     private void RegenHeart()
     {
         Instantiate(heartIcon,heartParent.transform,false).transform.localPosition = new Vector3(100*(heartParent.transform.childCount-1),0,0);
-        Debug.Log(heartParent.transform.childCount);
     }
 
     private void DestroyHeart()
