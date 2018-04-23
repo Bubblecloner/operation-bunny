@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class PlayerVariables : MonoBehaviour {
 
-    public float bounceHeight = 3f;
-    public float health = 100;
+    public int health = 3;
     public Transform startPosition;
     public GameObject coinParticles;
     public AudioClip coinPickup;
@@ -16,7 +15,7 @@ public class PlayerVariables : MonoBehaviour {
 
 	void Start ()
     {
-        health = 100;
+        health = 3;
         myAudioSource = GetComponent<AudioSource>();
         rgbd2d = GetComponent<Rigidbody2D>();
 	}
@@ -29,7 +28,7 @@ public class PlayerVariables : MonoBehaviour {
         GameController.gameControllerInstance.playerHealth = health;
     }
 
-    public void Harm(float dmg)
+    public void Harm(int dmg)
     {
         if(damageTimer <= 0f)
         {
@@ -51,9 +50,14 @@ public class PlayerVariables : MonoBehaviour {
     }
 
     //Call this when the player should bounce of something
-    public void Bounce()
+    public void Bounce(float bounceHeight)
     {
         rgbd2d.velocity = new Vector2(rgbd2d.velocity.x, bounceHeight);
+    }
+
+    public void Knockback(float force)
+    {
+        rgbd2d.velocity = new Vector2(2*force*transform.localScale.x, 2*force);
     }
 
     //This runs when the player picks up a coin

@@ -10,7 +10,7 @@ public class KillEnemy : MonoBehaviour {
         {
             GetComponentInParent<Slime>().Die();
             gameObject.SetActive(false);
-            other.GetComponent<PlayerVariables>().Bounce();
+            other.GetComponent<PlayerVariables>().Bounce(1);
         }
     }
 }

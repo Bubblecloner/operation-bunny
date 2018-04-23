@@ -17,19 +17,16 @@ public class Water : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerStay2D(Collider2D other)
+    /*private void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            float distance = other.GetComponent<BoxCollider2D>().Distance(surface.GetComponent<BoxCollider2D>()).distance;
-
-            if (distance < 0)
-                distance = 0;
+            float playerHeight = transform.position.y -
 
             other.GetComponent<Rigidbody2D>().AddForce(new Vector2(0,buoyancy*distance));
             Debug.Log(distance);
         }
-    }
+    }*/
 
     
 }
