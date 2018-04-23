@@ -8,6 +8,7 @@ public class PlayerVariables : MonoBehaviour {
     public Transform startPosition;
     public GameObject coinParticles;
     public AudioClip coinPickup;
+    public AudioClip hurt;
 
     private float damageTimer;
     private AudioSource myAudioSource;
@@ -35,6 +36,9 @@ public class PlayerVariables : MonoBehaviour {
             health -= dmg;
             damageTimer = 1;
             GameController.gameControllerInstance.ScreenShake();
+
+            myAudioSource.pitch = Random.Range(0.5f, 1.5f);
+            myAudioSource.PlayOneShot(hurt, 0.5f);
         }
 
         if(health < 1)
@@ -55,9 +59,9 @@ public class PlayerVariables : MonoBehaviour {
         rgbd2d.velocity = new Vector2(rgbd2d.velocity.x, bounceHeight);
     }
 
-    public void Knockback(float force)
+    public void Knockback(float force, float forceUp)
     {
-        rgbd2d.velocity = new Vector2(2*force*transform.localScale.x, 2*force);
+        rgbd2d.velocity = new Vector2(-2*force*transform.localScale.x, 2*forceUp);
     }
 
     //This runs when the player picks up a coin

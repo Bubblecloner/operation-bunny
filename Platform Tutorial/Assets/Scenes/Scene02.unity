@@ -3587,6 +3587,7 @@ MonoBehaviour:
   coinParticles: {fileID: 1899682740813486, guid: dd854629c823c574581a3e08ef86118d,
     type: 2}
   coinPickup: {fileID: 8300000, guid: 4598c3c11f2519b4f9f59409704ca20f, type: 3}
+  hurt: {fileID: 8300000, guid: 289d07001cc69e64f9b478c9bddf740d, type: 3}
 --- !u!61 &2090712622
 BoxCollider2D:
   m_ObjectHideFlags: 0

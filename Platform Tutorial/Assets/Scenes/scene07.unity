@@ -17132,6 +17132,8 @@ GameObject:
   m_Component:
   - component: {fileID: 866717237}
   - component: {fileID: 866717238}
+  - component: {fileID: 866717240}
+  - component: {fileID: 866717239}
   m_Layer: 0
   m_Name: spikes (6)
   m_TagString: Untagged
@@ -17196,6 +17198,44 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!114 &866717239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 866717236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6daae78f52b89a14b9ecb50c9d26e313, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  force: 3
+  forceUp: 3
+--- !u!61 &866717240
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 866717236}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.7, y: 0.4}
+    newSize: {x: 0.7, y: 0.4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.4}
+  m_EdgeRadius: 0
 --- !u!1 &873658717
 GameObject:
   m_ObjectHideFlags: 0
@@ -28887,7 +28927,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 455277081}
-  healthSlider: {fileID: 741472251}
+  heartIcon: {fileID: 0}
+  heartParent: {fileID: 0}
   playerHealth: 0
   coins: 0
 --- !u!4 &1368888971
@@ -42526,6 +42567,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6daae78f52b89a14b9ecb50c9d26e313, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  force: 1
+  forceUp: 1
 --- !u!1 &2055304592
 GameObject:
   m_ObjectHideFlags: 0
@@ -43549,12 +43592,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20dd6e73550eaf348aed5ad73783b304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceHeight: 10
   health: 100
   startPosition: {fileID: 898844722}
   coinParticles: {fileID: 1899682740813486, guid: dd854629c823c574581a3e08ef86118d,
     type: 2}
   coinPickup: {fileID: 8300000, guid: 4598c3c11f2519b4f9f59409704ca20f, type: 3}
+  hurt: {fileID: 8300000, guid: 289d07001cc69e64f9b478c9bddf740d, type: 3}
 --- !u!61 &2090712622
 BoxCollider2D:
   m_ObjectHideFlags: 0
