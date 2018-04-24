@@ -7,7 +7,6 @@ public class PlatformInputs : MonoBehaviour {
     public float speed = 10.0f;
     public float jumpHeight = 4.0f;
     public float minimumJumpTime = 2;
-    public int totalJumps = 2;
     public Transform groundCheckR;
     public Transform groundCheckL;
     public GameObject jumpParticles;
@@ -15,7 +14,7 @@ public class PlatformInputs : MonoBehaviour {
     private float horizontalDirection;
     private float jumpTimer = -1;
     private bool grounded;
-    private int jumpsLeft;
+    private bool jumped;
     private Rigidbody2D rgbd2d;
     private Animator anim;
 
@@ -38,12 +37,12 @@ public class PlatformInputs : MonoBehaviour {
         grounded = (Physics2D.OverlapPoint(groundCheckR.position) || Physics2D.OverlapPoint(groundCheckL.position)) && rgbd2d.velocity.y < 0.1f;
         if (grounded)
         {
-            jumpsLeft = totalJumps;
+            jumped = false;
             jumpTimer = -1;
         }
 
 
-        if (jumpsLeft > 0 && Input.GetButtonDown("Jump"))
+        if (jumped == false && Input.GetButtonDown("Jump"))
             Jump();
 
 
@@ -72,11 +71,11 @@ public class PlatformInputs : MonoBehaviour {
 
     private void Jump()
     {
+        Debug.Log(jumped);
         rgbd2d.velocity = new Vector2(rgbd2d.velocity.x, jumpHeight);
         if (!grounded)
         {
-            Instantiate(jumpParticles, transform.position, Quaternion.identity);
-            jumpsLeft--;
+            jumped = true;
         }
         jumpTimer = 0;
         grounded = false;
