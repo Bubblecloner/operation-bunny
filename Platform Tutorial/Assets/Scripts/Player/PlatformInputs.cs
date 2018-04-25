@@ -42,12 +42,6 @@ public class PlatformInputs : MonoBehaviour {
             jumpTimer = -1;
         }
 
-
-        if (Input.GetButtonDown("Attack"))
-        {
-            Debug.Log(attackTimer);
-        }
-
         if (Input.GetButtonDown("Attack") && attackTimer < 0)
         {
             Attack();

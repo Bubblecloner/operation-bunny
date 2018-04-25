@@ -12,9 +12,9 @@ public class Bat : Entity {
     private Vector2 startPosition;
     private Animator anim;
 
-	void Start ()
+	protected override void Start ()
     {
-        rgbd2d = GetComponent<Rigidbody2D>();
+        base.Start();
         anim = GetComponent<Animator>();
         startPosition = transform.position;
 	}

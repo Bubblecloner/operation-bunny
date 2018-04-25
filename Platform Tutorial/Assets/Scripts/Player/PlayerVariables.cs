@@ -14,10 +14,10 @@ public class PlayerVariables : Entity {
     private AudioSource myAudioSource;
     private Vector2 spawnPoint;
 
-    void Start ()
+    protected override void Start ()
     {
+        base.Start();
         spawnPoint = transform.position;
-        rgbd2d = GetComponent<Rigidbody2D>();
         health = maxHealth;
         myAudioSource = GetComponent<AudioSource>();
 	}

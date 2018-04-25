@@ -7,7 +7,7 @@ public class Entity : MonoBehaviour {
     public int health = 3;
     protected Rigidbody2D rgbd2d;
 
-    void Start ()
+    protected virtual void Start ()
     {
         rgbd2d = GetComponent<Rigidbody2D>();
     }
