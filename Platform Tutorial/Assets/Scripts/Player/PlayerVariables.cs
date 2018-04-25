@@ -6,16 +6,17 @@ public class PlayerVariables : Entity {
 
 
     public int maxHealth = 3;
-    public Transform startPosition;
     public GameObject coinParticles;
     public AudioClip coinPickup;
     public AudioClip hurt;
 
     private float damageTimer;
     private AudioSource myAudioSource;
+    private Vector2 spawnPoint;
 
-	void Start ()
+    void Start ()
     {
+        spawnPoint = transform.position;
         rgbd2d = GetComponent<Rigidbody2D>();
         health = maxHealth;
         myAudioSource = GetComponent<AudioSource>();
@@ -52,8 +53,7 @@ public class PlayerVariables : Entity {
 
     public void Respawn()
     {
-        transform.position = startPosition.position;
-        health = maxHealth;
+        GameController.gameControllerInstance.ReloadLevel();
     }
 
     //Call this when the player should bounce of something

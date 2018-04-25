@@ -69,4 +69,9 @@ public class GameController : MonoBehaviour {
         PlayerPrefs.SetInt("coins", previousCoins);
         SceneManager.LoadScene(levelToLoad);
     }
+
+    public void ReloadLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 }
