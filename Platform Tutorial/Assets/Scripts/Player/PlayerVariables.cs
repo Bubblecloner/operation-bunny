@@ -12,12 +12,10 @@ public class PlayerVariables : Entity {
 
     private float damageTimer;
     private AudioSource myAudioSource;
-    private Vector2 spawnPoint;
 
     protected override void Start ()
     {
         base.Start();
-        spawnPoint = transform.position;
         health = maxHealth;
         myAudioSource = GetComponent<AudioSource>();
 	}

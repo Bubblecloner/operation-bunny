@@ -7,6 +7,8 @@ public class WalkingEnemy : Entity {
     public float speed;
     public float attackCooldown = 1;
     public float triggerRange = 2;
+    public float attackDelay = 0.1f;
+    public Vector2 attackSize;
     public GameObject attack;
     public Transform fallCheck;
     public Transform frontCheck;
@@ -44,7 +46,11 @@ public class WalkingEnemy : Entity {
         if (health > 0)
         {
             if (Vector2.Distance(transform.position, target) < triggerRange && attackTimer < 0)
-                Attack();
+            {
+                Invoke("Attack", attackDelay);
+
+                attackTimer = attackCooldown;
+            }
 
 
 
@@ -71,6 +77,7 @@ public class WalkingEnemy : Entity {
     private void Attack()
     {
         GameObject temp = Instantiate(attack, transform, false);
+        temp.transform.localScale = attackSize;
 
         if(facingRight)
             temp.transform.localPosition = new Vector2(1, 0.5f);
@@ -80,6 +87,5 @@ public class WalkingEnemy : Entity {
         temp.GetComponent<Attack>().targetTag = "Player";
 
 
-        attackTimer = attackCooldown;
     }
 }
