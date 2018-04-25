@@ -47,7 +47,7 @@ public class GameController : MonoBehaviour {
 
     private void DestroyHeart()
     {
-        Destroy(heartParent.transform.GetChild(heartParent.transform.childCount - 1));
+        Destroy(heartParent.transform.GetChild(heartParent.transform.childCount - 1).gameObject);
     }
 
     public void ScreenShake()

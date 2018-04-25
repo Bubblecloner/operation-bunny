@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KillEnemy : MonoBehaviour {
 
-    private void OnTriggerEnter2D(Collider2D other)
+    /*private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player") && other.GetComponent<Rigidbody2D>().velocity.y < -0.01)
         {
@@ -12,5 +12,5 @@ public class KillEnemy : MonoBehaviour {
             gameObject.SetActive(false);
             other.GetComponent<PlayerVariables>().Bounce(1);
         }
-    }
+    }*/
 }

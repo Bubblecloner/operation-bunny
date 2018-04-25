@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerVariables : MonoBehaviour {
+public class PlayerVariables : Entity {
 
-    public int health = 3;
+    
     public Transform startPosition;
     public GameObject coinParticles;
     public AudioClip coinPickup;
@@ -12,26 +12,26 @@ public class PlayerVariables : MonoBehaviour {
 
     private float damageTimer;
     private AudioSource myAudioSource;
-    private Rigidbody2D rgbd2d;
 
 	void Start ()
     {
+        rgbd2d = GetComponent<Rigidbody2D>();
         health = 3;
         myAudioSource = GetComponent<AudioSource>();
-        rgbd2d = GetComponent<Rigidbody2D>();
 	}
 	
 	void Update ()
     {
+
         if(damageTimer > 0)
             damageTimer -= Time.deltaTime;
 
         GameController.gameControllerInstance.playerHealth = health;
     }
 
-    public void Harm(int dmg)
+    public override void Harm(int dmg, float knockBack, float knockUp, bool cameFromRight)
     {
-        if(damageTimer <= 0f)
+        if (damageTimer <= 0f)
         {
             health -= dmg;
             damageTimer = 1;
@@ -41,7 +41,9 @@ public class PlayerVariables : MonoBehaviour {
             myAudioSource.PlayOneShot(hurt, 0.5f);
         }
 
-        if(health < 1)
+        Knockback(knockBack, knockUp, cameFromRight);
+
+        if (health < 1)
         {
             Respawn();
         }
@@ -57,11 +59,6 @@ public class PlayerVariables : MonoBehaviour {
     public void Bounce(float bounceHeight)
     {
         rgbd2d.velocity = new Vector2(rgbd2d.velocity.x, bounceHeight);
-    }
-
-    public void Knockback(float force, float forceUp)
-    {
-        rgbd2d.velocity = new Vector2(-2*force*transform.localScale.x, 2*forceUp);
     }
 
     //This runs when the player picks up a coin
