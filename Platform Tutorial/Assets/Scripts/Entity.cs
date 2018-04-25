@@ -35,15 +35,7 @@ public class Entity : MonoBehaviour {
         else
             rgbd2d.AddForce(new Vector2(force, forceUp),ForceMode2D.Impulse);
 
-        Invoke("CancelKnockback",1);
-
     }
-
-    private void CancelKnockback()
-    {
-        rgbd2d.velocity = new Vector2(0,rgbd2d.velocity.y);
-    }
-
     protected virtual void Die()
     {
         Collider2D[] colliders = GetComponents<Collider2D>();

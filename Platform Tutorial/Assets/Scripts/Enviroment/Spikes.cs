@@ -6,7 +6,7 @@ public class Spikes : MonoBehaviour {
 
     public float force = 1;
     public float forceUp = 1;
-    private int damage = 1;
+    public int damage = 1;
 
     private void OnTriggerEnter2D(Collider2D other)
     {

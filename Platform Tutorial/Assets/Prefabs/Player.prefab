@@ -333,7 +333,7 @@ MonoBehaviour:
   startPosition: {fileID: 0}
   coinParticles: {fileID: 0}
   coinPickup: {fileID: 8300000, guid: 4598c3c11f2519b4f9f59409704ca20f, type: 3}
-  hurt: {fileID: 0}
+  hurt: {fileID: 8300000, guid: 289d07001cc69e64f9b478c9bddf740d, type: 3}
 --- !u!212 &212498964924035186
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -367,7 +367,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 75823e37c5d8d2b43a65215b6cad77d3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
