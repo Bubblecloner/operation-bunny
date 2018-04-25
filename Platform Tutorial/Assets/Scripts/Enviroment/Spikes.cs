@@ -12,7 +12,7 @@ public class Spikes : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerVariables>().Harm(damage,force,forceUp,other.transform.position.x > transform.position.x);
+            other.GetComponent<PlayerVariables>().Harm(damage,force,forceUp,other.transform.position.x > 0);
         }
     }
 
