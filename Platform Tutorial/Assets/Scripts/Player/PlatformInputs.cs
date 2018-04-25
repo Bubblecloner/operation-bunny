@@ -7,12 +7,15 @@ public class PlatformInputs : MonoBehaviour {
     public float speed = 10.0f;
     public float jumpHeight = 4.0f;
     public float minimumJumpTime = 2;
+    public float attackCooldown = 2;
     public Transform groundCheckR;
     public Transform groundCheckL;
     public GameObject jumpParticles;
+    public GameObject attack;
 
     private float horizontalDirection;
     private float jumpTimer = -1;
+    private float attackTimer;
     private bool grounded;
     private bool jumped;
     private Rigidbody2D rgbd2d;
@@ -26,8 +29,6 @@ public class PlatformInputs : MonoBehaviour {
 	
 	void Update ()
     {
-        if (jumpTimer >= 0)
-            jumpTimer += Time.deltaTime;
 
 
         horizontalDirection = Input.GetAxis("Horizontal");
@@ -39,6 +40,17 @@ public class PlatformInputs : MonoBehaviour {
         {
             jumped = false;
             jumpTimer = -1;
+        }
+
+
+        if (Input.GetButtonDown("Attack"))
+        {
+            Debug.Log(attackTimer);
+        }
+
+        if (Input.GetButtonDown("Attack") && attackTimer < 0)
+        {
+            Attack();
         }
 
 
@@ -60,6 +72,12 @@ public class PlatformInputs : MonoBehaviour {
         else if (horizontalDirection < 0)
             Flip(-1);
 
+
+        if (jumpTimer >= 0)
+            jumpTimer += Time.deltaTime;
+
+        attackTimer -= Time.deltaTime;
+
         /*anim.SetFloat("speed", Mathf.Abs(horizontalDirection));
         anim.SetBool("grounded", grounded);*/
 	}
@@ -78,6 +96,12 @@ public class PlatformInputs : MonoBehaviour {
         }
         jumpTimer = 0;
         grounded = false;
+    }
+
+    private void Attack()
+    {
+        Instantiate(attack, transform, false).transform.localPosition = new Vector2(1, 0.5f);
+        attackTimer = attackCooldown;
     }
 
     private void StopJump()

@@ -42,12 +42,26 @@ public class Entity : MonoBehaviour {
 
     private void CancelKnockback()
     {
-        Debug.Log(rgbd2d.velocity);
         rgbd2d.velocity = new Vector2(0,rgbd2d.velocity.y);
     }
 
     private void Die()
     {
-        //add later
+        Collider2D[] colliders = GetComponents<Collider2D>();
+        foreach (var item in colliders)
+        {
+            item.enabled = false;
+        }
+
+        GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 13f), ForceMode2D.Impulse);
+        transform.localScale = new Vector3(transform.localScale.x, -transform.localScale.y, transform.localScale.z);
+        rgbd2d.gravityScale = 3;
+
+        Invoke("DisableObject", 2.0f);
+    }
+
+    private void DisableObject()
+    {
+        Destroy(gameObject);
     }
 }

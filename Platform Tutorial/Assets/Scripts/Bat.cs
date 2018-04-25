@@ -32,12 +32,15 @@ public class Bat : Entity {
 
     private void MoveTowardTarget(Vector2 target)
     {
-        
-        Vector2 vector =   new Vector2(target.x - transform.position.x, target.y - transform.position.y).normalized * speed;
-        
-        transform.Translate(vector);
+        if (health > 0)
+        {
 
-        //Debug.Log(Vector2.MoveTowards(transform.position, target, speed) + "," + new Vector2(target.x - transform.position.x, target.y - transform.position.y).normalized * speed);
+            Vector2 vector = new Vector2(target.x - transform.position.x, target.y - transform.position.y).normalized * speed;
+
+            transform.Translate(vector);
+
+            //Debug.Log(Vector2.MoveTowards(transform.position, target, speed) + "," + new Vector2(target.x - transform.position.x, target.y - transform.position.y).normalized * speed);
+        }
     }
 
     private void Idle()

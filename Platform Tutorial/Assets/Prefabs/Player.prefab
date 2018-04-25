@@ -312,10 +312,11 @@ MonoBehaviour:
   speed: 5
   jumpHeight: 13
   minimumJumpTime: 0.1
-  totalJumps: 2
+  attackCooldown: 0.5
   groundCheckR: {fileID: 4479166337676772}
   groundCheckL: {fileID: 4840518931618262}
   jumpParticles: {fileID: 0}
+  attack: {fileID: 1113594111166138, guid: 8c9f0b739b9b22d409f761e2f1164fd7, type: 2}
 --- !u!114 &114473664055289108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -327,11 +328,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20dd6e73550eaf348aed5ad73783b304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bounceHeight: 10
   health: 100
+  maxHealth: 3
   startPosition: {fileID: 0}
   coinParticles: {fileID: 0}
   coinPickup: {fileID: 8300000, guid: 4598c3c11f2519b4f9f59409704ca20f, type: 3}
+  hurt: {fileID: 0}
 --- !u!212 &212498964924035186
 SpriteRenderer:
   m_ObjectHideFlags: 1

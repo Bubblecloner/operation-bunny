@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PlayerVariables : Entity {
 
-    
+
+    public int maxHealth = 3;
     public Transform startPosition;
     public GameObject coinParticles;
     public AudioClip coinPickup;
@@ -16,7 +17,7 @@ public class PlayerVariables : Entity {
 	void Start ()
     {
         rgbd2d = GetComponent<Rigidbody2D>();
-        health = 3;
+        health = maxHealth;
         myAudioSource = GetComponent<AudioSource>();
 	}
 	
@@ -52,7 +53,7 @@ public class PlayerVariables : Entity {
     public void Respawn()
     {
         transform.position = startPosition.position;
-        health = 3;
+        health = maxHealth;
     }
 
     //Call this when the player should bounce of something
