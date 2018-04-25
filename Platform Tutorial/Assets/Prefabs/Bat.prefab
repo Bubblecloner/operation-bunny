@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 61130315349060586}
   - component: {fileID: 61936919738067396}
   - component: {fileID: 114541618565232300}
+  - component: {fileID: 95807035696377730}
   m_Layer: 0
   m_Name: Bat
   m_TagString: Enemy
@@ -181,6 +182,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+--- !u!95 &95807035696377730
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1252759537365404}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b351c15176ed94142a580981e243a6b1, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114541618565232300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -192,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8864ad6f19337941adb6feb48ea6d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 3
+  health: 1
   speed: 0.1
   turning: 0.9
   knockback: 4

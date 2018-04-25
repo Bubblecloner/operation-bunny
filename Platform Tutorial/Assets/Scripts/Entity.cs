@@ -9,7 +9,6 @@ public class Entity : MonoBehaviour {
 
     void Start ()
     {
-
         rgbd2d = GetComponent<Rigidbody2D>();
     }
 	
@@ -45,7 +44,7 @@ public class Entity : MonoBehaviour {
         rgbd2d.velocity = new Vector2(0,rgbd2d.velocity.y);
     }
 
-    private void Die()
+    protected virtual void Die()
     {
         Collider2D[] colliders = GetComponents<Collider2D>();
         foreach (var item in colliders)

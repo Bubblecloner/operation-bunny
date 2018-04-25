@@ -10,10 +10,12 @@ public class Bat : Entity {
 
     private bool aggro;
     private Vector2 startPosition;
+    private Animator anim;
 
 	void Start ()
     {
         rgbd2d = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
         startPosition = transform.position;
 	}
 	
@@ -35,9 +37,16 @@ public class Bat : Entity {
         if (health > 0)
         {
 
+
             Vector2 vector = new Vector2(target.x - transform.position.x, target.y - transform.position.y).normalized * speed;
 
             transform.Translate(vector);
+
+            if (vector.x < 0)
+                anim.SetFloat("speed", -1);
+            else
+                anim.SetFloat("speed", 1);
+                
 
             //Debug.Log(Vector2.MoveTowards(transform.position, target, speed) + "," + new Vector2(target.x - transform.position.x, target.y - transform.position.y).normalized * speed);
         }
@@ -45,8 +54,18 @@ public class Bat : Entity {
 
     private void Idle()
     {
-        if(Vector2.Distance(transform.position,startPosition) > 1)
+        if (Vector2.Distance(transform.position, startPosition) > 1)
             MoveTowardTarget(startPosition);
+        else
+            anim.SetFloat("speed", 0);
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+        
+        anim.SetBool("death", true);
+        Debug.Log(anim.GetBool("death"));
     }
 
     private void OnTriggerEnter2D(Collider2D other)
