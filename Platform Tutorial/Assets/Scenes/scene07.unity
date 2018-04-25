@@ -1194,7 +1194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 33487263}
   - component: {fileID: 33487262}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1232,8 +1232,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 09fcc32514525574388236a15058e04f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -7934,7 +7934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 215931004}
   - component: {fileID: 215931003}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bush (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7972,8 +7972,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 179001c75c981c34c9df180941df56b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -9591,7 +9591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 255198667}
   - component: {fileID: 255198668}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tree (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9642,8 +9642,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 09fcc32514525574388236a15058e04f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -10027,7 +10027,7 @@ GameObject:
   m_Component:
   - component: {fileID: 266450022}
   - component: {fileID: 266450023}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bush (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10078,8 +10078,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 179001c75c981c34c9df180941df56b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11499,11 +11499,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4481993700755574, guid: 286ce0ee5a79e194e9246ac8e7a8fafb, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -7.71
+      value: -7.726
       objectReference: {fileID: 0}
     - target: {fileID: 4481993700755574, guid: 286ce0ee5a79e194e9246ac8e7a8fafb, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -18.91
+      value: -19.222
       objectReference: {fileID: 0}
     - target: {fileID: 4481993700755574, guid: 286ce0ee5a79e194e9246ac8e7a8fafb, type: 2}
       propertyPath: m_LocalPosition.z
@@ -11532,6 +11532,29 @@ Prefab:
     - target: {fileID: 1252759537365404, guid: 286ce0ee5a79e194e9246ac8e7a8fafb, type: 2}
       propertyPath: m_Name
       value: Bat (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1252759537365404, guid: 286ce0ee5a79e194e9246ac8e7a8fafb, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1055660022980912, guid: 286ce0ee5a79e194e9246ac8e7a8fafb, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 212279879040115854, guid: 286ce0ee5a79e194e9246ac8e7a8fafb,
+        type: 2}
+      propertyPath: m_SortingLayerID
+      value: 1873851965
+      objectReference: {fileID: 0}
+    - target: {fileID: 212279879040115854, guid: 286ce0ee5a79e194e9246ac8e7a8fafb,
+        type: 2}
+      propertyPath: m_SortingLayer
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 212279879040115854, guid: 286ce0ee5a79e194e9246ac8e7a8fafb,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: -1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 286ce0ee5a79e194e9246ac8e7a8fafb, type: 2}
@@ -12710,7 +12733,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 327008430}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14259,7 +14282,7 @@ GameObject:
   m_Component:
   - component: {fileID: 370180153}
   - component: {fileID: 370180152}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DeadBush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14297,8 +14320,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c30e14a72c863ab44ae2554f95335876, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -21593,7 +21616,7 @@ GameObject:
   m_Component:
   - component: {fileID: 560877162}
   - component: {fileID: 560877161}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tree (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21631,8 +21654,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 09fcc32514525574388236a15058e04f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -22559,7 +22582,7 @@ GameObject:
   m_Component:
   - component: {fileID: 576180250}
   - component: {fileID: 576180249}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tree (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22597,8 +22620,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 09fcc32514525574388236a15058e04f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -32553,7 +32576,7 @@ GameObject:
   m_Component:
   - component: {fileID: 818348003}
   - component: {fileID: 818348004}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bush (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32604,8 +32627,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 935e4bfe6231b024c9eadb4106253e95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -39763,7 +39786,7 @@ GameObject:
   m_Component:
   - component: {fileID: 981182653}
   - component: {fileID: 981182652}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tree (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39801,8 +39824,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 09fcc32514525574388236a15058e04f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -40263,7 +40286,7 @@ GameObject:
   m_Component:
   - component: {fileID: 990315172}
   - component: {fileID: 990315173}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DeadBush (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40314,8 +40337,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c30e14a72c863ab44ae2554f95335876, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -43907,7 +43930,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1064647830}
   - component: {fileID: 1064647829}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bush (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43945,8 +43968,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 935e4bfe6231b024c9eadb4106253e95, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -44433,7 +44456,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1083715213}
   - component: {fileID: 1083715212}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tree (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44471,8 +44494,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 09fcc32514525574388236a15058e04f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -51978,7 +52001,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1215972813}
   - component: {fileID: 1215972812}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DeadBush (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52016,8 +52039,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c30e14a72c863ab44ae2554f95335876, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -55311,7 +55334,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1296250448}
   - component: {fileID: 1296250449}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bush (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55362,8 +55385,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 179001c75c981c34c9df180941df56b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -65204,6 +65227,16 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 212498964924035186, guid: bd09b02ae3ef0d94a81bb3e62d4ce400,
+        type: 2}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114473664055289108, guid: bd09b02ae3ef0d94a81bb3e62d4ce400,
+        type: 2}
+      propertyPath: hurt
+      value: 
+      objectReference: {fileID: 8300000, guid: 289d07001cc69e64f9b478c9bddf740d, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd09b02ae3ef0d94a81bb3e62d4ce400, type: 2}
   m_IsPrefabParent: 0
@@ -67347,7 +67380,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1585267150}
   - component: {fileID: 1585267149}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skeleton (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67385,8 +67418,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 184482a54c1420f4fae9a931aebea293, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -67653,7 +67686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1594933504}
   - component: {fileID: 1594933503}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -67691,8 +67724,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 184482a54c1420f4fae9a931aebea293, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -68491,7 +68524,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1606495806}
   - component: {fileID: 1606495805}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DeadBush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68529,8 +68562,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c30e14a72c863ab44ae2554f95335876, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -77807,7 +77840,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1816638394}
   - component: {fileID: 1816638393}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -77845,8 +77878,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 09fcc32514525574388236a15058e04f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -81400,7 +81433,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1904274710}
   - component: {fileID: 1904274709}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Skeleton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81438,8 +81471,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 184482a54c1420f4fae9a931aebea293, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -81865,7 +81898,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1917449980}
   - component: {fileID: 1917449979}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: boulder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81903,8 +81936,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 6f9057cab97a44b46b02b3c077fa0695, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -81923,7 +81956,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1917449978}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.71, y: -18.99, z: 0}
+  m_LocalPosition: {x: -7.71, y: -19.056, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -87655,7 +87688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2073686942}
   - component: {fileID: 2073686941}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bush (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87693,8 +87726,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1873851965
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 179001c75c981c34c9df180941df56b0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
