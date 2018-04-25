@@ -71,7 +71,6 @@ public class PlatformInputs : MonoBehaviour {
 
     private void Jump()
     {
-        Debug.Log(jumped);
         rgbd2d.velocity = new Vector2(rgbd2d.velocity.x, jumpHeight);
         if (!grounded)
         {

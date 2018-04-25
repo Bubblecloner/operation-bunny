@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Slime : MonoBehaviour {
 
-    public float speed = 3.0f;
+    /*public float speed = 3.0f;
     public int damage = 1;
     public Transform frontCheck;
     public Transform fallCheck;
@@ -59,5 +59,5 @@ public class Slime : MonoBehaviour {
     private void DisableObject()
     {
         Destroy(gameObject);
-    }
+    }*/
 }
