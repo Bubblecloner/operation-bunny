@@ -15,6 +15,7 @@ public class PlatformInputs : MonoBehaviour {
     public GameObject jumpParticles;
     public GameObject attack;
     public GameObject arrow;
+    public LayerMask jumpMask;
 
     private float horizontalDirection;
     private float verticalDirection;
@@ -52,8 +53,8 @@ public class PlatformInputs : MonoBehaviour {
 
 
 
-
-        grounded = (Physics2D.OverlapPoint(groundCheckR.position) || Physics2D.OverlapPoint(groundCheckL.position)) && rgbd2d.velocity.y < 0.1f;
+        //sjekker om spilleren er på bakken
+        grounded = ((Physics2D.OverlapPoint(groundCheckR.position) && Physics2D.OverlapPoint(groundCheckR.position).isTrigger == false) || (Physics2D.OverlapPoint(groundCheckL.position) && Physics2D.OverlapPoint(groundCheckL.position).isTrigger == false)) && rgbd2d.velocity.y < 0.1f;
         if (grounded)
         {
             jumped = false;
