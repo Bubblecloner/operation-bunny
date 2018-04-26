@@ -29,6 +29,8 @@ public class PlatformInputs : MonoBehaviour {
     private Animator anim;
     private Vector2 aimingDir = Vector2.right;
 
+    private bool rightTriggerFirstFrame = true;
+
 	void Start ()
     {
         arrows = startArrows;
@@ -59,11 +61,21 @@ public class PlatformInputs : MonoBehaviour {
         }
 
 
-        if (attackTimer < 0 && jumpTimer < 0)
-            if ((Input.GetAxis("AimingController") > 0.1f || Input.GetButton("Aiming")) && arrows > 0)
-                Aiming();
+        if ((Input.GetAxisRaw("AimingController") > 0.1f || Input.GetButton("Aiming")) && arrows > 0)
+        {
+            if (rightTriggerFirstFrame)
+            {
+                StartAim();
+                rightTriggerFirstFrame = false;
+            }
             else if (aiming)
-                Shot();
+                Aiming();
+        }
+        else if (aiming)
+            Shot();
+
+        if (Input.GetAxisRaw("AimingController") == 0)
+            rightTriggerFirstFrame = true;
 
 
         if (Input.GetButtonDown("Attack") && attackTimer < 0)
@@ -105,17 +117,28 @@ public class PlatformInputs : MonoBehaviour {
 
     }
 
-    private void Aiming()
+    private void StartAim()
     {
         aiming = true;
+
+        Debug.Log("test");
+        if (horizontalDirection != 0 || verticalDirection != 0)
+            aimingDir = new Vector2(horizontalDirection, verticalDirection).normalized + new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2);
+
+        Instantiate(arrow, transform, false).transform.localPosition = aimingDir;
+
+
+        transform.GetComponentInChildren<Arrow>().transform.rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, aimingDir - new Vector2(0, GetComponent<BoxCollider2D>().size.y / 2)), new Vector3(0, 0, 1));
+    }
+
+    private void Aiming()
+    {
 
         if (horizontalDirection != 0 || verticalDirection != 0)
             aimingDir = new Vector2(horizontalDirection, verticalDirection).normalized + new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2);
 
-        if (transform.GetComponentInChildren<Arrow>() == null)
-            Instantiate(arrow, transform, false).transform.localPosition = aimingDir;
-        else
-            transform.GetComponentInChildren<Arrow>().transform.localPosition = aimingDir;
+
+        transform.GetComponentInChildren<Arrow>().transform.localPosition = aimingDir;
 
         transform.GetComponentInChildren<Arrow>().transform.rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up,aimingDir - new Vector2(0, GetComponent<BoxCollider2D>().size.y / 2)),new Vector3(0,0,1));
         
