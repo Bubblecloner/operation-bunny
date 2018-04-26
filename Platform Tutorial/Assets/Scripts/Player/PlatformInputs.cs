@@ -108,8 +108,8 @@ public class PlatformInputs : MonoBehaviour {
     private void Aiming()
     {
         aiming = true;
-
-        if (horizontalDirection != 0 && verticalDirection != 0)
+        
+        if (horizontalDirection != 0 || verticalDirection != 0)
             aimingDir = new Vector2(horizontalDirection, verticalDirection).normalized + new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2);
 
         if (transform.GetComponentInChildren<Arrow>() == null)
