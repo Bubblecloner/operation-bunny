@@ -65,7 +65,6 @@ public class Bat : Entity {
         base.Die();
         
         anim.SetBool("death", true);
-        Debug.Log(anim.GetBool("death"));
     }
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -8,21 +8,30 @@ public class PlatformInputs : MonoBehaviour {
     public float jumpHeight = 4.0f;
     public float minimumJumpTime = 2;
     public float attackCooldown = 2;
+    public float shotSpeed = 4;
+    public int startArrows = 5;
     public Transform groundCheckR;
     public Transform groundCheckL;
     public GameObject jumpParticles;
     public GameObject attack;
+    public GameObject arrow;
 
     private float horizontalDirection;
+    private float verticalDirection;
     private float jumpTimer = -1;
     private float attackTimer;
+    private int arrows;
     private bool grounded;
     private bool jumped;
+    private bool aiming = false;
+    private bool rightBool = true;
     private Rigidbody2D rgbd2d;
     private Animator anim;
+    private Vector2 aimingDir = Vector2.right;
 
 	void Start ()
     {
+        arrows = startArrows;
         rgbd2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 	}
@@ -30,9 +39,16 @@ public class PlatformInputs : MonoBehaviour {
 	void Update ()
     {
 
-
         horizontalDirection = Input.GetAxis("Horizontal");
-        transform.Translate(new Vector3(horizontalDirection, 0, 0) * speed * Time.deltaTime);
+        verticalDirection = Input.GetAxis("Vertical");
+        
+
+        if (!aiming)
+        {
+            transform.Translate(new Vector3(horizontalDirection, 0, 0) * speed * Time.deltaTime);
+        }
+
+
 
 
         grounded = (Physics2D.OverlapPoint(groundCheckR.position) || Physics2D.OverlapPoint(groundCheckL.position)) && rgbd2d.velocity.y < 0.1f;
@@ -41,6 +57,14 @@ public class PlatformInputs : MonoBehaviour {
             jumped = false;
             jumpTimer = -1;
         }
+
+
+
+        if (Input.GetAxis("AimingController") > 0.1f && arrows > 0)
+            Aiming();
+        else if (aiming)
+            Shot();
+
 
         if (Input.GetButtonDown("Attack") && attackTimer < 0)
         {
@@ -81,6 +105,33 @@ public class PlatformInputs : MonoBehaviour {
 
     }
 
+    private void Aiming()
+    {
+        aiming = true;
+
+        if (horizontalDirection != 0 && verticalDirection != 0)
+            aimingDir = new Vector2(horizontalDirection, verticalDirection).normalized + new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2);
+
+        if (transform.GetComponentInChildren<Arrow>() == null)
+            Instantiate(arrow, transform, false).transform.localPosition = aimingDir;
+        else
+            transform.GetComponentInChildren<Arrow>().transform.localPosition = aimingDir;
+
+        transform.GetComponentInChildren<Arrow>().transform.rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up,aimingDir - new Vector2(0, GetComponent<BoxCollider2D>().size.y / 2)),new Vector3(0,0,1));
+        
+
+    }
+
+    private void Shot()
+    {
+        aiming = false;
+        arrows--;
+
+        transform.GetComponentInChildren<Arrow>().GetComponent<Rigidbody2D>().AddForce((aimingDir - new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2) )* shotSpeed,ForceMode2D.Impulse);
+        transform.GetComponentInChildren<Arrow>().Shot();
+
+    }
+
     private void Jump()
     {
         rgbd2d.velocity = new Vector2(rgbd2d.velocity.x, jumpHeight);
@@ -94,7 +145,11 @@ public class PlatformInputs : MonoBehaviour {
 
     private void Attack()
     {
+        if(rightBool)
         Instantiate(attack, transform, false).transform.localPosition = new Vector2(1, 0.5f);
+        else
+            Instantiate(attack, transform, false).transform.localPosition = new Vector2(-1, 0.5f);
+
         attackTimer = attackCooldown;
     }
 
@@ -110,8 +165,10 @@ public class PlatformInputs : MonoBehaviour {
 
     private void Flip(int facingRight)
     {
-        Vector3 myScale = transform.localScale;
+        rightBool = facingRight > 0;
+
+        /*Vector3 myScale = transform.localScale;
         myScale.x = facingRight;
-        transform.localScale = myScale;
+        transform.localScale = myScale;*/
     }
 }
