@@ -309,8 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31414bc457f40d14d955e11824a8a550, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
-  jumpHeight: 13
+  speed: 6
+  jumpHeight: 8
   minimumJumpTime: 0.1
   attackCooldown: 0.5
   groundCheckR: {fileID: 4479166337676772}
@@ -333,6 +333,7 @@ MonoBehaviour:
   coinParticles: {fileID: 0}
   coinPickup: {fileID: 8300000, guid: 4598c3c11f2519b4f9f59409704ca20f, type: 3}
   hurt: {fileID: 8300000, guid: 289d07001cc69e64f9b478c9bddf740d, type: 3}
+  fallDeath: {fileID: 8300000, guid: 19882e3c4901d3144a4e3b0fb0ffa139, type: 3}
 --- !u!212 &212498964924035186
 SpriteRenderer:
   m_ObjectHideFlags: 1

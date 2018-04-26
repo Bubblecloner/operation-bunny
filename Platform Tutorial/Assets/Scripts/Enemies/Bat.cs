@@ -60,7 +60,7 @@ public class Bat : Entity {
             anim.SetFloat("speed", 0);
     }
 
-    protected override void Die()
+    public override void Die()
     {
         base.Die();
         
