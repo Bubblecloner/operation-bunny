@@ -61,7 +61,7 @@ public class PlatformInputs : MonoBehaviour {
         }
 
 
-        if ((Input.GetAxisRaw("AimingController") > 0.1f || Input.GetButton("Aiming")) && arrows > 0)
+        if ((Input.GetAxisRaw("AimingController") > 0.1f) && arrows > 0)
         {
             if (rightTriggerFirstFrame)
             {
@@ -71,8 +71,19 @@ public class PlatformInputs : MonoBehaviour {
             else if (aiming)
                 Aiming();
         }
+        else if (Input.GetButtonDown("Aiming") && arrows > 0)
+        {
+            StartAim();
+        }
+        else if (Input.GetButton("Aiming") && aiming && arrows > 0 )
+            Aiming();
         else if (aiming)
             Shot();
+
+
+
+        
+
 
         if (Input.GetAxisRaw("AimingController") == 0)
             rightTriggerFirstFrame = true;
@@ -121,7 +132,7 @@ public class PlatformInputs : MonoBehaviour {
     {
         aiming = true;
 
-        Debug.Log("test");
+        
         if (horizontalDirection != 0 || verticalDirection != 0)
             aimingDir = new Vector2(horizontalDirection, verticalDirection).normalized + new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2);
 
@@ -147,6 +158,7 @@ public class PlatformInputs : MonoBehaviour {
 
     private void Shot()
     {
+        Debug.Log("test");
         aiming = false;
         arrows--;
 
