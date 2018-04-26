@@ -36,7 +36,8 @@ public class Entity : MonoBehaviour {
             rgbd2d.AddForce(new Vector2(force, forceUp),ForceMode2D.Impulse);
 
     }
-    protected virtual void Die()
+
+    public virtual void Die()
     {
         Collider2D[] colliders = GetComponents<Collider2D>();
         foreach (var item in colliders)

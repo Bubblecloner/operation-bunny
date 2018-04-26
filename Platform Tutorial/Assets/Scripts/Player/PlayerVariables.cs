@@ -9,6 +9,7 @@ public class PlayerVariables : Entity {
     public GameObject coinParticles;
     public AudioClip coinPickup;
     public AudioClip hurt;
+    public AudioClip fallDeath;
 
     private float damageTimer;
     private AudioSource myAudioSource;
@@ -18,7 +19,7 @@ public class PlayerVariables : Entity {
         base.Start();
         health = maxHealth;
         myAudioSource = GetComponent<AudioSource>();
-	}
+    }
 	
 	void Update ()
     {
@@ -45,13 +46,32 @@ public class PlayerVariables : Entity {
 
         if (health < 1)
         {
-            Respawn();
+            Die();
         }
+    }
+
+    public override void Die()
+    {
+
+        Invoke("Respawn", 2);
+
+        base.Die();
     }
 
     public void Respawn()
     {
         GameController.gameControllerInstance.ReloadLevel();
+    }
+
+    public void FallDeath()
+    {
+        GameController.gameControllerInstance.ScreenShake();
+
+        myAudioSource.pitch = Random.Range(0.5f, 1.5f);
+        myAudioSource.PlayOneShot(fallDeath, 0.5f);
+        Debug.Log("test");
+
+        Die();
     }
 
     //Call this when the player should bounce of something
