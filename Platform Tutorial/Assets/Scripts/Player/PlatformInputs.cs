@@ -59,11 +59,11 @@ public class PlatformInputs : MonoBehaviour {
         }
 
 
-
-        if ((Input.GetAxis("AimingController") > 0.1f || Input.GetButton("Aiming")) && arrows > 0)
-            Aiming();
-        else if (aiming)
-            Shot();
+        if (attackTimer < 0 && jumpTimer < 0)
+            if ((Input.GetAxis("AimingController") > 0.1f || Input.GetButton("Aiming")) && arrows > 0)
+                Aiming();
+            else if (aiming)
+                Shot();
 
 
         if (Input.GetButtonDown("Attack") && attackTimer < 0)
@@ -109,7 +109,7 @@ public class PlatformInputs : MonoBehaviour {
     {
         aiming = true;
 
-        if (horizontalDirection != 0 && verticalDirection != 0)
+        if (horizontalDirection != 0 || verticalDirection != 0)
             aimingDir = new Vector2(horizontalDirection, verticalDirection).normalized + new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2);
 
         if (transform.GetComponentInChildren<Arrow>() == null)
@@ -132,6 +132,15 @@ public class PlatformInputs : MonoBehaviour {
 
     }
 
+    private void StopShot()
+    {
+        if (aiming)
+        {
+            aiming = false;
+            Destroy(transform.GetComponentInChildren<Arrow>().gameObject);
+        }
+    }
+
     private void Jump()
     {
         rgbd2d.velocity = new Vector2(rgbd2d.velocity.x, jumpHeight);
@@ -141,6 +150,10 @@ public class PlatformInputs : MonoBehaviour {
         }
         jumpTimer = 0;
         grounded = false;
+
+
+
+        StopShot();
     }
 
     private void Attack()
@@ -151,6 +164,10 @@ public class PlatformInputs : MonoBehaviour {
             Instantiate(attack, transform, false).transform.localPosition = new Vector2(-1, 0.5f);
 
         attackTimer = attackCooldown;
+
+
+
+        StopShot();
     }
 
     private void StopJump()
