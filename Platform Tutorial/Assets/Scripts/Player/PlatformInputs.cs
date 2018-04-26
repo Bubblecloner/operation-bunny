@@ -60,7 +60,7 @@ public class PlatformInputs : MonoBehaviour {
 
 
 
-        if (Input.GetAxis("AimingController") > 0.1f && arrows > 0)
+        if ((Input.GetAxis("AimingController") > 0.1f || Input.GetButton("Aiming")) && arrows > 0)
             Aiming();
         else if (aiming)
             Shot();
