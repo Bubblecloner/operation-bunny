@@ -54,7 +54,7 @@ public class PlatformInputs : MonoBehaviour {
 
 
         //sjekker om spilleren er på bakken
-        grounded = ((Physics2D.OverlapPoint(groundCheckR.position) && Physics2D.OverlapPoint(groundCheckR.position).isTrigger == false) || (Physics2D.OverlapPoint(groundCheckL.position) && Physics2D.OverlapPoint(groundCheckL.position).isTrigger == false)) && rgbd2d.velocity.y < 0.1f;
+        grounded = ((Physics2D.OverlapPoint(groundCheckR.position,jumpMask) && Physics2D.OverlapPoint(groundCheckR.position,jumpMask).isTrigger == false) || (Physics2D.OverlapPoint(groundCheckL.position,jumpMask) && Physics2D.OverlapPoint(groundCheckL.position,jumpMask).isTrigger == false)) && rgbd2d.velocity.y < 0.1f;
         if (grounded)
         {
             jumped = false;
