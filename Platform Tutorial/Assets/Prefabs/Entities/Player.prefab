@@ -314,11 +314,15 @@ MonoBehaviour:
   minimumJumpTime: 0.1
   attackCooldown: 0.5
   shotSpeed: 15
+  startArrows: 5
   groundCheckR: {fileID: 4479166337676772}
   groundCheckL: {fileID: 4840518931618262}
   jumpParticles: {fileID: 0}
   attack: {fileID: 1113594111166138, guid: 8c9f0b739b9b22d409f761e2f1164fd7, type: 2}
   arrow: {fileID: 1144756476017276, guid: ea9d50f0e26eca64fb9ea4df655a7fa2, type: 2}
+  jumpMask:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &114473664055289108
 MonoBehaviour:
   m_ObjectHideFlags: 1
