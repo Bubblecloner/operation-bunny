@@ -9,6 +9,7 @@ public class PlatformInputs : MonoBehaviour {
     public float minimumJumpTime = 2;
     public float attackCooldown = 2;
     public float shotSpeed = 4;
+    public float potionDrink = 2;
     public int startArrows = 5;
     public Transform groundCheckR;
     public Transform groundCheckL;
@@ -21,11 +22,13 @@ public class PlatformInputs : MonoBehaviour {
     private float verticalDirection;
     private float jumpTimer = -1;
     private float attackTimer;
+    private float potionTimer;
     private int arrows;
     private bool grounded;
     private bool jumped;
     private bool aiming = false;
     private bool rightBool = true;
+    private bool drunk = false;
     private Rigidbody2D rgbd2d;
     private Animator anim;
     private Vector2 aimingDir = Vector2.right;
@@ -80,14 +83,28 @@ public class PlatformInputs : MonoBehaviour {
             Aiming();
         else if (aiming)
             Shot();
-
-
-
         
-
 
         if (Input.GetAxisRaw("AimingController") == 0)
             rightTriggerFirstFrame = true;
+
+
+
+        if (Input.GetButtonDown("Cheat"))
+        {
+            int[] temp = {1,0,1 };
+            GetComponent<PotionHandler>().Potions = temp;
+        }
+
+
+
+
+        if (Input.GetButtonDown("Potion"))
+            StartPotion();
+        else if (Input.GetButton("Potion"))
+            Potion();
+        else if (potionTimer > 0)
+            GetComponent<PotionHandler>().SwapPotions();
 
 
         if (Input.GetButtonDown("Attack") && attackTimer < 0)
@@ -120,6 +137,8 @@ public class PlatformInputs : MonoBehaviour {
 
         attackTimer -= Time.deltaTime;
 
+        potionTimer -= Time.deltaTime;
+
         /*anim.SetFloat("speed", Mathf.Abs(horizontalDirection));
         anim.SetBool("grounded", grounded);*/
 	}
@@ -127,6 +146,21 @@ public class PlatformInputs : MonoBehaviour {
     private void FixedUpdate()
     {
 
+    }
+
+    private void StartPotion()
+    {
+        drunk = false;
+        potionTimer = potionDrink;
+    }
+
+    private void Potion()
+    {
+        if (potionTimer <= 0 && !drunk)
+        {
+            GetComponent<PotionHandler>().DrinkPotion();
+            drunk = true;
+        }
     }
 
     private void StartAim()

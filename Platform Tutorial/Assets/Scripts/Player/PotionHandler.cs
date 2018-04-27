@@ -24,6 +24,7 @@ public class PotionHandler : MonoBehaviour {
         {
             case (0):
                 //empty
+                GetComponent<PlayerVariables>().Harm(1, 0, 0, true);
                 break;
 
             case (1):
@@ -69,6 +70,19 @@ public class PotionHandler : MonoBehaviour {
                     }
                 }
             }
+        }
+    }
+
+    public int[] Potions
+    {
+        set
+        {
+            if (value.Length == potions.Length)
+                potions = value;
+            else
+                Debug.Log(value.ToString() + "Is not a proper value");
+
+            PotionDefrag();
         }
     }
 }
