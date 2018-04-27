@@ -7,10 +7,12 @@ public class Attack : MonoBehaviour {
     public float knockback;
     public string targetTag = "Enemy";
 
+    private int damage = 1;
+
 	void Start ()
     {
-		
-	}
+        damage = GetComponentInParent<PlayerVariables>().Damage;
+    }
 	
 	void Update ()
     {

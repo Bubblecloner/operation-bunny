@@ -53,13 +53,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinText: {fileID: 114438821560088640, guid: 08a4bbbc42c02e44c85db2be8cca913d, type: 2}
   heartIcon: {fileID: 1414324093336838, guid: ded84826440039248834eac9d8c3f6e9, type: 2}
-  heartParent: {fileID: 1717998443288594, guid: 08a4bbbc42c02e44c85db2be8cca913d,
-    type: 2}
+  heartParent: {fileID: 0}
   potionIcons:
   - {fileID: 1238008450592918, guid: d046401356fe0ff4989d6dd08efda3f4, type: 2}
   - {fileID: 1255740080856472, guid: 4daabb4fd71076043adad01bf3a310e7, type: 2}
-  potionParent: {fileID: 1746953573585568, guid: 08a4bbbc42c02e44c85db2be8cca913d,
-    type: 2}
+  - {fileID: 1238008450592918, guid: 3832431e9401bba4686d4799ae4edebe, type: 2}
+  - {fileID: 1238008450592918, guid: e4a9e6e963a4641419362ece0e67b8ac, type: 2}
+  potionParent: {fileID: 0}
   playerHealth: 0
   coins: 0
   potions: 

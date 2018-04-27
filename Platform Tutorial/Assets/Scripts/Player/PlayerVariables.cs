@@ -9,6 +9,7 @@ public class PlayerVariables : Entity {
     public AudioClip coinPickup;
     public AudioClip hurt;
     public AudioClip fallDeath;
+    private int damage = 1;
 
     private float damageTimer;
     private AudioSource myAudioSource;
@@ -47,6 +48,24 @@ public class PlayerVariables : Entity {
         {
             Die();
         }
+    }
+
+    public void Invincible(float time)
+    {
+        damageTimer = time;
+    }
+
+    public void TempDamageIncrease(int bonusDamage,float time)
+    {
+        damage += bonusDamage;
+
+        for(int i=0; i < bonusDamage; i++)
+        Invoke("DamageDecrease", time);
+    }
+
+    private void DamageDecrease()
+    {
+        damage--;
     }
 
     public override void Die()
@@ -89,6 +108,14 @@ public class PlayerVariables : Entity {
             GameController.gameControllerInstance.coins++;
             myAudioSource.pitch = Random.Range(0.5f, 1.5f);
             myAudioSource.PlayOneShot(coinPickup, 0.5f);
+        }
+    }
+
+    public int Damage
+    {
+        get
+        {
+            return damage;
         }
     }
 }

@@ -90,11 +90,13 @@ public class PlatformInputs : MonoBehaviour {
 
 
 
+        //remove before finishing!!!
         if (Input.GetButtonDown("Cheat"))
         {
-            int[] temp = {1,0,1 };
+            int[] temp = {1,2,3 };
             GetComponent<PotionHandler>().Potions = temp;
         }
+
 
 
 
@@ -103,8 +105,11 @@ public class PlatformInputs : MonoBehaviour {
             StartPotion();
         else if (Input.GetButton("Potion"))
             Potion();
-        else if (potionTimer > 0)
+        else if (potionTimer > 0 && drunk == false)
+        {
             GetComponent<PotionHandler>().SwapPotions();
+            drunk = true;
+        }
 
 
         if (Input.GetButtonDown("Attack") && attackTimer < 0)

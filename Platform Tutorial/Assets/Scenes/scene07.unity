@@ -1019,6 +1019,11 @@ Prefab:
       propertyPath: heartParent
       value: 
       objectReference: {fileID: 570936457}
+    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
+        type: 2}
+      propertyPath: potionParent
+      value: 
+      objectReference: {fileID: 1732107765}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53eaa6b47a8db664fb374088ca0a4259, type: 2}
   m_IsPrefabParent: 0
@@ -74498,6 +74503,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1732107765 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1746953573585568, guid: 08a4bbbc42c02e44c85db2be8cca913d,
+    type: 2}
+  m_PrefabInternal: {fileID: 570936456}
 --- !u!1 &1732280628
 GameObject:
   m_ObjectHideFlags: 0
