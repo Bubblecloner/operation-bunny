@@ -5,6 +5,7 @@ using UnityEngine;
 public class Entity : MonoBehaviour {
 
     public int health = 3;
+    public int maxHealth = 3;
     protected Rigidbody2D rgbd2d;
 
     protected virtual void Start ()
@@ -50,6 +51,13 @@ public class Entity : MonoBehaviour {
         rgbd2d.gravityScale = 3;
 
         Invoke("DisableObject", 2.0f);
+    }
+
+    public virtual void Heal(int heal)
+    {
+        health += heal;
+        if (health > maxHealth)
+            health = maxHealth;
     }
 
     private void DisableObject()

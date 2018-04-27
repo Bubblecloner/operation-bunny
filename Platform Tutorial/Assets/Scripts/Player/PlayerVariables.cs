@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerVariables : Entity {
 
 
-    public int maxHealth = 3;
     public GameObject coinParticles;
     public AudioClip coinPickup;
     public AudioClip hurt;

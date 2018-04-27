@@ -159,7 +159,6 @@ public class PlatformInputs : MonoBehaviour {
 
     private void Shot()
     {
-        Debug.Log("test");
         aiming = false;
         arrows--;
 
