@@ -18,11 +18,12 @@ public class Entity : MonoBehaviour {
 
     }
 
-    public virtual void Harm(int dmg, float knockBack, float knockUp, bool cameFromRight)
+    public virtual void Harm(int dmg, float knockBack, float knockUp, GameObject source)
     {
+        Debug.Log(gameObject.name + "");
             health -= dmg;
 
-        Knockback(knockBack, knockUp, cameFromRight);
+        Knockback(knockBack, knockUp, source.transform.position.x > transform.position.x);
 
         if (health < 1)
         {

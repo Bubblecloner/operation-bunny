@@ -29,23 +29,26 @@ public class PlayerVariables : Entity {
         GameController.gameControllerInstance.playerHealth = health;
     }
 
-    public override void Harm(int dmg, float knockBack, float knockUp, bool cameFromRight)
+    public override void Harm(int dmg, float knockBack, float knockUp, GameObject source)
     {
-        if (damageTimer <= 0f)
+        if (!(GetComponent<PlatformInputs>().Shielding && source.GetComponent<Collider2D>().IsTouching(GetComponentInChildren<Shield>().GetComponent<Collider2D>())))
         {
-            health -= dmg;
-            damageTimer = 1;
-            GameController.gameControllerInstance.ScreenShake();
+            if (damageTimer <= 0f)
+            {
+                health -= dmg;
+                damageTimer = 1;
+                GameController.gameControllerInstance.ScreenShake();
 
-            myAudioSource.pitch = Random.Range(0.5f, 1.5f);
-            myAudioSource.PlayOneShot(hurt, 0.5f);
-        }
+                myAudioSource.pitch = Random.Range(0.5f, 1.5f);
+                myAudioSource.PlayOneShot(hurt, 0.5f);
+            }
 
-        Knockback(knockBack, knockUp, cameFromRight);
+            Knockback(knockBack, knockUp, source.transform.position.x > transform.position.x);
 
-        if (health < 1)
-        {
-            Die();
+            if (health < 1)
+            {
+                Die();
+            }
         }
     }
 

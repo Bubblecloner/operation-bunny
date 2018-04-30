@@ -33,7 +33,7 @@ public class Arrow : MonoBehaviour {
     {
         if(other.tag == "Enemy")
         {
-            other.GetComponent<Entity>().Harm(1,0,0,true);
+            other.GetComponent<Entity>().Harm(1,0,0,gameObject);
             penetration--;
         }
 

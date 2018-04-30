@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f06997ee833e074ca19ba0ee5010fa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  knockback: 5
+  knockback: 6
   targetTag: Enemy
 --- !u!212 &212865418058130610
 SpriteRenderer:

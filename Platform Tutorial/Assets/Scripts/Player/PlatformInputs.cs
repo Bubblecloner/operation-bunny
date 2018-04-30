@@ -16,6 +16,7 @@ public class PlatformInputs : MonoBehaviour {
     public GameObject jumpParticles;
     public GameObject attack;
     public GameObject arrow;
+    public GameObject shield;
     public LayerMask jumpMask;
 
     private float horizontalDirection;
@@ -34,8 +35,9 @@ public class PlatformInputs : MonoBehaviour {
     private Vector2 aimingDir = Vector2.right;
 
     private bool rightTriggerFirstFrame = true;
+    public bool Shielding { get; private set; }
 
-	void Start ()
+    void Start ()
     {
         arrows = startArrows;
         rgbd2d = GetComponent<Rigidbody2D>();
@@ -47,13 +49,13 @@ public class PlatformInputs : MonoBehaviour {
 
         horizontalDirection = Input.GetAxis("Horizontal");
         verticalDirection = Input.GetAxis("Vertical");
-        
+
 
 
 
 
         //sjekker om spilleren er på bakken
-        grounded = ((Physics2D.OverlapPoint(groundCheckR.position,jumpMask) && Physics2D.OverlapPoint(groundCheckR.position,jumpMask).isTrigger == false) || (Physics2D.OverlapPoint(groundCheckL.position,jumpMask) && Physics2D.OverlapPoint(groundCheckL.position,jumpMask).isTrigger == false)) && rgbd2d.velocity.y < 0.1f;
+        grounded = ((Physics2D.OverlapPointAll(groundCheckR.position,jumpMask).Length >= 1 && Physics2D.OverlapPointAll(groundCheckR.position,jumpMask)[0].isTrigger == false) || (Physics2D.OverlapPointAll(groundCheckL.position,jumpMask).Length >= 1 && Physics2D.OverlapPointAll(groundCheckL.position,jumpMask)[0].isTrigger == false)) && rgbd2d.velocity.y < 0.1f;
         if (grounded)
         {
             jumped = false;
@@ -61,7 +63,7 @@ public class PlatformInputs : MonoBehaviour {
         }
 
 
-        if ((Input.GetAxisRaw("AimingController") > 0.1f) && arrows > 0)
+        if ((Input.GetAxisRaw("AimingController") > 0.1f) && arrows > 0 && !Shielding)
         {
             if (rightTriggerFirstFrame)
             {
@@ -71,11 +73,11 @@ public class PlatformInputs : MonoBehaviour {
             else if (aiming)
                 Aiming();
         }
-        else if (Input.GetButtonDown("Aiming") && arrows > 0)
+        else if (Input.GetButtonDown("Aiming") && arrows > 0 && !Shielding)
         {
             StartAim();
         }
-        else if (Input.GetButton("Aiming") && aiming && arrows > 0 )
+        else if (Input.GetButton("Aiming") && aiming && arrows > 0 && !Shielding)
             Aiming();
         else if (aiming)
             Shot();
@@ -98,13 +100,18 @@ public class PlatformInputs : MonoBehaviour {
             Debug.Log("nothing");
         }
 
+        
+        if (Input.GetButtonDown("Shield") && grounded)
+            StartShield();
+        else if (Input.GetButton("Shield") && grounded)
+            Shield();
+        else if (Input.GetButtonUp("Shield") && grounded)
+            StopShield();
 
 
-
-
-        if (Input.GetButtonDown("Potion"))
+        if (Input.GetButtonDown("Potion") && !Shielding)
             StartPotion();
-        else if (Input.GetButton("Potion"))
+        else if (Input.GetButton("Potion") && !Shielding)
             Potion();
         else if (potionTimer > 0 && drunk == false)
         {
@@ -113,13 +120,13 @@ public class PlatformInputs : MonoBehaviour {
         }
 
 
-        if (Input.GetButtonDown("Attack") && attackTimer < 0)
+        if (Input.GetButtonDown("Attack") && attackTimer < 0 && !Shielding)
         {
             Attack();
         }
 
 
-        if (jumped == false && Input.GetButtonDown("Jump"))
+        if (jumped == false && Input.GetButtonDown("Jump") && !Shielding)
             Jump();
 
 
@@ -151,10 +158,58 @@ public class PlatformInputs : MonoBehaviour {
 
     private void FixedUpdate()
     {
-        if (!aiming)
+        if (!aiming && !Shielding)
         {
             transform.Translate(new Vector3(horizontalDirection, 0, 0) * speed * Time.deltaTime);
         }
+    }
+
+    private void StartShield()
+    {
+        if (shield)
+        {
+            Shielding = true;
+            if (rightBool)
+            {
+                shield.transform.localPosition = new Vector2(Mathf.Abs(shield.transform.localPosition.x), shield.transform.localPosition.y);
+                shield.transform.localScale = new Vector2(shield.transform.localScale.x, Mathf.Abs(shield.transform.localScale.y));
+            }
+            else
+            {
+                shield.transform.localPosition = new Vector2(-Mathf.Abs(shield.transform.localPosition.x), shield.transform.localPosition.y);
+                shield.transform.localScale = new Vector2(shield.transform.localScale.x, -Mathf.Abs(shield.transform.localScale.y));
+            }
+            shield.SetActive(true);
+
+        }
+
+    }
+
+    private void Shield()
+    {
+        if (shield)
+        {
+            if (shield.transform.localPosition.x < 0 && rightBool)
+            {
+                shield.transform.localPosition = new Vector2(Mathf.Abs(shield.transform.localPosition.x), shield.transform.localPosition.y);
+                shield.transform.localScale = new Vector2(shield.transform.localScale.x, Mathf.Abs(shield.transform.localScale.y));
+            }
+            else if (shield.transform.localPosition.x > 0 && !rightBool)
+            {
+                shield.transform.localPosition = new Vector2(-Mathf.Abs(shield.transform.localPosition.x), shield.transform.localPosition.y);
+                shield.transform.localScale = new Vector2(shield.transform.localScale.x, -Mathf.Abs(shield.transform.localScale.y));
+            }
+        }
+    }
+
+    private void StopShield()
+    {
+        if (shield)
+        {
+
+            shield.SetActive(false);
+        }
+        Shielding = false;
     }
 
     private void StartPotion()

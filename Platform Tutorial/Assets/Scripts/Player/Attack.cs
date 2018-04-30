@@ -23,7 +23,7 @@ public class Attack : MonoBehaviour {
     {
         if(other.tag == targetTag)
         {
-            other.GetComponent<Entity>().Harm(damage, knockback, knockback/2, transform.parent.transform.position.x > transform.position.x);
+            other.GetComponent<Entity>().Harm(damage, knockback, knockback/2, transform.parent.gameObject);
         }
     }
 }

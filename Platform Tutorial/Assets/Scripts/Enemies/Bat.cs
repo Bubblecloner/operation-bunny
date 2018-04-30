@@ -60,6 +60,13 @@ public class Bat : Entity {
             anim.SetFloat("speed", 0);
     }
 
+    public override void Harm(int dmg, float knockBack, float knockUp, GameObject source)
+    {
+        knockback /= 2;
+        knockUp /= 3;
+        base.Harm(dmg, knockBack, knockUp, source);
+    }
+
     public override void Die()
     {
         base.Die();
@@ -71,7 +78,7 @@ public class Bat : Entity {
     {
         if (other.tag == "Player")
         {
-            other.GetComponent<PlayerVariables>().Harm(1, knockback, knockback, other.transform.position.x < transform.position.x);
+            other.GetComponent<Entity>().Harm(1, knockback, knockback, gameObject);
 
             Knockback(knockback, knockback, other.transform.position.x > transform.position.x);
         }
