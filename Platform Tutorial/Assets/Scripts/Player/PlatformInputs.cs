@@ -49,10 +49,6 @@ public class PlatformInputs : MonoBehaviour {
         verticalDirection = Input.GetAxis("Vertical");
         
 
-        if (!aiming)
-        {
-            transform.Translate(new Vector3(horizontalDirection, 0, 0) * speed * Time.deltaTime);
-        }
 
 
 
@@ -95,6 +91,11 @@ public class PlatformInputs : MonoBehaviour {
         {
             int[] temp = {1,2,3 };
             GetComponent<PotionHandler>().Potions = temp;
+        }
+
+        if (Input.GetButtonDown("Cheat2"))
+        {
+            Debug.Log("nothing");
         }
 
 
@@ -150,7 +151,10 @@ public class PlatformInputs : MonoBehaviour {
 
     private void FixedUpdate()
     {
-
+        if (!aiming)
+        {
+            transform.Translate(new Vector3(horizontalDirection, 0, 0) * speed * Time.deltaTime);
+        }
     }
 
     private void StartPotion()

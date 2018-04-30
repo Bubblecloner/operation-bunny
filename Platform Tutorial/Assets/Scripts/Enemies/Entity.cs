@@ -7,6 +7,7 @@ public class Entity : MonoBehaviour {
     public int health = 3;
     public int maxHealth = 3;
     protected Rigidbody2D rgbd2d;
+    protected int damage = 1;
 
     protected virtual void Start ()
     {
@@ -63,5 +64,13 @@ public class Entity : MonoBehaviour {
     private void DisableObject()
     {
         Destroy(gameObject);
+    }
+
+    public int Damage
+    {
+        get
+        {
+            return damage;
+        }
     }
 }

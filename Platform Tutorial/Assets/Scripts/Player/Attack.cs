@@ -11,7 +11,7 @@ public class Attack : MonoBehaviour {
 
 	void Start ()
     {
-        damage = GetComponentInParent<PlayerVariables>().Damage;
+        damage = GetComponentInParent<Entity>().Damage;
     }
 	
 	void Update ()

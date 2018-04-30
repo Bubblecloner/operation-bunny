@@ -34,12 +34,12 @@ public class PotionHandler : MonoBehaviour {
 
             case (2):
                 //invincibility 
-                GetComponent<PlayerVariables>().Invincible(2);
+                GetComponent<PlayerVariables>().Invincible(10);
                 break;
 
             case (3):
                 //bonus damage
-                GetComponent<PlayerVariables>().TempDamageIncrease(1,5);
+                GetComponent<PlayerVariables>().TempDamageIncrease(1,30);
                 break;
 
             default:
@@ -73,7 +73,7 @@ public class PotionHandler : MonoBehaviour {
             {
                 for(int a = i + 1; a < maxPotions; a++)
                 {
-                    if(a != 0)
+                    if(potions[a] != 0)
                     {
                         potions[i] = potions[a];
                         potions[a] = 0;
