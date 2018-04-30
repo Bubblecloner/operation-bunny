@@ -10,6 +10,7 @@ public class PlatformInputs : MonoBehaviour {
     public float attackCooldown = 2;
     public float shotSpeed = 4;
     public float potionDrink = 2;
+    public float shieldReapairTime = 4;
     public int startArrows = 5;
     public Transform groundCheckR;
     public Transform groundCheckL;
@@ -24,6 +25,7 @@ public class PlatformInputs : MonoBehaviour {
     private float jumpTimer = -1;
     private float attackTimer;
     private float potionTimer;
+    private float shieldTimer;
     private int arrows;
     private bool grounded;
     private bool jumped;
@@ -153,6 +155,15 @@ public class PlatformInputs : MonoBehaviour {
 
         potionTimer -= Time.deltaTime;
 
+        shieldTimer -= Time.deltaTime;
+
+
+        if (shieldTimer <= 0 && shieldTimer > -0.9f)
+        {
+            FixShield();
+            shieldTimer = -1;
+        }
+
         /*anim.SetFloat("speed", Mathf.Abs(horizontalDirection));
         anim.SetBool("grounded", grounded);*/
 	}
@@ -169,6 +180,7 @@ public class PlatformInputs : MonoBehaviour {
     {
         if (shield && ShieldActive)
         {
+            Debug.Log("test");
             Shielding = true;
             if (rightBool)
             {
@@ -211,6 +223,12 @@ public class PlatformInputs : MonoBehaviour {
             shield.SetActive(false);
         }
         Shielding = false;
+    }
+
+    private void FixShield()
+    {
+        shield.GetComponent<Shield>().Activate();
+        shieldTimer = -1;
     }
 
     private void StartPotion()
@@ -321,5 +339,10 @@ public class PlatformInputs : MonoBehaviour {
         /*Vector3 myScale = transform.localScale;
         myScale.x = facingRight;
         transform.localScale = myScale;*/
+    }
+
+    public void StartShieldTimer()
+    {
+        shieldTimer = shieldReapairTime;
     }
 }

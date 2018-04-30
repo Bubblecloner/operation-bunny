@@ -13,7 +13,7 @@ public class Shield : Entity {
     }
 	
 	void Update () {
-		
+
 	}
 
     public override void Harm(int dmg, float knockBack, float knockUp, GameObject source)
@@ -30,6 +30,7 @@ public class Shield : Entity {
     {
         GetComponentInParent<PlayerVariables>().Harm(0,6,3,gameObject);
         GetComponentInParent<PlatformInputs>().ShieldActive = false;
+        GetComponentInParent<PlatformInputs>().StartShieldTimer();
     }
 
     public void Activate()
