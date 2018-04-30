@@ -85,6 +85,7 @@ public class PlayerVariables : Entity {
 
     public void FallDeath()
     {
+        health = 0;
         GameController.gameControllerInstance.ScreenShake();
 
         myAudioSource.pitch = Random.Range(0.5f, 1.5f);

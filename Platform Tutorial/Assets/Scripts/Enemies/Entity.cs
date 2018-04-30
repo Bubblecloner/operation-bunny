@@ -3,14 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour {
-
-    public int health = 3;
+    
+    protected int health = 3;
     public int maxHealth = 3;
     protected Rigidbody2D rgbd2d;
     protected int damage = 1;
 
     protected virtual void Start ()
     {
+        health = maxHealth;
         rgbd2d = GetComponent<Rigidbody2D>();
     }
 	
@@ -20,7 +21,6 @@ public class Entity : MonoBehaviour {
 
     public virtual void Harm(int dmg, float knockBack, float knockUp, GameObject source)
     {
-        Debug.Log(gameObject.name + "");
             health -= dmg;
 
         Knockback(knockBack, knockUp, source.transform.position.x > transform.position.x);
@@ -72,6 +72,14 @@ public class Entity : MonoBehaviour {
         get
         {
             return damage;
+        }
+    }
+
+    public int Health
+    {
+        get
+        {
+            return health;
         }
     }
 }

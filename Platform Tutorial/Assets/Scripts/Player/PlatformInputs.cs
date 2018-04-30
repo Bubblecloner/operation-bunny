@@ -36,6 +36,7 @@ public class PlatformInputs : MonoBehaviour {
 
     private bool rightTriggerFirstFrame = true;
     public bool Shielding { get; private set; }
+    public bool ShieldActive { private get; set; }
 
     void Start ()
     {
@@ -103,9 +104,9 @@ public class PlatformInputs : MonoBehaviour {
         
         if (Input.GetButtonDown("Shield") && grounded)
             StartShield();
-        else if (Input.GetButton("Shield") && grounded)
+        else if (Input.GetButton("Shield") && grounded && Shielding)
             Shield();
-        else if (Input.GetButtonUp("Shield") && grounded)
+        else
             StopShield();
 
 
@@ -166,7 +167,7 @@ public class PlatformInputs : MonoBehaviour {
 
     private void StartShield()
     {
-        if (shield)
+        if (shield && ShieldActive)
         {
             Shielding = true;
             if (rightBool)

@@ -11,7 +11,7 @@ public class CameraFollow : MonoBehaviour {
 	
 	void FixedUpdate ()
     {
-        if (target.GetComponent<PlayerVariables>().health > 0)
+        if (target.GetComponent<PlayerVariables>().Health > 0)
         {
             Vector3 targetPosition = new Vector3(target.position.x, target.position.y + offset, transform.position.z);
 
