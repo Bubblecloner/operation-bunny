@@ -9,7 +9,7 @@ public class PlatformInputs : MonoBehaviour {
     public float minimumJumpTime = 2;
     public float attackCooldown = 2;
     public float shotSpeed = 4;
-    public float potionDrink = 2;
+    public float potionDrink = 0;
     public float shieldReapairTime = 4;
     public int startArrows = 5;
     public Transform groundCheckR;
