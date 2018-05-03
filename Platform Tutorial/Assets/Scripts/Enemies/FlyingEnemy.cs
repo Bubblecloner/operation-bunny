@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bat : FlyingEnemy {
-    
-    private Animator anim;
+public class FlyingEnemy : Entity
+{
 
-	protected override void Start ()
+    public float speed = 3;
+    public float knockback = 80;
+
+    protected bool aggro;
+    protected Vector2 startPosition;
+
+    protected override void Start()
     {
         base.Start();
-        anim = GetComponent<Animator>();
-	}
-	
-	void Update ()
+        startPosition = transform.position;
+    }
+
+    void Update()
     {
         aggro = GetComponentInChildren<IsAggro>().Aggro;
 
@@ -34,14 +39,6 @@ public class Bat : FlyingEnemy {
             Vector2 vector = new Vector2(target.x - transform.position.x, target.y - transform.position.y).normalized * speed;
 
             transform.Translate(vector);
-
-            if (vector.x < 0)
-                anim.SetFloat("speed", -1);
-            else
-                anim.SetFloat("speed", 1);
-                
-
-            //Debug.Log(Vector2.MoveTowards(transform.position, target, speed) + "," + new Vector2(target.x - transform.position.x, target.y - transform.position.y).normalized * speed);
         }
     }
 
@@ -49,8 +46,6 @@ public class Bat : FlyingEnemy {
     {
         if (Vector2.Distance(transform.position, startPosition) > 1)
             MoveTowardTarget(startPosition);
-        else
-            anim.SetFloat("speed", 0);
     }
 
     public override void Harm(int dmg, float knockBack, float knockUp, GameObject source)
@@ -63,8 +58,6 @@ public class Bat : FlyingEnemy {
     public override void Die()
     {
         base.Die();
-        
-        anim.SetBool("death", true);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
