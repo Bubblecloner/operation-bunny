@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-private bool triggered;
-private SpriteRenderer rend;
+
 
 public class blackfadein : MonoBehaviour {
 
-	void Start ()
+    private bool triggered;
+    private SpriteRenderer rend;
+
+    void Start ()
     {
         triggered = false;
         rend = GetComponent<SpriteRenderer>();
