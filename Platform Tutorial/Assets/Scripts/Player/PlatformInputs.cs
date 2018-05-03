@@ -112,11 +112,21 @@ public class PlatformInputs : MonoBehaviour {
             StopShield();
 
 
+        if (Input.GetButtonDown("PotionDrinkKeyboard") && !Shielding)
+            StartPotion();
+        else if (Input.GetButton("PotionDrinkKeyboard") && !Shielding)
+            Potion();
+        else if (Input.GetButtonDown("PotionSwapKeyboard"))
+        {
+            GetComponent<PotionHandler>().SwapPotions();
+        }
+
+
         if (Input.GetButtonDown("Potion") && !Shielding)
             StartPotion();
         else if (Input.GetButton("Potion") && !Shielding)
             Potion();
-        else if (potionTimer > 0 && drunk == false)
+        else if (potionTimer > 0 && Input.GetButtonUp("Potion") && drunk == false)
         {
             GetComponent<PotionHandler>().SwapPotions();
             drunk = true;
