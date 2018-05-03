@@ -2,14 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlatformInputs : MonoBehaviour {
+public class PlatformInputs : MonoBehaviour
+{
 
     public float speed = 10.0f;
     public float jumpHeight = 4.0f;
     public float minimumJumpTime = 2;
     public float attackCooldown = 2;
     public float shotSpeed = 4;
-    public float potionDrink = 0;
+    public float potionDrink = 2;
     public float shieldReapairTime = 4;
     public int startArrows = 5;
     public Transform groundCheckR;
@@ -40,14 +41,14 @@ public class PlatformInputs : MonoBehaviour {
     public bool Shielding { get; private set; }
     public bool ShieldActive { private get; set; }
 
-    void Start ()
+    void Start()
     {
         arrows = startArrows;
         rgbd2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-	}
-	
-	void Update ()
+    }
+
+    void Update()
     {
 
         horizontalDirection = Input.GetAxis("Horizontal");
@@ -58,7 +59,7 @@ public class PlatformInputs : MonoBehaviour {
 
 
         //sjekker om spilleren er på bakken
-        grounded = ((Physics2D.OverlapPointAll(groundCheckR.position,jumpMask).Length >= 1 && Physics2D.OverlapPointAll(groundCheckR.position,jumpMask)[0].isTrigger == false) || (Physics2D.OverlapPointAll(groundCheckL.position,jumpMask).Length >= 1 && Physics2D.OverlapPointAll(groundCheckL.position,jumpMask)[0].isTrigger == false)) && rgbd2d.velocity.y < 0.1f;
+        grounded = ((Physics2D.OverlapPointAll(groundCheckR.position, jumpMask).Length >= 1 && Physics2D.OverlapPointAll(groundCheckR.position, jumpMask)[0].isTrigger == false) || (Physics2D.OverlapPointAll(groundCheckL.position, jumpMask).Length >= 1 && Physics2D.OverlapPointAll(groundCheckL.position, jumpMask)[0].isTrigger == false)) && rgbd2d.velocity.y < 0.1f;
         if (grounded)
         {
             jumped = false;
@@ -84,7 +85,7 @@ public class PlatformInputs : MonoBehaviour {
             Aiming();
         else if (aiming)
             Shot();
-        
+
 
         if (Input.GetAxisRaw("AimingController") == 0)
             rightTriggerFirstFrame = true;
@@ -94,7 +95,7 @@ public class PlatformInputs : MonoBehaviour {
         //remove before finishing!!!
         if (Input.GetButtonDown("Cheat"))
         {
-            int[] temp = {1,2,3 };
+            int[] temp = { 1, 2, 3 };
             GetComponent<PotionHandler>().Potions = temp;
         }
 
@@ -103,7 +104,7 @@ public class PlatformInputs : MonoBehaviour {
             Debug.Log("nothing");
         }
 
-        
+
         if (Input.GetButtonDown("Shield") && grounded)
             StartShield();
         else if (Input.GetButton("Shield") && grounded && Shielding)
@@ -112,24 +113,11 @@ public class PlatformInputs : MonoBehaviour {
             StopShield();
 
 
-        if (Input.GetButtonDown("PotionDrinkKeyboard") && !Shielding)
-            StartPotion();
-        else if (Input.GetButton("PotionDrinkKeyboard") && !Shielding)
+        if (Input.GetButtonDown("PotionDrink") && !Shielding)
             Potion();
-        else if (Input.GetButtonDown("PotionSwapKeyboard"))
+        else if (Input.GetButtonDown("PotionSwap"))
         {
             GetComponent<PotionHandler>().SwapPotions();
-        }
-
-
-        if (Input.GetButtonDown("Potion") && !Shielding)
-            StartPotion();
-        else if (Input.GetButton("Potion") && !Shielding)
-            Potion();
-        else if (potionTimer > 0 && Input.GetButtonUp("Potion") && drunk == false)
-        {
-            GetComponent<PotionHandler>().SwapPotions();
-            drunk = true;
         }
 
 
@@ -176,7 +164,7 @@ public class PlatformInputs : MonoBehaviour {
 
         /*anim.SetFloat("speed", Mathf.Abs(horizontalDirection));
         anim.SetBool("grounded", grounded);*/
-	}
+    }
 
     private void FixedUpdate()
     {
@@ -249,18 +237,14 @@ public class PlatformInputs : MonoBehaviour {
 
     private void Potion()
     {
-        if (potionTimer <= 0 && !drunk)
-        {
-            GetComponent<PotionHandler>().DrinkPotion();
-            drunk = true;
-        }
+        GetComponent<PotionHandler>().DrinkPotion();
     }
 
     private void StartAim()
     {
         aiming = true;
 
-        
+
         if (horizontalDirection != 0 || verticalDirection != 0)
             aimingDir = new Vector2(horizontalDirection, verticalDirection).normalized + new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2);
 
@@ -279,8 +263,8 @@ public class PlatformInputs : MonoBehaviour {
 
         transform.GetComponentInChildren<Arrow>().transform.localPosition = aimingDir;
 
-        transform.GetComponentInChildren<Arrow>().transform.rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up,aimingDir - new Vector2(0, GetComponent<BoxCollider2D>().size.y / 2)),new Vector3(0,0,1));
-        
+        transform.GetComponentInChildren<Arrow>().transform.rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, aimingDir - new Vector2(0, GetComponent<BoxCollider2D>().size.y / 2)), new Vector3(0, 0, 1));
+
 
     }
 
@@ -289,7 +273,7 @@ public class PlatformInputs : MonoBehaviour {
         aiming = false;
         arrows--;
 
-        transform.GetComponentInChildren<Arrow>().GetComponent<Rigidbody2D>().AddForce((aimingDir - new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2) )* shotSpeed,ForceMode2D.Impulse);
+        transform.GetComponentInChildren<Arrow>().GetComponent<Rigidbody2D>().AddForce((aimingDir - new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2)) * shotSpeed, ForceMode2D.Impulse);
         transform.GetComponentInChildren<Arrow>().Shot();
 
     }
@@ -320,8 +304,8 @@ public class PlatformInputs : MonoBehaviour {
 
     private void Attack()
     {
-        if(rightBool)
-        Instantiate(attack, transform, false).transform.localPosition = new Vector2(1, 0.5f);
+        if (rightBool)
+            Instantiate(attack, transform, false).transform.localPosition = new Vector2(1, 0.5f);
         else
             Instantiate(attack, transform, false).transform.localPosition = new Vector2(-1, 0.5f);
 
@@ -338,7 +322,7 @@ public class PlatformInputs : MonoBehaviour {
         {
             rgbd2d.velocity = Vector2.Lerp(rgbd2d.velocity, new Vector2(rgbd2d.velocity.x, 0), 0.8f);
         }
-        else if(!grounded)
+        else if (!grounded)
             Invoke("StopJump", minimumJumpTime - jumpTimer);
     }
 
