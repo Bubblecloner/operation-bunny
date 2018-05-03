@@ -52,8 +52,13 @@ public class GameController : MonoBehaviour {
         for(int i = potionParent.transform.childCount; i < potions.Length; i++)
         {
             GameObject temp = Instantiate(potionIcons[potions[i]], potionParent.transform, false);
-            temp.transform.localPosition = new Vector3(130 * (potionParent.transform.childCount - 1) + 80, 80, 0);
+            temp.transform.localPosition = new Vector3(80 * (potionParent.transform.childCount - 1) + 95, 80, 0);
             temp.name = "Potion" + i.ToString();
+            if (i != 0)
+                temp.transform.localScale = new Vector2(temp.transform.localScale.x * 0.7f, temp.transform.localScale.y * 0.7f);
+            else
+                //moves first potion for visual reasons
+                temp.transform.localPosition = new Vector2(80, 80);
         }
     }
 
@@ -63,7 +68,7 @@ public class GameController : MonoBehaviour {
         {
             if (potionParent.transform.childCount == potions.Length)
                 potionParent.transform.Find("Potion" + i.ToString()).GetComponent<Image>().sprite = potionIcons[potions[i]].GetComponent<Image>().sprite;
-            else
+            else 
                 InstantiatePotions();
         }
     }

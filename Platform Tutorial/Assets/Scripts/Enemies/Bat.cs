@@ -48,8 +48,6 @@ public class Bat : FlyingEnemy {
 
     public override void Harm(int dmg, float knockBack, float knockUp, GameObject source)
     {
-        knockback /= 2;
-        knockUp /= 3;
         base.Harm(dmg, knockBack, knockUp, source);
     }
 

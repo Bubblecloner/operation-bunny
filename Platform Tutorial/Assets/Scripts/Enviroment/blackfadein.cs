@@ -5,7 +5,7 @@ using DG.Tweening;
 
 
 
-public class blackfadein : MonoBehaviour {
+public class Blackfadein : MonoBehaviour {
 
     private bool triggered;
     private SpriteRenderer rend;
@@ -18,7 +18,7 @@ public class blackfadein : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("player") && !triggered)
+        if(collision.CompareTag("Player") && !triggered)
         {
             triggered = true;
             rend.DOFade(0, 2.0F);

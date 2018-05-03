@@ -188,7 +188,7 @@ MonoBehaviour:
   maxHealth: 3
   hitStun: 1
   speed: 0.1
-  knockback: 4
+  knockback: 7
 --- !u!114 &114541838188505902
 MonoBehaviour:
   m_ObjectHideFlags: 1

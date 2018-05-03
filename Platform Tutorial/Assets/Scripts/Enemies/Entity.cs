@@ -27,7 +27,8 @@ public class Entity : MonoBehaviour {
     public virtual void Harm(int dmg, float knockBack, float knockUp, GameObject source)
     {
         stunTimer = hitStun;
-        if (damageTimer > 0)
+
+        if (damageTimer < 0)
         {
 
             health -= dmg;
