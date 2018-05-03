@@ -15,7 +15,7 @@ public class blackfadein : MonoBehaviour {
 
 	void Update ()
     {
-        GetComponent.black;
+        GetComponent<"black">();
         black.DoFade(0, 2.0f);
 	}
 }
