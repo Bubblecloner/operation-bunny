@@ -84,6 +84,19 @@ public class PotionHandler : MonoBehaviour {
         }
     }
 
+    public bool AddPotion(int potionId)
+    {
+        PotionDefrag();
+        if (potions[potions.Length - 1] == 0)
+        {
+            potions[potions.Length - 1] = potionId;
+            PotionDefrag();
+            return true;
+        }
+        else
+            return false;
+    }
+
     public int[] Potions
     {
         set
