@@ -68,10 +68,10 @@ public class WalkingEnemy : Entity {
 
 
         if (!Physics2D.OverlapPoint(fallCheck.position, wallMask))
-            facingRight = !facingRight;
+            Flip();
 
         if (Physics2D.OverlapPoint(frontCheck.position, wallMask))
-            facingRight = !facingRight;
+            Flip();
     }
 
     private void Attack()
@@ -87,5 +87,12 @@ public class WalkingEnemy : Entity {
         temp.GetComponent<Attack>().targetTag = "Player";
 
 
+    }
+
+    private void Flip()
+    {
+        facingRight = !facingRight;
+        fallCheck.localPosition = new Vector2(-fallCheck.localPosition.x,fallCheck.localPosition.y);
+        frontCheck.localPosition = new Vector2(-frontCheck.localPosition.x, frontCheck.localPosition.y);
     }
 }
