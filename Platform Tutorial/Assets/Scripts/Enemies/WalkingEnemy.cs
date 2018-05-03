@@ -20,22 +20,26 @@ public class WalkingEnemy : Entity {
 
 	
 	
-	void Update ()
+	protected override void Update ()
     {
+        base.Update();
 
-        if (GetComponentInChildren<IsAggro>().Aggro)
+        if (stunTimer < 0)
         {
-            FaceEnemy(GameObject.FindGameObjectWithTag("Player").transform.position);
+            if (GetComponentInChildren<IsAggro>().Aggro)
+            {
+                FaceEnemy(GameObject.FindGameObjectWithTag("Player").transform.position);
 
+            }
+            else
+                Idle();
+
+
+            if (facingRight)
+                transform.Translate(new Vector2(speed * Time.deltaTime, 0));
+            else
+                transform.Translate(new Vector2(-speed * Time.deltaTime, 0));
         }
-        else
-            Idle();
-
-
-        if (facingRight)
-            transform.Translate(new Vector2(speed * Time.deltaTime, 0));
-        else
-            transform.Translate(new Vector2(-speed * Time.deltaTime, 0));
 
 
         attackTimer -= Time.deltaTime;

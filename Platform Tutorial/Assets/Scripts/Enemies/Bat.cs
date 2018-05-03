@@ -12,20 +12,13 @@ public class Bat : FlyingEnemy {
         anim = GetComponent<Animator>();
 	}
 	
-	void Update ()
+	protected override void Update ()
     {
-        aggro = GetComponentInChildren<IsAggro>().Aggro;
-
-        if (aggro)
-        {
-            MoveTowardTarget(GameObject.FindGameObjectWithTag("Player").transform.position);
-        }
-        else
-            Idle();
+        base.Update();
 
     }
 
-    private void MoveTowardTarget(Vector2 target)
+    protected override void MoveTowardTarget(Vector2 target)
     {
         if (health > 0)
         {
@@ -35,17 +28,17 @@ public class Bat : FlyingEnemy {
 
             transform.Translate(vector);
 
+
             if (vector.x < 0)
                 anim.SetFloat("speed", -1);
             else
                 anim.SetFloat("speed", 1);
-                
 
             //Debug.Log(Vector2.MoveTowards(transform.position, target, speed) + "," + new Vector2(target.x - transform.position.x, target.y - transform.position.y).normalized * speed);
         }
     }
 
-    private void Idle()
+    protected override void Idle()
     {
         if (Vector2.Distance(transform.position, startPosition) > 1)
             MoveTowardTarget(startPosition);
@@ -67,13 +60,8 @@ public class Bat : FlyingEnemy {
         anim.SetBool("death", true);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected override void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
-        {
-            other.GetComponent<Entity>().Harm(1, knockback, knockback, gameObject);
-
-            Knockback(knockback, knockback, other.transform.position.x > transform.position.x);
-        }
+        base.OnTriggerEnter2D(other);
     }
 }

@@ -6,8 +6,11 @@ public class Entity : MonoBehaviour {
     
     protected int health = 3;
     public int maxHealth = 3;
+    public float hitStun = 2;
     protected Rigidbody2D rgbd2d;
     protected int damage = 1;
+    protected float stunTimer;
+    protected float damageTimer;
 
     protected virtual void Start ()
     {
@@ -15,13 +18,17 @@ public class Entity : MonoBehaviour {
         rgbd2d = GetComponent<Rigidbody2D>();
     }
 	
-	void Update () {
-
+	protected virtual void Update ()
+    {
+        stunTimer -= Time.deltaTime;
+        damageTimer -= Time.deltaTime;
     }
 
     public virtual void Harm(int dmg, float knockBack, float knockUp, GameObject source)
     {
-            health -= dmg;
+        stunTimer = hitStun;
+
+        health -= dmg;
 
         Knockback(knockBack, knockUp, source.transform.position.x > transform.position.x);
 
