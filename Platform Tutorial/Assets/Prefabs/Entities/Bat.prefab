@@ -173,6 +173,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &114541618565232300
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,9 +185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8864ad6f19337941adb6feb48ea6d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  maxHealth: 3
+  hitStun: 1
   speed: 0.1
-  turning: 0.9
   knockback: 4
 --- !u!114 &114541838188505902
 MonoBehaviour:
@@ -213,6 +214,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:

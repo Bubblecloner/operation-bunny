@@ -3,19 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
-
+private bool triggered;
+private SpriteRenderer rend;
 
 public class blackfadein : MonoBehaviour {
 
-	void Start () {
-		
+	void Start ()
+    {
+        triggered = false;
+        rend = GetComponent<SpriteRenderer>();
 	}
 
-   
-
-	void Update ()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        GetComponent<"black">();
-        black.DoFade(0, 2.0f);
+        if(collision.CompareTag("player") && !triggered)
+        {
+            triggered = true;
+            rend.DOFade(0, 2.0F);
+        }
+    }
+
+    void Update ()
+    {
 	}
 }

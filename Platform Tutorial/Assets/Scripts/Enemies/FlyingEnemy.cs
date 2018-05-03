@@ -17,20 +17,21 @@ public class FlyingEnemy : Entity
         startPosition = transform.position;
     }
 
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         aggro = GetComponentInChildren<IsAggro>().Aggro;
-
-        if (aggro)
-        {
-            MoveTowardTarget(GameObject.FindGameObjectWithTag("Player").transform.position);
-        }
-        else
-            Idle();
+        if (stunTimer < 0)
+            if (aggro)
+            {
+                MoveTowardTarget(GameObject.FindGameObjectWithTag("Player").transform.position);
+            }
+            else
+                Idle();
 
     }
 
-    private void MoveTowardTarget(Vector2 target)
+    protected virtual void MoveTowardTarget(Vector2 target)
     {
         if (health > 0)
         {
@@ -42,7 +43,7 @@ public class FlyingEnemy : Entity
         }
     }
 
-    private void Idle()
+    protected virtual void Idle()
     {
         if (Vector2.Distance(transform.position, startPosition) > 1)
             MoveTowardTarget(startPosition);
@@ -60,7 +61,7 @@ public class FlyingEnemy : Entity
         base.Die();
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")
         {

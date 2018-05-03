@@ -10,7 +10,6 @@ public class PlayerVariables : Entity {
     public AudioClip hurt;
     public AudioClip fallDeath;
 
-    private float damageTimer;
     private AudioSource myAudioSource;
 
     protected override void Start ()
@@ -20,11 +19,9 @@ public class PlayerVariables : Entity {
         myAudioSource = GetComponent<AudioSource>();
     }
 	
-	void Update ()
+	protected override void Update ()
     {
-
-        if(damageTimer > 0)
-            damageTimer -= Time.deltaTime;
+        base.Update();
 
         GameController.gameControllerInstance.playerHealth = health;
     }
