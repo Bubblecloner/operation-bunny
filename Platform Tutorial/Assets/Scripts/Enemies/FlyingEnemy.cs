@@ -51,7 +51,7 @@ public class FlyingEnemy : Entity
 
     public override void Harm(int dmg, float knockBack, float knockUp, GameObject source)
     {
-        knockback /= 2;
+        knockBack /= 2;
         knockUp /= 3;
         base.Harm(dmg, knockBack, knockUp, source);
     }
@@ -67,7 +67,7 @@ public class FlyingEnemy : Entity
         {
             other.GetComponent<Entity>().Harm(1, knockback, knockback, gameObject);
 
-            Knockback(knockback, knockback, other.transform.position.x > transform.position.x);
+            Harm(0,knockback,knockback,other.gameObject);
         }
     }
 }
