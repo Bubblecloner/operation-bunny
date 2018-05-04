@@ -60,6 +60,9 @@ MonoBehaviour:
   - {fileID: 1238008450592918, guid: 3832431e9401bba4686d4799ae4edebe, type: 2}
   - {fileID: 1238008450592918, guid: e4a9e6e963a4641419362ece0e67b8ac, type: 2}
   potionParent: {fileID: 0}
+  player: {fileID: 0}
+  potionSwapIcon: {fileID: 1360533587627530, guid: ed8834005acefd9489d82670830957c7,
+    type: 2}
   playerHealth: 0
   coins: 0
   potions: 
