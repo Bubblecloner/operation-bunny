@@ -13,6 +13,8 @@ public class GameController : MonoBehaviour {
     public GameObject heartParent;
     public GameObject[] potionIcons;
     public GameObject potionParent;
+    public GameObject player;
+    public GameObject potionSwapIcon;
 
     public float playerHealth;
 
@@ -21,6 +23,7 @@ public class GameController : MonoBehaviour {
     [HideInInspector]
     public int[] potions;
 
+    private int consecutive = 10;
     private Quaternion originalCameraRotation;
 
 	void Start ()
@@ -70,6 +73,20 @@ public class GameController : MonoBehaviour {
                 potionParent.transform.Find("Potion" + i.ToString()).GetComponent<Image>().sprite = potionIcons[potions[i]].GetComponent<Image>().sprite;
             else 
                 InstantiatePotions();
+        }
+    }
+
+    public void SwapPotions()
+    {
+        player.GetComponent<PotionHandler>().SwapPotions();
+        if (potions[0] != 0)
+        {
+            GameObject temp = Instantiate(potionSwapIcon, player.transform);
+            temp.GetComponent<SpriteRenderer>().sprite = potionIcons[potions[0]].GetComponent<Image>().sprite;
+            temp.transform.localPosition = new Vector2(0, 1.2f);
+            temp.transform.localScale = new Vector2(0.2f, 0.2f);
+            temp.GetComponent<SpriteRenderer>().sortingOrder = consecutive;
+            consecutive++;
         }
     }
 
