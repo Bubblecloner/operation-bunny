@@ -2697,18 +2697,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 114473664055289108, guid: bd09b02ae3ef0d94a81bb3e62d4ce400,
-        type: 2}
-      propertyPath: bonusDamageParticles
-      value: 
-      objectReference: {fileID: 1066161328622114, guid: 9737cb32bd9179147ad0a258725aa3c8,
-        type: 2}
-    - target: {fileID: 114473664055289108, guid: bd09b02ae3ef0d94a81bb3e62d4ce400,
-        type: 2}
-      propertyPath: invincibilityParticles
-      value: 
-      objectReference: {fileID: 1066161328622114, guid: c3b74578094c4b74994615489a3dd3b5,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd09b02ae3ef0d94a81bb3e62d4ce400, type: 2}
   m_IsPrefabParent: 0
