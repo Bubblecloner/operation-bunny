@@ -12,6 +12,8 @@ public class PlatformInputs : MonoBehaviour
     public float shotSpeed = 4;
     public float potionDrink = 2;
     public float shieldReapairTime = 4;
+    public float fastFallSpeed = 3;
+    public float slowFallSpeed = 0.5f;
     public int startArrows = 5;
     public Transform groundCheckR;
     public Transform groundCheckL;
@@ -36,6 +38,7 @@ public class PlatformInputs : MonoBehaviour
     private Rigidbody2D rgbd2d;
     private Animator anim;
     private Vector2 aimingDir = Vector2.right;
+    private Vector2 gravity;
 
     private bool rightTriggerFirstFrame = true;
     public bool Shielding { get; private set; }
@@ -46,6 +49,8 @@ public class PlatformInputs : MonoBehaviour
         arrows = startArrows;
         rgbd2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        gravity = Physics2D.gravity;
     }
 
     void Update()
@@ -53,6 +58,14 @@ public class PlatformInputs : MonoBehaviour
 
         horizontalDirection = Input.GetAxis("Horizontal");
         verticalDirection = Input.GetAxis("Vertical");
+
+        if (!grounded && verticalDirection > 0)
+            Physics2D.gravity = new Vector2(0, gravity.y * slowFallSpeed);
+        else if (!grounded && verticalDirection < 0)
+            Physics2D.gravity = new Vector2(0, gravity.y * fastFallSpeed);
+        else
+            Physics2D.gravity = gravity;
+        Debug.Log(Physics2D.gravity);
 
 
 
