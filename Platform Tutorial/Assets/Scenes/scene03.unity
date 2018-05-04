@@ -263,6 +263,11 @@ Prefab:
       propertyPath: potionParent
       value: 
       objectReference: {fileID: 2040605515}
+    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1854342752}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53eaa6b47a8db664fb374088ca0a4259, type: 2}
   m_IsPrefabParent: 0
@@ -14527,6 +14532,11 @@ Transform:
   m_PrefabParentObject: {fileID: 4533873582411314, guid: f9cba6ee69aa5624fad968d12f452674,
     type: 2}
   m_PrefabInternal: {fileID: 2060970127}
+--- !u!1 &1854342752 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1429595871247458, guid: bd09b02ae3ef0d94a81bb3e62d4ce400,
+    type: 2}
+  m_PrefabInternal: {fileID: 1531154964}
 --- !u!1001 &1867066312
 Prefab:
   m_ObjectHideFlags: 0
