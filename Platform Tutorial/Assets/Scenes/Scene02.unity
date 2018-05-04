@@ -2504,12 +2504,6 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 355351195}
-    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
-        type: 2}
-      propertyPath: potionSwapIcon
-      value: 
-      objectReference: {fileID: 1360533587627530, guid: ed8834005acefd9489d82670830957c7,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53eaa6b47a8db664fb374088ca0a4259, type: 2}
   m_IsPrefabParent: 0
@@ -2703,6 +2697,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 114473664055289108, guid: bd09b02ae3ef0d94a81bb3e62d4ce400,
+        type: 2}
+      propertyPath: bonusDamageParticles
+      value: 
+      objectReference: {fileID: 1066161328622114, guid: 9737cb32bd9179147ad0a258725aa3c8,
+        type: 2}
+    - target: {fileID: 114473664055289108, guid: bd09b02ae3ef0d94a81bb3e62d4ce400,
+        type: 2}
+      propertyPath: invincibilityParticles
+      value: 
+      objectReference: {fileID: 1066161328622114, guid: c3b74578094c4b74994615489a3dd3b5,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd09b02ae3ef0d94a81bb3e62d4ce400, type: 2}
   m_IsPrefabParent: 0

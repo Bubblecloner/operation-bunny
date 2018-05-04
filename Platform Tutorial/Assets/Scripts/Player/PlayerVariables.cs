@@ -9,6 +9,8 @@ public class PlayerVariables : Entity {
     public AudioClip coinPickup;
     public AudioClip hurt;
     public AudioClip fallDeath;
+    public GameObject bonusDamageParticles;
+    public GameObject invincibilityParticles;
 
     private AudioSource myAudioSource;
 
@@ -52,6 +54,11 @@ public class PlayerVariables : Entity {
     public void Invincible(float time)
     {
         damageTimer = time;
+
+
+        GameObject temp = Instantiate(invincibilityParticles, transform);
+        temp.transform.localPosition = new Vector2(0, 0.5f);
+        temp.GetComponent<DestroyAfterLifetime>().lifetime = time;
     }
 
     public void TempDamageIncrease(int bonusDamage,float time)
@@ -60,6 +67,11 @@ public class PlayerVariables : Entity {
 
         for(int i=0; i < bonusDamage; i++)
         Invoke("DamageDecrease", time);
+
+
+        GameObject temp = Instantiate(bonusDamageParticles,transform);
+        temp.transform.localPosition = new Vector2(0, 0.5f);
+        temp.GetComponent<DestroyAfterLifetime>().lifetime = time;
     }
 
     private void DamageDecrease()
