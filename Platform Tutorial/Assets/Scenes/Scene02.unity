@@ -433,6 +433,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &355351195 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1429595871247458, guid: bd09b02ae3ef0d94a81bb3e62d4ce400,
+    type: 2}
+  m_PrefabInternal: {fileID: 1974921574}
 --- !u!1 &393255613
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +918,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 3
+  hitStun: 2
   speed: 0.1
   knockback: 4
 --- !u!50 &650077560
@@ -1512,7 +1518,7 @@ GameObject:
   m_Layer: 0
   m_Name: StartPosition
   m_TagString: Untagged
-  m_Icon: {fileID: -6431860639581277017, guid: 0000000000000000d000000000000000, type: 0}
+  m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -2493,6 +2499,17 @@ Prefab:
       propertyPath: potionParent
       value: 
       objectReference: {fileID: 1778270013}
+    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
+        type: 2}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 355351195}
+    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
+        type: 2}
+      propertyPath: potionSwapIcon
+      value: 
+      objectReference: {fileID: 1360533587627530, guid: ed8834005acefd9489d82670830957c7,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53eaa6b47a8db664fb374088ca0a4259, type: 2}
   m_IsPrefabParent: 0

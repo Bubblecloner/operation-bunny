@@ -117,7 +117,7 @@ public class PlatformInputs : MonoBehaviour
             Potion();
         else if (Input.GetButtonDown("PotionSwap"))
         {
-            GetComponent<PotionHandler>().SwapPotions();
+            GameController.gameControllerInstance.SwapPotions();
         }
 
 
