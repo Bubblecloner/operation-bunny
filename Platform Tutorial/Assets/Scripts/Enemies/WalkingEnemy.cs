@@ -15,7 +15,7 @@ public class WalkingEnemy : Entity {
     public LayerMask wallMask;
 
 
-    private bool facingRight = true;
+    protected bool facingRight = true;
     private float attackTimer;
 
 	
@@ -45,7 +45,7 @@ public class WalkingEnemy : Entity {
         attackTimer -= Time.deltaTime;
     }
 
-    private void FaceEnemy(Vector2 target)
+    protected void FaceEnemy(Vector2 target)
     {
         if (health > 0)
         {
@@ -67,7 +67,7 @@ public class WalkingEnemy : Entity {
         }
     }
 
-    private void Idle()
+    protected void Idle()
     {
 
 
@@ -78,7 +78,7 @@ public class WalkingEnemy : Entity {
             Flip();
     }
 
-    private void Attack()
+    protected virtual void Attack()
     {
         GameObject temp = Instantiate(attack, transform, false);
         temp.transform.localScale = attackSize;
@@ -93,7 +93,7 @@ public class WalkingEnemy : Entity {
 
     }
 
-    private void Flip()
+    protected void Flip()
     {
         facingRight = !facingRight;
         fallCheck.localPosition = new Vector2(-fallCheck.localPosition.x,fallCheck.localPosition.y);
