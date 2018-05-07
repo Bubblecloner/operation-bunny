@@ -65,7 +65,6 @@ public class PlatformInputs : MonoBehaviour
             Physics2D.gravity = new Vector2(0, gravity.y * fastFallSpeed);
         else
             Physics2D.gravity = gravity;
-        Debug.Log(Physics2D.gravity);
 
 
 
