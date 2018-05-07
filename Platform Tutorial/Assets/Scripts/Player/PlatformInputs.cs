@@ -34,7 +34,6 @@ public class PlatformInputs : MonoBehaviour
     private bool jumped;
     private bool aiming = false;
     private bool rightBool = true;
-    private bool drunk = false;
     private Rigidbody2D rgbd2d;
     private Animator anim;
     private Vector2 aimingDir = Vector2.right;
@@ -243,7 +242,6 @@ public class PlatformInputs : MonoBehaviour
 
     private void StartPotion()
     {
-        drunk = false;
         potionTimer = potionDrink;
     }
 
@@ -278,6 +276,21 @@ public class PlatformInputs : MonoBehaviour
         transform.GetComponentInChildren<Arrow>().transform.rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, aimingDir - new Vector2(0, GetComponent<BoxCollider2D>().size.y / 2)), new Vector3(0, 0, 1));
 
 
+    }
+
+    private void StartMouseAim()
+    {
+        aiming = true;
+
+        
+
+        if (horizontalDirection != 0 || verticalDirection != 0)
+            aimingDir = new Vector2(horizontalDirection, verticalDirection).normalized + new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2);
+
+        Instantiate(arrow, transform, false).transform.localPosition = aimingDir;
+
+
+        transform.GetComponentInChildren<Arrow>().transform.rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, aimingDir - new Vector2(0, GetComponent<BoxCollider2D>().size.y / 2)), new Vector3(0, 0, 1));
     }
 
     private void Shot()

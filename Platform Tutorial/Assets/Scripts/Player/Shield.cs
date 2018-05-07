@@ -12,7 +12,7 @@ public class Shield : Entity {
         GetComponentInParent<PlatformInputs>().ShieldActive = true;
     }
 	
-	void Update () {
+	protected override void Update () {
 
 	}
 

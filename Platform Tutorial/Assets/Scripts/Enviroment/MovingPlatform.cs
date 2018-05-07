@@ -6,7 +6,7 @@ public class MovingPlatform : MonoBehaviour {
 
     public Transform[] targets;
     public float moveSpeed = 3.0f;
-
+    
     private int currentTarget;
 
 	void Start ()
