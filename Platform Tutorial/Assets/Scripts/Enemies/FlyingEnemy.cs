@@ -65,7 +65,7 @@ public class FlyingEnemy : Entity
         {
             other.GetComponent<Entity>().Harm(1, knockback, knockback, gameObject);
 
-            Harm(0,knockback,knockback,other.gameObject);
+            Harm(0,knockback/3,knockback/3,other.gameObject);
 
         }
     }
