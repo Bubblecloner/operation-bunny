@@ -8,7 +8,7 @@ public class StoryElement : MonoBehaviour {
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(Dialogue);
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
     }
 
 }
