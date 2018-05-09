@@ -61,12 +61,15 @@ public class PlatformInputs : MonoBehaviour
         horizontalDirection = Input.GetAxis("Horizontal");
         verticalDirection = Input.GetAxis("Vertical");
 
-        if (!grounded && verticalDirection > 0)
-            Physics2D.gravity = new Vector2(0, gravity.y * slowFallSpeed);
-        else if (!grounded && verticalDirection < 0)
-            Physics2D.gravity = new Vector2(0, gravity.y * fastFallSpeed);
-        else
-            Physics2D.gravity = gravity;
+        if (rgbd2d.velocity.y < 0)
+        {
+            if (!grounded && verticalDirection > 0)
+                Physics2D.gravity = new Vector2(0, gravity.y * slowFallSpeed);
+            else if (!grounded && verticalDirection < 0)
+                Physics2D.gravity = new Vector2(0, gravity.y * fastFallSpeed);
+            else
+                Physics2D.gravity = gravity;
+        }
 
 
 
