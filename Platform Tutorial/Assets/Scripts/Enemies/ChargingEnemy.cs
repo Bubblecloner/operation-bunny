@@ -4,15 +4,34 @@ using UnityEngine;
 
 public class ChargingEnemy : WalkingEnemy {
 
+    private float normalSpeed;
+
     protected override void Start()
     {
         base.Start();
         facingRight = false;
+        normalSpeed = speed;
     }
 
     protected override void Update ()
     {
         base.Update();
+    }
+
+    protected override void FaceEnemy(Vector2 target)
+    {
+        if (health > 0)
+        {
+            if (Vector2.Distance(transform.position, target) < triggerRange && attackTimer < 0)
+            {
+                speed = 0;
+            }
+        }
+
+
+        base.FaceEnemy(target);
+
+
     }
 
     protected override void Attack()
@@ -33,5 +52,7 @@ public class ChargingEnemy : WalkingEnemy {
             rgbd2d.AddForce(new Vector2(-10, 0), ForceMode2D.Impulse);
 
         stunTimer = hitStun;
+
+        speed = normalSpeed;
     }
 }

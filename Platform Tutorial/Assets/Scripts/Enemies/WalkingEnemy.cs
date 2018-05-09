@@ -16,7 +16,7 @@ public class WalkingEnemy : Entity {
 
 
     protected bool facingRight = true;
-    private float attackTimer;
+    protected float attackTimer;
 
 	
 	
@@ -45,7 +45,7 @@ public class WalkingEnemy : Entity {
         attackTimer -= Time.deltaTime;
     }
 
-    protected void FaceEnemy(Vector2 target)
+    protected virtual void FaceEnemy(Vector2 target)
     {
         if (health > 0)
         {
@@ -58,10 +58,8 @@ public class WalkingEnemy : Entity {
 
 
 
-            if (target.x > transform.position.x)
-                facingRight = true;
-            else
-                facingRight = false;
+            if (target.x > transform.position.x ^ facingRight)
+                Flip();
 
 
         }
