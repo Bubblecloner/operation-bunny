@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class PlatformInputs : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class PlatformInputs : MonoBehaviour
     private bool jumped;
     private bool aiming = false;
     private bool rightBool = true;
+    private bool hiddenRightBool;
     private Rigidbody2D rgbd2d;
     private Animator anim;
     private Vector2 aimingDir = Vector2.right;
@@ -359,13 +361,25 @@ public class PlatformInputs : MonoBehaviour
             Invoke("StopJump", minimumJumpTime - jumpTimer);
     }
 
+    
     private void Flip(int facingRight)
     {
-        rightBool = facingRight > 0;
+
+        hiddenRightBool = facingRight > 0;
+
+
 
         /*Vector3 myScale = transform.localScale;
         myScale.x = facingRight;
         transform.localScale = myScale;*/
+
+
+        Invoke("EndFlip", 0.2f);
+    }
+
+    private void EndFlip()
+    {
+        rightBool = hiddenRightBool;
     }
 
     public void StartShieldTimer()
