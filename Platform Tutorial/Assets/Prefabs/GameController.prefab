@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coinText: {fileID: 114438821560088640, guid: 08a4bbbc42c02e44c85db2be8cca913d, type: 2}
+  arrowCount: {fileID: 0}
   heartIcon: {fileID: 1414324093336838, guid: ded84826440039248834eac9d8c3f6e9, type: 2}
   heartParent: {fileID: 0}
   potionIcons:
@@ -66,3 +67,4 @@ MonoBehaviour:
   playerHealth: 0
   coins: 0
   potions: 
+  arrows: 0
