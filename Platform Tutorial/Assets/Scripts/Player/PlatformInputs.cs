@@ -50,7 +50,10 @@ public class PlatformInputs : MonoBehaviour
         anim = GetComponent<Animator>();
 
         gravity = Physics2D.gravity;
+
+        Invoke("LateStart", 0.01f);
     }
+    
 
     void Update()
     {
@@ -301,6 +304,8 @@ public class PlatformInputs : MonoBehaviour
         transform.GetComponentInChildren<Arrow>().GetComponent<Rigidbody2D>().AddForce((aimingDir - new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2)) * shotSpeed, ForceMode2D.Impulse);
         transform.GetComponentInChildren<Arrow>().Shot();
 
+
+        GameController.gameControllerInstance.arrows = arrows;
     }
 
     private void StopShot()
@@ -363,5 +368,13 @@ public class PlatformInputs : MonoBehaviour
     public void StartShieldTimer()
     {
         shieldTimer = shieldReapairTime;
+    }
+
+
+
+
+    private void LateStart()
+    {
+        GameController.gameControllerInstance.arrows = arrows;
     }
 }

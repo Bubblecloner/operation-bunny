@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 50728582738899516}
   - component: {fileID: 114876389078269760}
   m_Layer: 8
-  m_Name: WalkinCandy
+  m_Name: ChargingCandy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

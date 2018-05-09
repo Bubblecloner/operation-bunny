@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour {
 
     public static GameController gameControllerInstance;
     public Text coinText;
+    public Text arrowCount;
     public GameObject heartIcon;
     public GameObject heartParent;
     public GameObject[] potionIcons;
@@ -22,6 +23,8 @@ public class GameController : MonoBehaviour {
     public int coins;
     [HideInInspector]
     public int[] potions;
+    [HideInInspector]
+    public int arrows;
 
     private int consecutive = 10;
     private Quaternion originalCameraRotation;
@@ -37,6 +40,7 @@ public class GameController : MonoBehaviour {
 	
 	void Update ()
     {
+        arrowCount.text = arrows.ToString();
         //coinText.text = coins.ToString();
         DisplayPotions();
 
