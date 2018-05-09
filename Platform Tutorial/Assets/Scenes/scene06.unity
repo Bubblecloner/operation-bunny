@@ -1054,6 +1054,11 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 331642619}
+    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
+        type: 2}
+      propertyPath: arrowCount
+      value: 
+      objectReference: {fileID: 570936458}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53eaa6b47a8db664fb374088ca0a4259, type: 2}
   m_IsPrefabParent: 0
@@ -22591,6 +22596,12 @@ GameObject:
   m_PrefabParentObject: {fileID: 1717998443288594, guid: 08a4bbbc42c02e44c85db2be8cca913d,
     type: 2}
   m_PrefabInternal: {fileID: 570936456}
+--- !u!114 &570936458 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114438821560088640, guid: 08a4bbbc42c02e44c85db2be8cca913d,
+    type: 2}
+  m_PrefabInternal: {fileID: 570936456}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &571572412
 GameObject:
   m_ObjectHideFlags: 0

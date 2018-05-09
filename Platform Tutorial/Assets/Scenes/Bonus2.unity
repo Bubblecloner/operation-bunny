@@ -941,6 +941,21 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 430105104}
+    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
+        type: 2}
+      propertyPath: arrowCount
+      value: 
+      objectReference: {fileID: 1573678699}
+    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
+        type: 2}
+      propertyPath: potionParent
+      value: 
+      objectReference: {fileID: 1573678700}
+    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
+        type: 2}
+      propertyPath: heartParent
+      value: 
+      objectReference: {fileID: 1573678701}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53eaa6b47a8db664fb374088ca0a4259, type: 2}
   m_IsPrefabParent: 0
@@ -1049,6 +1064,22 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08a4bbbc42c02e44c85db2be8cca913d, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1573678699 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114438821560088640, guid: 08a4bbbc42c02e44c85db2be8cca913d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1573678698}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!1 &1573678700 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1746953573585568, guid: 08a4bbbc42c02e44c85db2be8cca913d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1573678698}
+--- !u!1 &1573678701 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1717998443288594, guid: 08a4bbbc42c02e44c85db2be8cca913d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1573678698}
 --- !u!4 &1725551492 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4875471463659146, guid: 3ee152063deeba9439ae923221567bc1,

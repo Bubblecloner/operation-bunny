@@ -171,6 +171,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3ee152063deeba9439ae923221567bc1, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &154283740 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114438821560088640, guid: 08a4bbbc42c02e44c85db2be8cca913d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1573678698}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &161405477
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,6 +1426,11 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &753995893 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1717998443288594, guid: 08a4bbbc42c02e44c85db2be8cca913d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1573678698}
 --- !u!1 &817890832
 GameObject:
   m_ObjectHideFlags: 0
@@ -1998,6 +2009,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1254204346 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1746953573585568, guid: 08a4bbbc42c02e44c85db2be8cca913d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1573678698}
 --- !u!1 &1291627291
 GameObject:
   m_ObjectHideFlags: 0
@@ -2455,6 +2471,21 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 430105104}
+    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
+        type: 2}
+      propertyPath: arrowCount
+      value: 
+      objectReference: {fileID: 154283740}
+    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
+        type: 2}
+      propertyPath: heartParent
+      value: 
+      objectReference: {fileID: 753995893}
+    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
+        type: 2}
+      propertyPath: potionParent
+      value: 
+      objectReference: {fileID: 1254204346}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53eaa6b47a8db664fb374088ca0a4259, type: 2}
   m_IsPrefabParent: 0

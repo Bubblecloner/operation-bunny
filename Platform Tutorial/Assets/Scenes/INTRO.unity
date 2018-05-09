@@ -12634,6 +12634,21 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 831854723}
+    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
+        type: 2}
+      propertyPath: arrowCount
+      value: 
+      objectReference: {fileID: 1627150378}
+    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
+        type: 2}
+      propertyPath: potionParent
+      value: 
+      objectReference: {fileID: 1627150376}
+    - target: {fileID: 114324845315136462, guid: 53eaa6b47a8db664fb374088ca0a4259,
+        type: 2}
+      propertyPath: heartParent
+      value: 
+      objectReference: {fileID: 1627150377}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 53eaa6b47a8db664fb374088ca0a4259, type: 2}
   m_IsPrefabParent: 0
@@ -17761,9 +17776,35 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 224256010314654344, guid: 08a4bbbc42c02e44c85db2be8cca913d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 224870632229965876, guid: 08a4bbbc42c02e44c85db2be8cca913d,
+        type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 08a4bbbc42c02e44c85db2be8cca913d, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &1627150376 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1746953573585568, guid: 08a4bbbc42c02e44c85db2be8cca913d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1627150375}
+--- !u!1 &1627150377 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1717998443288594, guid: 08a4bbbc42c02e44c85db2be8cca913d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1627150375}
+--- !u!114 &1627150378 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114438821560088640, guid: 08a4bbbc42c02e44c85db2be8cca913d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1627150375}
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1641644151
 GameObject:
   m_ObjectHideFlags: 0
