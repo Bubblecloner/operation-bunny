@@ -6,8 +6,10 @@ public class Arrow : MonoBehaviour {
 
     public LayerMask layerMask;
     public int penetration = 1;
+    public float pickChance = 0.5f;
 
     private bool flying = false;
+    private bool pickable = false;
     private Vector2 hitPoint = Vector2.zero;
     
 	
@@ -31,13 +33,13 @@ public class Arrow : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Enemy")
+        if(other.tag == "Enemy" && flying)
         {
             other.GetComponent<Entity>().Harm(1,0,0,gameObject);
             penetration--;
         }
 
-        if ((!other.isTrigger || ( other.tag == "Enemy" && penetration <= 0)) && other.tag != "Player")
+        if ((!other.isTrigger || ( other.tag == "Enemy" && penetration <= 0)) && other.tag != "Player" && flying)
         {
 
             GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -45,11 +47,25 @@ public class Arrow : MonoBehaviour {
 
 
             flying = false;
-            hitPoint = transform.localPosition;
+            if ((Vector2)transform.localPosition != Vector2.zero)
+                hitPoint = transform.localPosition;
+            else
+                hitPoint = Vector2.one;
 
 
             GetComponent<Rigidbody2D>().gravityScale = 0;
-            GetComponent<BoxCollider2D>().enabled = false;
+
+            if (other.tag != "Enemy")
+                pickable = true;
+        }
+
+        if(pickable && other.tag == "Player")
+        {
+            if(Random.Range(0f,1f) < pickChance)
+            {
+                other.GetComponentInParent<PlatformInputs>().AddArrows(1);
+            }
+            Destroy(gameObject);
         }
     }
 }

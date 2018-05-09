@@ -361,7 +361,6 @@ public class PlatformInputs : MonoBehaviour
             Invoke("StopJump", minimumJumpTime - jumpTimer);
     }
 
-    
     private void Flip(int facingRight)
     {
 
@@ -387,7 +386,15 @@ public class PlatformInputs : MonoBehaviour
         shieldTimer = shieldReapairTime;
     }
 
+    public void AddArrows(int amount)
+    {
+        if (arrows + amount > startArrows)
+            arrows = startArrows;
+        else
+            arrows += amount;
 
+        GameController.gameControllerInstance.arrows = arrows;
+    }
 
 
     private void LateStart()
