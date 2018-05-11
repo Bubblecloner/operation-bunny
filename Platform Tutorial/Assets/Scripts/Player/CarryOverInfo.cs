@@ -6,6 +6,7 @@ public class CarryOverInfo : MonoBehaviour {
 
     public static CarryOverInfo carryOverInfoInstance;
     public int maxPotions = 3;
+    public Vector2 choosenLevel;
     private int[] pots = { 0, 0, 0 };
 
     private Vector2 gravity;

@@ -15,6 +15,10 @@ public class OverworldController : MonoBehaviour {
 
 	void Start ()
     {
+        if (CarryOverInfo.carryOverInfoInstance.choosenLevel != null)
+            FindLevel(CarryOverInfo.carryOverInfoInstance.choosenLevel);
+
+
         player.transform.position = choosenLevel.transform.position;
 	}
 	
@@ -71,8 +75,14 @@ public class OverworldController : MonoBehaviour {
         moveTimer += Time.deltaTime;
     }
 
+    private void FindLevel(Vector2 posistion)
+    {
+        choosenLevel = Physics2D.OverlapCircle(posistion,0.01f).GetComponent<OverworldLevel>();
+    }
+
     private void StartLevel()
     {
+        CarryOverInfo.carryOverInfoInstance.choosenLevel = choosenLevel.transform.position;
         SceneManager.LoadScene(choosenLevel.levelScene);
     }
 }
