@@ -55,4 +55,11 @@ public class ChargingEnemy : WalkingEnemy {
 
         speed = normalSpeed;
     }
+
+    protected override void Flip()
+    {
+        base.Flip();
+
+        rgbd2d.velocity = new Vector2(0, rgbd2d.velocity.y);
+    }
 }

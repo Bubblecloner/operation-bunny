@@ -215,6 +215,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outOfAggroTime: 0
+  failedResetTime: 2.5
 --- !u!114 &114876389078269760
 MonoBehaviour:
   m_ObjectHideFlags: 1

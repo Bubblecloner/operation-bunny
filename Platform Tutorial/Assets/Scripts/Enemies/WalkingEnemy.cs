@@ -31,8 +31,10 @@ public class WalkingEnemy : Entity {
                 FaceEnemy(GameObject.FindGameObjectWithTag("Player").transform.position);
 
             }
-            else
-                Idle();
+
+
+
+
 
 
             if (facingRight)
@@ -41,6 +43,10 @@ public class WalkingEnemy : Entity {
                 transform.Translate(new Vector2(-speed * Time.deltaTime, 0));
         }
 
+        if (!Physics2D.OverlapPoint(fallCheck.position, wallMask) || Physics2D.OverlapPoint(frontCheck.position, wallMask))
+        {
+            Flip();
+        }
 
         attackTimer -= Time.deltaTime;
     }
@@ -65,17 +71,6 @@ public class WalkingEnemy : Entity {
         }
     }
 
-    protected void Idle()
-    {
-
-
-        if (!Physics2D.OverlapPoint(fallCheck.position, wallMask))
-            Flip();
-
-        if (Physics2D.OverlapPoint(frontCheck.position, wallMask))
-            Flip();
-    }
-
     protected virtual void Attack()
     {
         GameObject temp = Instantiate(attack, transform, false);
@@ -91,8 +86,12 @@ public class WalkingEnemy : Entity {
 
     }
 
-    protected void Flip()
+    protected virtual void Flip()
     {
+        if (GetComponentInChildren<IsAggro>().Aggro)
+            GetComponentInChildren<IsAggro>().FailedToReach();
+
+
         facingRight = !facingRight;
         fallCheck.localPosition = new Vector2(-fallCheck.localPosition.x,fallCheck.localPosition.y);
         frontCheck.localPosition = new Vector2(-frontCheck.localPosition.x, frontCheck.localPosition.y);

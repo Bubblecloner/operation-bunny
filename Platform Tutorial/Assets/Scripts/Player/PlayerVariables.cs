@@ -99,7 +99,6 @@ public class PlayerVariables : Entity {
 
         myAudioSource.pitch = Random.Range(0.5f, 1.5f);
         myAudioSource.PlayOneShot(fallDeath, 0.5f);
-        Debug.Log("test");
 
         Die();
     }
