@@ -65,9 +65,9 @@ public class PlatformInputs : MonoBehaviour
 
         if (rgbd2d.velocity.y < 0)
         {
-            if (!grounded && verticalDirection > 0)
+            if (!grounded && verticalDirection > 0.2f)
                 Physics2D.gravity = new Vector2(0, gravity.y * slowFallSpeed);
-            else if (!grounded && verticalDirection < 0)
+            else if (!grounded && verticalDirection < -0.2f)
                 Physics2D.gravity = new Vector2(0, gravity.y * fastFallSpeed);
             else
                 Physics2D.gravity = gravity;
@@ -314,6 +314,7 @@ public class PlatformInputs : MonoBehaviour
 
     private void Jump()
     {
+        Physics2D.gravity = gravity;
         rgbd2d.velocity = new Vector2(rgbd2d.velocity.x, jumpHeight);
         if (!grounded)
         {
