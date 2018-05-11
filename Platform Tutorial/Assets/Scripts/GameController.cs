@@ -58,7 +58,7 @@ public class GameController : MonoBehaviour {
     {
         for(int i = potionParent.transform.childCount; i < potions.Length; i++)
         {
-            GameObject temp = Instantiate(potionIcons[potions[i]], potionParent.transform, false);
+            GameObject temp = Instantiate(potionIcons[potions[0]], potionParent.transform, false);
             temp.transform.localPosition = new Vector3(80 * (potionParent.transform.childCount - 1) + 95, 80, 0);
             temp.name = "Potion" + i.ToString();
             if (i != 0)
@@ -119,6 +119,8 @@ public class GameController : MonoBehaviour {
 
     public void LoadLevel(int levelToLoad)
     {
+        CarryOverInfo.carryOverInfoInstance.UpdatePlayerStats(GameObject.FindGameObjectWithTag("Player").GetComponentInParent<PlayerVariables>().gameObject);
+
         int previousCoins = PlayerPrefs.GetInt("coins");
         previousCoins += coins;
         PlayerPrefs.SetInt("coins", previousCoins);
