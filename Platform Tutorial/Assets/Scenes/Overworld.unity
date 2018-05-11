@@ -920,7 +920,7 @@ MonoBehaviour:
   - {fileID: 2069505392}
   - {fileID: 0}
   - {fileID: 1235410061}
-  levelScene: 8
+  levelScene: 3
   unlocked: 1
 --- !u!1 &1714610253
 GameObject:

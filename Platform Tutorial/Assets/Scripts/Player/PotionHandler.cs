@@ -11,11 +11,12 @@ public class PotionHandler : MonoBehaviour {
 	void Start ()
     {
         potions = new int[maxPotions];
-	}
+        Potions = CarryOverInfo.carryOverInfoInstance.Potions;
+    }
 	
 	void Update ()
     {
-        GameController.gameControllerInstance.potions = potions;
+        GameController.gameControllerInstance.potions = Potions;
 	}
 
     public void DrinkPotion()
@@ -87,9 +88,9 @@ public class PotionHandler : MonoBehaviour {
     public bool AddPotion(int potionId)
     {
         PotionDefrag();
-        if (potions[potions.Length - 1] == 0)
+        if (Potions[potions.Length - 1] == 0)
         {
-            potions[potions.Length - 1] = potionId;
+            Potions[potions.Length - 1] = potionId;
             PotionDefrag();
             return true;
         }
@@ -107,6 +108,10 @@ public class PotionHandler : MonoBehaviour {
                 Debug.Log(value.ToString() + "Is not a proper value");
 
             PotionDefrag();
+        }
+        get
+        {
+            return potions;
         }
     }
 }

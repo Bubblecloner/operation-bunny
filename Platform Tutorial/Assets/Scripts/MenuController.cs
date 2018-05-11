@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class MenuController : MonoBehaviour {
 
+    public int scene = 1;
+
     public Text coinText;
 
     public void Start()
@@ -15,7 +17,7 @@ public class MenuController : MonoBehaviour {
 
     public void StartGame()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(scene);
     }
 
     public void QuitGame()
