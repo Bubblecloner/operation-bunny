@@ -93,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1429595871247458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.376846, y: -2.228527, z: 0}
+  m_LocalPosition: {x: -6.77, y: -0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4479166337676772}
@@ -109,7 +109,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1251625175957454}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: -0.03, z: 0}
+  m_LocalPosition: {x: 0.2, y: -0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4307809607599682}
@@ -135,7 +135,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1160795545646912}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.2, y: -0.03, z: 0}
+  m_LocalPosition: {x: -0.2, y: -0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4307809607599682}
@@ -403,7 +403,7 @@ MonoBehaviour:
   potionDrink: 2
   shieldReapairTime: 4
   fastFallSpeed: 3
-  slowFallSpeed: 0.5
+  slowFallSpeed: 0.2
   startArrows: 5
   groundCheckR: {fileID: 4479166337676772}
   groundCheckL: {fileID: 4840518931618262}
