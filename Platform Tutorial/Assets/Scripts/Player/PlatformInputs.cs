@@ -81,6 +81,7 @@ public class PlatformInputs : MonoBehaviour
         grounded = ((Physics2D.OverlapPointAll(groundCheckR.position, jumpMask).Length >= 1 && Physics2D.OverlapPointAll(groundCheckR.position, jumpMask)[0].isTrigger == false) || (Physics2D.OverlapPointAll(groundCheckL.position, jumpMask).Length >= 1 && Physics2D.OverlapPointAll(groundCheckL.position, jumpMask)[0].isTrigger == false)) && rgbd2d.velocity.y < 0.1f;
         if (grounded)
         {
+            Physics2D.gravity = gravity;
             jumped = false;
             jumpTimer = -1;
         }
