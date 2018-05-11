@@ -15,9 +15,24 @@ EditorBuildSettings:
     path: Assets/Scenes/Scene01.unity
     guid: 4e5a64bf335f9be4c9c689f721c75cbb
   - enabled: 1
-    path: Assets/Scenes/Test Level.unity
-    guid: caacde3a30de2734faba2bd2fbfaf00f
-  - enabled: 1
-    path: Assets/Scenes/scene07.unity
+    path: Assets/Scenes/scene06.unity
     guid: 1efdf25971895d548b7324799aeb4191
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
+    guid: 47f6935b80b56cd4687ef3479c981ae1
+  - enabled: 1
+    path: Assets/Scenes/Overworld.unity
+    guid: 1755eb8a1bcf83f4eadd8aba4e0c39f5
+  - enabled: 1
+    path: Assets/Scenes/Store.unity
+    guid: 1ff093874ad0fba48b02a5447082c9fe
+  - enabled: 1
+    path: Assets/Scenes/scene03.unity
+    guid: 2675b8283b2932d4ca5d45a03867854f
+  - enabled: 1
+    path: Assets/Scenes/Boss1.unity
+    guid: d66502d17ff694c449f76b7f4d35b0f2
+  - enabled: 1
+    path: Assets/Scenes/Bonus2.unity
+    guid: be940e813a8478342b19e21b1c457b0f
   m_configObjects: {}
