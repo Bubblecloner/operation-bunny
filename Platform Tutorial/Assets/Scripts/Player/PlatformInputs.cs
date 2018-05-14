@@ -36,9 +36,11 @@ public class PlatformInputs : MonoBehaviour
     private bool aiming = false;
     private bool rightBool = true;
     private bool hiddenRightBool;
+    private bool usingKeyboard = true;
     private Rigidbody2D rgbd2d;
     private Animator anim;
     private Vector2 aimingDir = Vector2.right;
+    private Vector2 aimingDirRaw;
     private Vector2 gravity;
 
     private bool rightTriggerFirstFrame = true;
@@ -62,6 +64,16 @@ public class PlatformInputs : MonoBehaviour
 
         horizontalDirection = Input.GetAxis("Horizontal");
         verticalDirection = Input.GetAxis("Vertical");
+
+        if (usingKeyboard)
+        {
+            aimingDirRaw = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
+            Debug.Log(((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized);
+        }
+        else
+            aimingDirRaw = new Vector2(horizontalDirection, verticalDirection).normalized;
+
+
 
         if (rgbd2d.velocity.y < 0)
         {
@@ -253,8 +265,8 @@ public class PlatformInputs : MonoBehaviour
         aiming = true;
 
 
-        if (horizontalDirection != 0 || verticalDirection != 0)
-            aimingDir = new Vector2(horizontalDirection, verticalDirection).normalized + new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2);
+        if (aimingDirRaw != Vector2.zero)
+            aimingDir = aimingDirRaw + new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2);
 
         Instantiate(arrow, transform, false).transform.localPosition = aimingDir;
 
@@ -265,8 +277,8 @@ public class PlatformInputs : MonoBehaviour
     private void Aiming()
     {
 
-        if (horizontalDirection != 0 || verticalDirection != 0)
-            aimingDir = new Vector2(horizontalDirection, verticalDirection).normalized + new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2);
+        if (aimingDirRaw != Vector2.zero)
+            aimingDir = aimingDirRaw + new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2);
 
 
         transform.GetComponentInChildren<Arrow>().transform.localPosition = aimingDir;
@@ -274,21 +286,6 @@ public class PlatformInputs : MonoBehaviour
         transform.GetComponentInChildren<Arrow>().transform.rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, aimingDir - new Vector2(0, GetComponent<BoxCollider2D>().size.y / 2)), new Vector3(0, 0, 1));
 
 
-    }
-
-    private void StartMouseAim()
-    {
-        aiming = true;
-
-        
-
-        if (horizontalDirection != 0 || verticalDirection != 0)
-            aimingDir = new Vector2(horizontalDirection, verticalDirection).normalized + new Vector2(0, +GetComponent<BoxCollider2D>().size.y / 2);
-
-        Instantiate(arrow, transform, false).transform.localPosition = aimingDir;
-
-
-        transform.GetComponentInChildren<Arrow>().transform.rotation = Quaternion.AngleAxis(Vector2.SignedAngle(Vector2.up, aimingDir - new Vector2(0, GetComponent<BoxCollider2D>().size.y / 2)), new Vector3(0, 0, 1));
     }
 
     private void Shot()
