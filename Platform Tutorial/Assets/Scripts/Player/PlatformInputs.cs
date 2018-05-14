@@ -189,7 +189,7 @@ public class PlatformInputs : MonoBehaviour
     {
         if (!aiming && !Shielding)
         {
-            transform.Translate(new Vector3(horizontalDirection, 0, 0) * speed * Time.deltaTime);
+            transform.Translate(new Vector3(horizontalDirection, 0, 0).normalized * speed * Time.deltaTime);
         }
     }
 
