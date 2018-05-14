@@ -44,6 +44,12 @@ public class Entity : MonoBehaviour {
         }
     }
 
+    public virtual void Harm(int dmg, float knockBack, float knockUp, GameObject source, float stunTime)
+    {
+        Harm(dmg, knockBack, knockUp, source);
+        stunTimer = stunTime;
+    }
+
     public void Knockback(float force, float forceUp, bool cameFromRight)
     {
         if (cameFromRight)

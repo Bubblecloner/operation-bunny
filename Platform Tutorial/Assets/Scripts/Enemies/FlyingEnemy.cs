@@ -52,6 +52,8 @@ public class FlyingEnemy : Entity
     public override void Harm(int dmg, float knockBack, float knockUp, GameObject source)
     {
         base.Harm(dmg, knockBack, knockUp, source);
+
+        GetComponentInChildren<IsAggro>().StartAggro();
     }
 
     public override void Die()

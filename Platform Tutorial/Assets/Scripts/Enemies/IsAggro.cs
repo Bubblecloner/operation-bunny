@@ -53,4 +53,10 @@ public class IsAggro : MonoBehaviour {
         Aggro = false;
         failedTimer = failedResetTime;
     }
+
+    public void StartAggro()
+    {
+        Aggro = true;
+        aggroTimer = 2;
+    }
 }
