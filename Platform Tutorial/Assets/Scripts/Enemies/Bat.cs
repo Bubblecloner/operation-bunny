@@ -34,7 +34,6 @@ public class Bat : FlyingEnemy {
             else
                 anim.SetFloat("speed", 1);
 
-            //Debug.Log(Vector2.MoveTowards(transform.position, target, speed) + "," + new Vector2(target.x - transform.position.x, target.y - transform.position.y).normalized * speed);
         }
     }
 

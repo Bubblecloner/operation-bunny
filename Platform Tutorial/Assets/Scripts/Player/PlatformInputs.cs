@@ -36,7 +36,6 @@ public class PlatformInputs : MonoBehaviour
     private bool aiming = false;
     private bool rightBool = true;
     private bool hiddenRightBool;
-    private bool usingKeyboard = true;
     private Rigidbody2D rgbd2d;
     private Animator anim;
     private Vector2 aimingDir = Vector2.right;
@@ -65,10 +64,9 @@ public class PlatformInputs : MonoBehaviour
         horizontalDirection = Input.GetAxis("Horizontal");
         verticalDirection = Input.GetAxis("Vertical");
 
-        if (usingKeyboard)
+        if (Input.GetButton("Aiming"))
         {
             aimingDirRaw = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
-            Debug.Log(((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized);
         }
         else
             aimingDirRaw = new Vector2(horizontalDirection, verticalDirection).normalized;
@@ -199,7 +197,6 @@ public class PlatformInputs : MonoBehaviour
     {
         if (shield && ShieldActive)
         {
-            Debug.Log("test");
             Shielding = true;
             if (rightBool)
             {
