@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Shield : Entity {
-    
+
+    public AudioClip shieldHitSound;
+
 	protected override void Start () {
         base.Start();
 
@@ -24,6 +26,10 @@ public class Shield : Entity {
 
         if (health <= 0)
             Die();
+
+
+        GetComponentInParent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+        GetComponentInParent<AudioSource>().PlayOneShot(shieldHitSound, 0.5f);
     }
 
     public override void Die()

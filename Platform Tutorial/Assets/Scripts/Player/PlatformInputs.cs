@@ -23,6 +23,7 @@ public class PlatformInputs : MonoBehaviour
     public GameObject arrow;
     public GameObject shield;
     public LayerMask jumpMask;
+    public AudioClip damn;
 
     private float horizontalDirection;
     private float verticalDirection;
@@ -115,6 +116,15 @@ public class PlatformInputs : MonoBehaviour
             Aiming();
         else if (aiming)
             Shot();
+        else if ((Input.GetButtonDown("Aiming") || Input.GetAxisRaw("AimingController") > 0.1f) && arrows == 0 && rightTriggerFirstFrame)
+        {
+            GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+            GetComponent<AudioSource>().PlayOneShot(damn, 0.5f);
+
+
+            if (Input.GetAxisRaw("AimingController") > 0.1f)
+                rightTriggerFirstFrame = false;
+        }
 
 
         if (Input.GetAxisRaw("AimingController") == 0)

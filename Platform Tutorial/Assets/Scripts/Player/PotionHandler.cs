@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PotionHandler : MonoBehaviour {
 
+    public AudioClip damn;
     public int maxPotions;
 
     private int[] potions;
@@ -25,7 +26,8 @@ public class PotionHandler : MonoBehaviour {
         {
             case (0):
                 //empty
-
+                GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+                GetComponent<AudioSource>().PlayOneShot(damn, 0.5f);
                 break;
 
             case (1):

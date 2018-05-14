@@ -93,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1429595871247458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.77, y: -0.08, z: 0}
+  m_LocalPosition: {x: -3.8188663, y: -0.6590469, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4479166337676772}
@@ -414,6 +414,7 @@ MonoBehaviour:
   jumpMask:
     serializedVersion: 2
     m_Bits: 4294967039
+  damn: {fileID: 8300000, guid: e0b744084d0439c408fa6d661b9ed4c6, type: 3}
 --- !u!114 &114428151440725654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -425,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f124e9e98e7dd8b4f8a7a8b2b4025526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damn: {fileID: 8300000, guid: e0b744084d0439c408fa6d661b9ed4c6, type: 3}
   maxPotions: 3
 --- !u!114 &114473664055289108
 MonoBehaviour:
@@ -460,6 +462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 2
   hitStun: 2
+  shieldHitSound: {fileID: 8300000, guid: a5a1a5d62e0ef544d869a12ab46b9bd3, type: 3}
 --- !u!114 &114888397696480974
 MonoBehaviour:
   m_ObjectHideFlags: 1
