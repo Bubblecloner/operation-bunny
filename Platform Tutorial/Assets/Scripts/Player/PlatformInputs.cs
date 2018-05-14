@@ -189,7 +189,10 @@ public class PlatformInputs : MonoBehaviour
     {
         if (!aiming && !Shielding)
         {
-            transform.Translate(new Vector3(Input.GetAxisRaw("Horizontal"), 0, 0).normalized * speed * Time.deltaTime);
+            if (!grounded && verticalDirection > 0.2f)
+                transform.Translate(new Vector3(horizontalDirection, 0, 0).normalized * speed * Time.deltaTime);
+            else
+                transform.Translate(new Vector3(horizontalDirection, 0, 0) * speed * Time.deltaTime);
         }
     }
 
