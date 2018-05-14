@@ -25,7 +25,7 @@ public class PotionHandler : MonoBehaviour {
         {
             case (0):
                 //empty
-                GetComponent<PlayerVariables>().Harm(1, 0, 0, gameObject);
+
                 break;
 
             case (1):
