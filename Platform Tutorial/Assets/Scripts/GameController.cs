@@ -11,13 +11,14 @@ public class GameController : MonoBehaviour {
     public Text coinText;
     public Text arrowCount;
     public GameObject heartIcon;
+    public GameObject brokenHeartIcon;
     public GameObject heartParent;
     public GameObject[] potionIcons;
     public GameObject potionParent;
     public GameObject player;
     public GameObject potionSwapIcon;
 
-    public float playerHealth;
+    public int playerHealth;
 
     [HideInInspector]
     public int coins;
@@ -26,11 +27,13 @@ public class GameController : MonoBehaviour {
     [HideInInspector]
     public int arrows;
 
+    private int activeHealth;
     private int consecutive = 10;
     private Quaternion originalCameraRotation;
 
 	void Start ()
     {
+        activeHealth = playerHealth;
         gameControllerInstance = this;
         coins = 0;
         originalCameraRotation = Camera.main.transform.rotation;
@@ -47,9 +50,11 @@ public class GameController : MonoBehaviour {
 
         if (playerHealth > heartParent.transform.childCount)
             RegenHeart();
-        else if (playerHealth < heartParent.transform.childCount)
-            DestroyHeart();
 
+        if (playerHealth > activeHealth)
+            HealHeart();
+        else if (playerHealth < activeHealth)
+            DamageHeart();
         
 
     }
@@ -92,6 +97,34 @@ public class GameController : MonoBehaviour {
             temp.GetComponent<SpriteRenderer>().sortingOrder = consecutive;
             consecutive++;
         }
+    }
+
+    private void DamageHeart()
+    {
+        for(int i = heartParent.transform.childCount - 1; i >= 0; i--)
+        {
+            if(heartParent.transform.GetChild(i).GetComponent<Image>().sprite != brokenHeartIcon.GetComponent<Image>().sprite)
+            {
+                heartParent.transform.GetChild(i).GetComponent<Image>().sprite = brokenHeartIcon.GetComponent<Image>().sprite;
+                break;
+            }
+        }
+
+        activeHealth--;
+    }
+    
+    private void HealHeart()
+    {
+        for (int i = 0; i < heartParent.transform.childCount; i++)
+        {
+            if (heartParent.transform.GetChild(i).GetComponent<Image>().sprite == brokenHeartIcon.GetComponent<Image>().sprite)
+            {
+                heartParent.transform.GetChild(i).GetComponent<Image>().sprite = heartIcon.GetComponent<Image>().sprite;
+                break;
+            }
+        }
+
+        activeHealth++;
     }
 
     private void RegenHeart()

@@ -54,6 +54,8 @@ MonoBehaviour:
   coinText: {fileID: 114438821560088640, guid: 08a4bbbc42c02e44c85db2be8cca913d, type: 2}
   arrowCount: {fileID: 0}
   heartIcon: {fileID: 1414324093336838, guid: ded84826440039248834eac9d8c3f6e9, type: 2}
+  brokenHeartIcon: {fileID: 1332986822377462, guid: 20548b7e671083f49b525231ddf07dc0,
+    type: 2}
   heartParent: {fileID: 0}
   potionIcons:
   - {fileID: 1238008450592918, guid: d046401356fe0ff4989d6dd08efda3f4, type: 2}
