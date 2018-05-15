@@ -153,10 +153,11 @@ public class GameController : MonoBehaviour {
     public void LoadLevel(int levelToLoad)
     {
         CarryOverInfo.carryOverInfoInstance.UpdatePlayerStats(GameObject.FindGameObjectWithTag("Player").GetComponentInParent<PlayerVariables>().gameObject);
+        CarryOverInfo.carryOverInfoInstance.Save();
 
-        int previousCoins = PlayerPrefs.GetInt("coins");
+        /*int previousCoins = PlayerPrefs.GetInt("coins");
         previousCoins += coins;
-        PlayerPrefs.SetInt("coins", previousCoins);
+        PlayerPrefs.SetInt("coins", previousCoins);*/
         SceneManager.LoadScene(levelToLoad);
     }
 

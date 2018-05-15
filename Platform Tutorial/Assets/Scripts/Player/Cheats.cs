@@ -25,5 +25,16 @@ public class Cheats : MonoBehaviour {
             if (!GameObject.Find("Carry Over Info"))
                 Instantiate(CarryOver);
         }
+
+        if (Input.GetButtonDown("Cheat3"))
+        {
+            CarryOverInfo.carryOverInfoInstance.Save();
+        }
+
+        if (Input.GetButtonDown("Cheat4"))
+        {
+            CarryOverInfo.carryOverInfoInstance.Load();
+            GameController.gameControllerInstance.LoadLevel(5);
+        }
     }
 }
