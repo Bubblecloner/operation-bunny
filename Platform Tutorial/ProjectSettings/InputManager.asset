@@ -313,7 +313,7 @@ InputManager:
     m_Name: Aiming
     descriptiveName: 
     descriptiveNegativeName: 
-    negativeButton: left shift
+    negativeButton: mouse 1
     positiveButton: 
     altNegativeButton: 
     altPositiveButton: 
@@ -474,7 +474,7 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: mouse 1
+    positiveButton: left shift
     altNegativeButton: 
     altPositiveButton: joystick button 1
     gravity: 1000

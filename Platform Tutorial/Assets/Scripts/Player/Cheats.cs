@@ -36,5 +36,10 @@ public class Cheats : MonoBehaviour {
         {
             GameController.gameControllerInstance.LoadLevel(5);
         }
+
+        if (Input.GetButtonDown("Cheat5"))
+        {
+
+        }
     }
 }
