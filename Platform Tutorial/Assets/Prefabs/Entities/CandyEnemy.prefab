@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50550399347206774}
   - component: {fileID: 114730307823380318}
   - component: {fileID: 95639934431450584}
+  - component: {fileID: 58651049082661296}
   m_Layer: 8
   m_Name: CandyEnemy
   m_TagString: Enemy
@@ -131,6 +132,21 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 5.38
+--- !u!58 &58651049082661296
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1735588353453002}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.001
 --- !u!61 &61394877779522006
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -186,6 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outOfAggroTime: 0
+  failedResetTime: 0.5
 --- !u!114 &114730307823380318
 MonoBehaviour:
   m_ObjectHideFlags: 1
