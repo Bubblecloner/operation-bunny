@@ -83,6 +83,9 @@ public class OverworldController : MonoBehaviour {
     private void StartLevel()
     {
         CarryOverInfo.carryOverInfoInstance.choosenLevel = choosenLevel.transform.position;
+        for (int i = 0; i < choosenLevel.connections.Length; i++)
+            if (choosenLevel.connections[i] != null)
+                CarryOverInfo.carryOverInfoInstance.nextUnlockingLevels = new string[] { choosenLevel.connections[i].name };
         SceneManager.LoadScene(choosenLevel.levelScene);
     }
 }

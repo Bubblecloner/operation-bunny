@@ -7,13 +7,16 @@ public class CarryOverInfo : MonoBehaviour {
     public static CarryOverInfo carryOverInfoInstance;
     public int maxPotions = 3;
     public Vector2 choosenLevel;
+    public List<string> unlockedLevels;
     private int[] pots;
     private int saveNumber;
+    public string[] nextUnlockingLevels;
 
     private Vector2 gravity;
 
 	void Start ()
     {
+        unlockedLevels.Add("Intro");
         pots = new int[maxPotions];
         gravity = Physics2D.gravity;
         carryOverInfoInstance = this;
@@ -27,6 +30,11 @@ public class CarryOverInfo : MonoBehaviour {
 
     private void OnLevelWasLoaded(int level)
     {
+        if (level == 5)
+        {
+            UnlockLevels();
+        }
+
         Physics2D.gravity = gravity;
         Save();
     }
@@ -43,7 +51,8 @@ public class CarryOverInfo : MonoBehaviour {
             saveNumber = saveNumber,
             choosenLevelX = choosenLevel.x,
             choosenLevelY = choosenLevel.y,
-            pots = pots
+            pots = pots,
+            unlockedLevels = unlockedLevels
         };
 
         SaveLoad.Save(Save);
@@ -57,6 +66,32 @@ public class CarryOverInfo : MonoBehaviour {
             choosenLevel = new Vector2(Save.choosenLevelX, Save.choosenLevelY);
             pots = Save.pots;
         }
+    }
+
+    private void UnlockLevel(string name)
+    {
+        bool unlock = true;
+        for(int i = 0; i < unlockedLevels.Count; i++)
+        {
+            if (name == unlockedLevels[i])
+            {
+                unlock = false;
+                break;
+            }
+        }
+        if (unlock)
+        {
+            unlockedLevels.Add(name);
+            if (GameObject.Find(name))
+                GameObject.Find(name).GetComponent<OverworldLevel>().Fade();
+        }
+        
+    }
+
+    public void UnlockLevels()
+    {
+        for (int i = 0; i < nextUnlockingLevels.Length; i++)
+            UnlockLevel(nextUnlockingLevels[i]);
     }
 
 

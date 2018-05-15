@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bonus2.unity
     guid: be940e813a8478342b19e21b1c457b0f
+  - enabled: 1
+    path: Assets/Scenes/Test Level.unity
+    guid: caacde3a30de2734faba2bd2fbfaf00f
   m_configObjects: {}

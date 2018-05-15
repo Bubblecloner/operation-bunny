@@ -9,5 +9,6 @@ public class SaveData{
     public float choosenLevelX;
     public float choosenLevelY;
     public int[] pots;
+    public List<string> unlockedLevels;
 
 }
