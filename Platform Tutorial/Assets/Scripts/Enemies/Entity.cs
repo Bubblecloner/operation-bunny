@@ -22,6 +22,17 @@ public class Entity : MonoBehaviour {
     {
         stunTimer -= Time.deltaTime;
         damageTimer -= Time.deltaTime;
+
+        if (damageTimer > 0 && Time.frameCount%8 <= 3)
+        {
+            Color temp = GetComponentInChildren<SpriteRenderer>().color;
+            GetComponentInChildren<SpriteRenderer>().color = new Color(temp.r,temp.g,temp.b,0.5f);
+        }
+        else
+        {
+            Color temp = GetComponentInChildren<SpriteRenderer>().color;
+            GetComponentInChildren<SpriteRenderer>().color = new Color(temp.r, temp.g, temp.b, 1);
+        }
     }
 
     public virtual void Harm(int dmg, float knockBack, float knockUp, GameObject source)
