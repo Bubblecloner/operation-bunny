@@ -13997,6 +13997,43 @@ Prefab:
       propertyPath: thirdParagraph
       value: Ok, go find the bunny, and let her kill you. Do you understand?
       objectReference: {fileID: 0}
+    - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
+        type: 2}
+      propertyPath: fourthParagraph
+      value: "Ok, ok, I\u2019m going to explain this a bit slower, you go find the
+        bunny, then you let her kill you. Understand?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
+        type: 2}
+      propertyPath: fifthParagraph
+      value: "Ok ok.. you. Go find the bunny\u2026 and then do nothing. Ok?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
+        type: 2}
+      propertyPath: sixthParagraph
+      value: "You\u2019re messing with me, aren\u2019t you?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
+        type: 2}
+      propertyPath: seventhParagraph
+      value: "You really don\u2019t understand?"
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
+        type: 2}
+      propertyPath: eightParagraph
+      value: GO GET KILLED BY THE BUNNY!
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
+        type: 2}
+      propertyPath: ninthParagraph
+      value: Excuse me?
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
+        type: 2}
+      propertyPath: tenthParagraph
+      value: "But our universe will cease to exist if you don\u2019t. Don\u2019t you
+        understand!?"
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cec86cfcabcfc71429b94aea5f0ebf8a, type: 2}
   m_IsPrefabParent: 0
