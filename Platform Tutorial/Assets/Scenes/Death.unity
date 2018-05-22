@@ -233,6 +233,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1630364283}
   - {fileID: 579241272}
   - {fileID: 1412113762}
   m_Father: {fileID: 0}
@@ -416,7 +417,7 @@ RectTransform:
   m_Children:
   - {fileID: 1974081056}
   m_Father: {fileID: 47321242}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -544,6 +545,62 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2e85ead3dd235f45be8a5f52e8e2a1f, type: 2}
   m_IsPrefabParent: 0
+--- !u!1001 &1126044016
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4181473848615862, guid: d2e85ead3dd235f45be8a5f52e8e2a1f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181473848615862, guid: d2e85ead3dd235f45be8a5f52e8e2a1f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181473848615862, guid: d2e85ead3dd235f45be8a5f52e8e2a1f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181473848615862, guid: d2e85ead3dd235f45be8a5f52e8e2a1f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181473848615862, guid: d2e85ead3dd235f45be8a5f52e8e2a1f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181473848615862, guid: d2e85ead3dd235f45be8a5f52e8e2a1f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181473848615862, guid: d2e85ead3dd235f45be8a5f52e8e2a1f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4181473848615862, guid: d2e85ead3dd235f45be8a5f52e8e2a1f, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1901473487852644, guid: d2e85ead3dd235f45be8a5f52e8e2a1f, type: 2}
+      propertyPath: m_Name
+      value: AudioController (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 82729643581620072, guid: d2e85ead3dd235f45be8a5f52e8e2a1f,
+        type: 2}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 82729643581620072, guid: d2e85ead3dd235f45be8a5f52e8e2a1f,
+        type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: c88517bb745893040aab0131647099d0, type: 3}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d2e85ead3dd235f45be8a5f52e8e2a1f, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &1380197719
 GameObject:
   m_ObjectHideFlags: 0
@@ -650,7 +707,7 @@ RectTransform:
   m_Children:
   - {fileID: 1380197720}
   m_Father: {fileID: 47321242}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -731,6 +788,85 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1412113761}
+--- !u!1 &1630364282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1630364283}
+  - component: {fileID: 1630364285}
+  - component: {fileID: 1630364284}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1630364283
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1630364282}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 47321242}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -139, y: 89}
+  m_SizeDelta: {x: 583.48, y: 222.3}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1630364284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1630364282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 2
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: "Hello Sir Hero. Dead are you? Well, you\u2019re in luck, for I am Death!
+    And this is not the day you die, so I will cut you a deal. \n\nPlay Rock, Paper,
+    Scissors with me. If you win, I will return you the place of your death, with
+    all your progress. \n\nIf you lose however, I will send you back to the beginning
+    of the level and take away all you have accomplished so far. \nDoes this sound
+    fair?"
+--- !u!222 &1630364285
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1630364282}
 --- !u!1 &1974081055
 GameObject:
   m_ObjectHideFlags: 0
