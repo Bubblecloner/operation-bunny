@@ -24,6 +24,7 @@ public class PlatformInputs : MonoBehaviour
     public GameObject shield;
     public LayerMask jumpMask;
     public AudioClip damn;
+    public bool canMove;
 
     private float horizontalDirection;
     private float verticalDirection;
@@ -56,11 +57,15 @@ public class PlatformInputs : MonoBehaviour
         gravity = Physics2D.gravity;
 
         Invoke("LateStart", 0.01f);
+
+        canMove = true;
     }
     
 
     void Update()
     {
+        if (!canMove)
+            return;
 
         horizontalDirection = Input.GetAxis("Horizontal");
         verticalDirection = Input.GetAxis("Vertical");
@@ -197,6 +202,9 @@ public class PlatformInputs : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (!canMove)
+            return;
+
         if (!aiming && !Shielding)
         {
             if (!grounded && verticalDirection > 0.2f)

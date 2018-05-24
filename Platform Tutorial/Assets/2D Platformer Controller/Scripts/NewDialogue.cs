@@ -34,16 +34,18 @@ public class NewDialogue : MonoBehaviour {
         }
 
         // Får svar från spelaren
-        if(waitingForAnswer && Input.GetKeyDown(KeyCode.A))
+        if(waitingForAnswer && Input.GetKeyDown(KeyCode.A) || waitingForAnswer && Input.GetKeyDown("joystick button 0"))
         {
             DisableAnswers();
             PrintText(secondParagraph);
         }
 
-        if (waitingForAnswer && Input.GetKeyDown(KeyCode.B))
+        if (waitingForAnswer && Input.GetKeyDown(KeyCode.B) || waitingForAnswer && Input.GetKeyDown("joystick button 1"))
         {
+            Debug.Log("pre " + numberOfNos);
             numberOfNos++;
-            DisableAnswers();
+            Debug.Log("post " + numberOfNos);
+            //DisableAnswers();
 
             switch (numberOfNos)
             {
@@ -138,6 +140,7 @@ public class NewDialogue : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
         //Stoppa spelaren
+        GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformInputs>().canMove = false;
         canvas.enabled = true;
         PrintText(firstParagraph);
     }
