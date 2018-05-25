@@ -1634,11 +1634,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Grand Master
+    name: Bun the Bunny God
     sentences:
-    - "We have chosen YOU to be the grand sacrifice to stop the Apocalypse. All you
-      have to do is let Bun the Bunny God eat you. Unfortunately, she is missing\u2026
-      You must go and find her. Do you understand what you are to do?"
+    - 
     - 
     - 
 --- !u!58 &31458136
