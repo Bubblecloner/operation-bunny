@@ -19,7 +19,6 @@ public class Bunny : MonoBehaviour
         leftAnswer.enabled = false;
         rightAnswer.enabled = false;
         waitingForAnswer = false;
-
     }
 
 
@@ -34,9 +33,24 @@ public class Bunny : MonoBehaviour
 
         if (waitingForAnswer && Input.GetKeyDown(KeyCode.A) || waitingForAnswer && Input.GetKeyDown("joystick button 0"))
         {
-            DisableAnswers();
-
+            canvas.enabled = false;
+            Sacrifice();
         }
+
+        if (waitingForAnswer && Input.GetKeyDown(KeyCode.B) || waitingForAnswer && Input.GetKeyDown("joystick button 1"))
+        {
+            canvas.enabled = false;
+            KillBunny();
+        }
+    }
+
+    private void Sacrifice()
+    {
+
+    }
+
+    private void KillBunny()
+    {
 
     }
 
@@ -45,6 +59,7 @@ public class Bunny : MonoBehaviour
         //Stoppa spelaren
         GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformInputs>().canMove = false;
         canvas.enabled = true;
+        EnableAnswers();
     }
 
     private void EnableAnswers()
