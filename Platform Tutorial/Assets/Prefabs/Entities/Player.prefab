@@ -405,6 +405,7 @@ MonoBehaviour:
   fastFallSpeed: 3
   slowFallSpeed: 0.2
   startArrows: 5
+  upgradeArrows: 05000000
   groundCheckR: {fileID: 4479166337676772}
   groundCheckL: {fileID: 4840518931618262}
   jumpParticles: {fileID: 0}
@@ -415,6 +416,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967039
   damn: {fileID: 8300000, guid: e0b744084d0439c408fa6d661b9ed4c6, type: 3}
+  canMove: 0
 --- !u!114 &114428151440725654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -449,6 +451,8 @@ MonoBehaviour:
     type: 2}
   invincibilityParticles: {fileID: 1066161328622114, guid: c3b74578094c4b74994615489a3dd3b5,
     type: 2}
+  healthUpgrades: 03000000
+  damageUpgrades: 01000000
 --- !u!114 &114489817775711492
 MonoBehaviour:
   m_ObjectHideFlags: 1

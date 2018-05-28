@@ -7,8 +7,9 @@ public class Cheats : MonoBehaviour {
     public GameObject CarryOver;
 
 	void Start () {
-		
-	}
+
+        Debug.Log("Cheats Enabled");
+    }
 	
 	// Update is called once per frame
 	void Update ()
