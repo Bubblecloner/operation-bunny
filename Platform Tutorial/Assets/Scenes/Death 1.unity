@@ -599,7 +599,7 @@ Prefab:
         type: 2}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 5c9d4b2bf5922f74696a251de0035abd, type: 3}
     - target: {fileID: 1901473487852644, guid: d2e85ead3dd235f45be8a5f52e8e2a1f, type: 2}
       propertyPath: m_Name
       value: Death Voice
@@ -608,6 +608,11 @@ Prefab:
         type: 2}
       propertyPath: m_Volume
       value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 82729643581620072, guid: d2e85ead3dd235f45be8a5f52e8e2a1f,
+        type: 2}
+      propertyPath: Loop
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d2e85ead3dd235f45be8a5f52e8e2a1f, type: 2}
@@ -773,8 +778,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -139, y: 89}
-  m_SizeDelta: {x: 583.48, y: 222.3}
+  m_AnchoredPosition: {x: -215.37, y: 89}
+  m_SizeDelta: {x: 430.74, y: 222.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1630364284
 MonoBehaviour:
@@ -808,7 +813,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: It's not over yet Hero! Take my powers and together we can defeat The Evil!
+  m_Text: It's not over yet Hero! Take my powers and we can defeat The Evil!
 --- !u!222 &1630364285
 CanvasRenderer:
   m_ObjectHideFlags: 0
