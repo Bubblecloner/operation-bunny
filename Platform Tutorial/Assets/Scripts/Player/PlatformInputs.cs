@@ -51,6 +51,7 @@ public class PlatformInputs : MonoBehaviour
 
     void Start()
     {
+
         startArrows = upgradeArrows[CarryOverInfo.carryOverInfoInstance.upgrades[1]];
         arrows = startArrows;
         rgbd2d = GetComponent<Rigidbody2D>();

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Cheats : MonoBehaviour {
 
@@ -8,6 +9,19 @@ public class Cheats : MonoBehaviour {
 
 	void Start () {
 
+        if (!GameObject.Find("Carry Over Info(Clone)"))
+        {
+
+            Instantiate(CarryOver);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+
+        if (CarryOverInfo.carryOverInfoInstance.unlockedLevels.Count == 1)
+        {
+            CarryOverInfo.carryOverInfoInstance.nextUnlockingLevels = new string[] { "Level 1", "Level 2", "Level 3", "Level 4", "Level 5", "Level 6", "Boss 1", "Boss 2", "Boss 3", "Bunny", "Bonus 1", "Bonus 2", "Bonus 3" };
+            CarryOverInfo.carryOverInfoInstance.UnlockLevels();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
         Debug.Log("Cheats Enabled");
     }
 	
