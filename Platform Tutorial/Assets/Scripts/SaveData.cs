@@ -7,8 +7,8 @@ public class SaveData{
 
     public int saveNumber = -1;
     public int money;
-    public float choosenLevelX;
-    public float choosenLevelY;
+    public float choosenLevelX = -800;
+    public float choosenLevelY = -800;
     public int[] pots;
     public int[] upgrades = new int[3];
     public List<string> unlockedLevels;

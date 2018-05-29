@@ -13,24 +13,14 @@ public class LoadGameMenuController : MonoBehaviour {
 
     }
 
-    public void LoadSave1()
-    {
-        LoadSave(1);
-    }
-
-    public void LoadSave2()
-    {
-        LoadSave(2);
-    }
-
     public void Back()
     {
         SceneManager.LoadScene(backButtonScene);
     }
 
-    private void LoadSave(int saveNumbers)
+    public void LoadSave(int saveNumber)
     {
-        CarryOverInfo.carryOverInfoInstance.saveNumber = saveNumbers;
+        CarryOverInfo.carryOverInfoInstance.saveNumber = saveNumber;
         CarryOverInfo.carryOverInfoInstance.Load();
 
         SceneManager.LoadScene(6);

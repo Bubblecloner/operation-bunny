@@ -15,7 +15,7 @@ public class OverworldController : MonoBehaviour {
 
 	void Start ()
     {
-        if (CarryOverInfo.carryOverInfoInstance.choosenLevel != null)
+        if (CarryOverInfo.carryOverInfoInstance.choosenLevel != new Vector2(-800,-800))
             FindLevel(CarryOverInfo.carryOverInfoInstance.choosenLevel);
 
 

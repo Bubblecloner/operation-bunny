@@ -29,6 +29,8 @@ public class CarryOverInfo : MonoBehaviour {
     {
 
     }
+    
+
 
     private void OnLevelWasLoaded(int level)
     {
