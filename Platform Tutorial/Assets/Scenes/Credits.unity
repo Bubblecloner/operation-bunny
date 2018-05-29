@@ -355,8 +355,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -2643.2024}
-  m_SizeDelta: {x: 1000, y: 4466.8}
+  m_AnchoredPosition: {x: 0, y: -2193.4}
+  m_SizeDelta: {x: 1000, y: 3800.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1021122245
 MonoBehaviour:
@@ -391,20 +391,16 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 2
   m_Text: "The Knight - Alex Anceh\r\nGrand Master/Father - The Kramer\r\nGary - Mat
-    Walker\r\nDeath - MopGarden\r\nThe Evil - Empyre\r\nEnemies - \n\nProduced by\r\nMartin\r\n\r\nGame
-    Director\r\nAlex Anceh\r\n\nWritten by\nAlex Anceh\n\nNarrative Designer\nAlex
-    Anceh\n\r\nSenior Programmer\r\nAmund Bubblecloner\r\nStefan\n\nProgrammer\nMartin\n\r\nJunior
+    Walker\r\nDeath/Reaper - MopGarden\r\nThe Evil - Empyre\r\nEnemies - \n\nProduced
+    by\r\nMartin\r\n\r\nGame Director\r\nAlex Anceh\r\n\nWritten by\nAlex Anceh\n\nNarrative
+    Designer\nAlex Anceh\n\r\nSenior Programmer\r\nAmund Bubblecloner\r\nStefan\n\nProgrammer\nMartin\n\r\nJunior
     Programmer\r\nAlex Anceh\r\n\r\nLevel Design\r\nAlex Anceh\r\nMartin\r\n\r\nAnimators\nPalina\nAlex
     Anceh\n\n\rSound Design\r\nAlex Anceh\r\n\r\n\rGraphic Design\r\nAlex Anceh\nAmund
     Bubblecloner\nPalina\nJordan Irwin (AntumDeluge) from OpenGameArt.org\r\nPzuh
     from OpenGameArt.org\r\nBagzie from OpenGameArt.org\r\nMichael J Pierce FoxTango.Tumblr.com\r\nRafaelchm
-    from OpeGameArt.org\r\nVk from OpenGameArt.org\r\nJesse McCarthy from OpenGameArt.org\r\nPlatformer
-    art: Candy by Kenney.nl\r\nRoguelike Caves & Dungeons by Kenney.nl\r\nJumper pack
-    by Kenney.nl\r\nPlatformer Pack Redux by Kenney.nl\r\n\nMusic by (as appeared
-    in order of level)\r\nIntro - Ionide\r\nTutorial - Ionide\r\nMusikk level 2\r\nHigh
-    Octane \u2013 Bensound.com\r\nExtreme Action \u2013 Bensound.com\r\nLevel 4\r\nLevel
-    5\r\nEpic \u2013 Bensound.com\r\nBoss 2\r\nSad Day - Ionide\r\nThe Evil\r\n\n\n\n\n\nThank
-    you for playing our game. We hope you have enjoyed it!"
+    from OpeGameArt.org\r\nVk from OpenGameArt.org\r\nJesse McCarthy from OpenGameArt.org\r\nKenney.nl\r\n\nMusic
+    by\nIonide\r\nBensound.com\r\n\n\n\n\n\n\nThank you for playing our game. We hope
+    you have enjoyed it!"
 --- !u!222 &1021122246
 CanvasRenderer:
   m_ObjectHideFlags: 0
