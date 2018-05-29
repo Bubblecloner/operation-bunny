@@ -5,6 +5,7 @@ TextureImporter:
     21300000: platformIndustrial_sheet@2_0
     21300002: platformIndustrial_sheet@2_1
     21300004: platformIndustrial_sheet@2_2
+    21300006: industrialArrow
   externalObjects: {}
   serializedVersion: 5
   mipmaps:
@@ -115,7 +116,7 @@ TextureImporter:
         width: 140
         height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -135,7 +136,7 @@ TextureImporter:
         width: 140
         height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,13 +156,33 @@ TextureImporter:
         width: 140
         height: 44
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 31f613d46634d5b4abfe5f8d74b03f9b
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: industrialArrow
+      rect:
+        serializedVersion: 2
+        x: 1081
+        y: 198
+        width: 94
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 063e6749f2999434ba24e61a058af611
       vertices: []
       indices: 
       edges: []
