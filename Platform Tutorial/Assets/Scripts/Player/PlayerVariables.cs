@@ -12,11 +12,20 @@ public class PlayerVariables : Entity {
     public GameObject bonusDamageParticles;
     public GameObject invincibilityParticles;
 
+    public int[] healthUpgrades;
+    public int[] damageUpgrades;
+
     private AudioSource myAudioSource;
+    private CarryOverInfo COInfo;
 
     protected override void Start ()
     {
         base.Start();
+        COInfo = CarryOverInfo.carryOverInfoInstance;
+        maxHealth = healthUpgrades[COInfo.upgrades[0]];
+        damage = damageUpgrades[COInfo.upgrades[2]];
+
+
         health = maxHealth;
         myAudioSource = GetComponent<AudioSource>();
     }

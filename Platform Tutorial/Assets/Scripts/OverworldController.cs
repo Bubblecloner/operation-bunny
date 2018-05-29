@@ -15,7 +15,7 @@ public class OverworldController : MonoBehaviour {
 
 	void Start ()
     {
-        if (CarryOverInfo.carryOverInfoInstance.choosenLevel != null)
+        if (CarryOverInfo.carryOverInfoInstance.choosenLevel != new Vector2(-800,-800))
             FindLevel(CarryOverInfo.carryOverInfoInstance.choosenLevel);
 
 
@@ -45,6 +45,10 @@ public class OverworldController : MonoBehaviour {
             else if (Input.GetButtonDown("Submit"))
             {
                 StartLevel();
+            }
+            else if (Input.GetButtonDown("Shop"))
+            {
+                EnterShop();
             }
         }
         else
@@ -87,5 +91,12 @@ public class OverworldController : MonoBehaviour {
             if (choosenLevel.connections[i] != null)
                 CarryOverInfo.carryOverInfoInstance.nextUnlockingLevels = new string[] { choosenLevel.connections[i].name };
         SceneManager.LoadScene(choosenLevel.levelScene);
+    }
+
+    private void EnterShop()
+    {
+        CarryOverInfo.carryOverInfoInstance.choosenLevel = choosenLevel.transform.position;
+
+        SceneManager.LoadScene(7);
     }
 }

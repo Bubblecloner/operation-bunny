@@ -6,9 +6,11 @@ using UnityEngine;
 public class SaveData{
 
     public int saveNumber = -1;
-    public float choosenLevelX;
-    public float choosenLevelY;
+    public int money;
+    public float choosenLevelX = -800;
+    public float choosenLevelY = -800;
     public int[] pots;
+    public int[] upgrades = new int[3];
     public List<string> unlockedLevels;
 
 }

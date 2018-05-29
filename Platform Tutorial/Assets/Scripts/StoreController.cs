@@ -29,6 +29,11 @@ public class StoreController : MonoBehaviour {
         }
         else if(Input.GetAxisRaw("Vertical") == 0)
             holdingDirection = 0;
+        else if (Input.GetButtonDown("Submit"))
+        {
+            PurchaseItem(selectedItem);
+        }
+        //add exit method
     }
 
     private void Move(int target)
@@ -36,6 +41,14 @@ public class StoreController : MonoBehaviour {
         if(target < listedItems.Length && target >= 0)
         {
             selectedItem = target;
+        }
+    }
+
+    private void PurchaseItem(int target)
+    {
+        if (!listedItems[target].GetComponent<StoreItem>().PurchaseItem())
+        {
+            //runs if player does not have enough money
         }
     }
 }

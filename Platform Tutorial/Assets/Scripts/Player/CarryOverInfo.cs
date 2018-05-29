@@ -6,10 +6,12 @@ public class CarryOverInfo : MonoBehaviour {
 
     public static CarryOverInfo carryOverInfoInstance;
     public int maxPotions = 3;
+    public int money;
+    public int[] upgrades = new int[3];
     public Vector2 choosenLevel;
     public List<string> unlockedLevels;
     private int[] pots;
-    private int saveNumber;
+    public int saveNumber;
     public string[] nextUnlockingLevels;
 
     private Vector2 gravity;
@@ -27,10 +29,12 @@ public class CarryOverInfo : MonoBehaviour {
     {
 
     }
+    
+
 
     private void OnLevelWasLoaded(int level)
     {
-        if (level == 5)
+        if (level == 6)
         {
             UnlockLevels();
         }
@@ -52,7 +56,9 @@ public class CarryOverInfo : MonoBehaviour {
             choosenLevelX = choosenLevel.x,
             choosenLevelY = choosenLevel.y,
             pots = pots,
-            unlockedLevels = unlockedLevels
+            upgrades = upgrades,
+            unlockedLevels = unlockedLevels,
+            money = money
         };
 
         SaveLoad.Save(Save);
@@ -63,8 +69,12 @@ public class CarryOverInfo : MonoBehaviour {
         SaveData Save = SaveLoad.Load(saveNumber);
         if(Save != null)
         {
+            saveNumber = Save.saveNumber;
             choosenLevel = new Vector2(Save.choosenLevelX, Save.choosenLevelY);
             pots = Save.pots;
+            upgrades = Save.upgrades;
+            unlockedLevels = Save.unlockedLevels;
+            money = Save.money;
         }
     }
 

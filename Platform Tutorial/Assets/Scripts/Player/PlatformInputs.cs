@@ -15,7 +15,8 @@ public class PlatformInputs : MonoBehaviour
     public float shieldReapairTime = 4;
     public float fastFallSpeed = 3;
     public float slowFallSpeed = 0.5f;
-    public int startArrows = 5;
+    public int startArrows;
+    public int[] upgradeArrows;
     public Transform groundCheckR;
     public Transform groundCheckL;
     public GameObject jumpParticles;
@@ -50,6 +51,7 @@ public class PlatformInputs : MonoBehaviour
 
     void Start()
     {
+        startArrows = upgradeArrows[CarryOverInfo.carryOverInfoInstance.upgrades[1]];
         arrows = startArrows;
         rgbd2d = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
