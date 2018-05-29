@@ -7,6 +7,7 @@ public class Entity : MonoBehaviour {
     protected int health = 3;
     public int maxHealth = 3;
     public float hitStun = 2;
+    public bool paused = false;
     protected Rigidbody2D rgbd2d;
     protected int damage = 1;
     protected float stunTimer;
@@ -20,19 +21,25 @@ public class Entity : MonoBehaviour {
 	
 	protected virtual void Update ()
     {
-        stunTimer -= Time.deltaTime;
-        damageTimer -= Time.deltaTime;
-
-        if (damageTimer > 0 && Time.frameCount%8 <= 3)
+        if (!paused)
         {
-            Color temp = GetComponentInChildren<SpriteRenderer>().color;
-            GetComponentInChildren<SpriteRenderer>().color = new Color(temp.r,temp.g,temp.b,0.5f);
+            rgbd2d.isKinematic = false;
+            stunTimer -= Time.deltaTime;
+            damageTimer -= Time.deltaTime;
+
+            if (damageTimer > 0 && Time.frameCount % 8 <= 3)
+            {
+                Color temp = GetComponentInChildren<SpriteRenderer>().color;
+                GetComponentInChildren<SpriteRenderer>().color = new Color(temp.r, temp.g, temp.b, 0.5f);
+            }
+            else
+            {
+                Color temp = GetComponentInChildren<SpriteRenderer>().color;
+                GetComponentInChildren<SpriteRenderer>().color = new Color(temp.r, temp.g, temp.b, 1);
+            }
         }
         else
-        {
-            Color temp = GetComponentInChildren<SpriteRenderer>().color;
-            GetComponentInChildren<SpriteRenderer>().color = new Color(temp.r, temp.g, temp.b, 1);
-        }
+            rgbd2d.isKinematic = true;
     }
 
     public virtual void Harm(int dmg, float knockBack, float knockUp, GameObject source)

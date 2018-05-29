@@ -19,6 +19,7 @@ public class PlatformInputs : MonoBehaviour
     public int[] upgradeArrows;
     public Transform groundCheckR;
     public Transform groundCheckL;
+    public GameObject PauseMenu;
     public GameObject jumpParticles;
     public GameObject attack;
     public GameObject arrow;
@@ -67,140 +68,148 @@ public class PlatformInputs : MonoBehaviour
 
     void Update()
     {
-        if (!canMove)
-            return;
-
-        horizontalDirection = Input.GetAxis("Horizontal");
-        verticalDirection = Input.GetAxis("Vertical");
-
-        if (Input.GetButton("Aiming"))
+        if (!GetComponent<PlayerVariables>().paused)
         {
-            aimingDirRaw = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
-        }
-        else
-            aimingDirRaw = new Vector2(horizontalDirection, verticalDirection).normalized;
+            if (!canMove)
+                return;
 
+            horizontalDirection = Input.GetAxis("Horizontal");
+            verticalDirection = Input.GetAxis("Vertical");
 
-
-        if (rgbd2d.velocity.y < 0)
-        {
-            if (!grounded && verticalDirection > 0.2f)
-                Physics2D.gravity = new Vector2(0, gravity.y * slowFallSpeed);
-            else if (!grounded && verticalDirection < -0.2f)
-                Physics2D.gravity = new Vector2(0, gravity.y * fastFallSpeed);
+            if (Input.GetButton("Aiming"))
+            {
+                aimingDirRaw = ((Vector2)(Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position)).normalized;
+            }
             else
+                aimingDirRaw = new Vector2(horizontalDirection, verticalDirection).normalized;
+
+
+
+            if (rgbd2d.velocity.y < 0)
+            {
+                if (!grounded && verticalDirection > 0.2f)
+                    Physics2D.gravity = new Vector2(0, gravity.y * slowFallSpeed);
+                else if (!grounded && verticalDirection < -0.2f)
+                    Physics2D.gravity = new Vector2(0, gravity.y * fastFallSpeed);
+                else
+                    Physics2D.gravity = gravity;
+            }
+
+
+
+
+
+            //sjekker om spilleren er på bakken
+            grounded = ((Physics2D.OverlapPointAll(groundCheckR.position, jumpMask).Length >= 1 && Physics2D.OverlapPointAll(groundCheckR.position, jumpMask)[0].isTrigger == false) || (Physics2D.OverlapPointAll(groundCheckL.position, jumpMask).Length >= 1 && Physics2D.OverlapPointAll(groundCheckL.position, jumpMask)[0].isTrigger == false)) && rgbd2d.velocity.y < 0.1f;
+            if (grounded)
+            {
                 Physics2D.gravity = gravity;
-        }
+                jumped = false;
+                jumpTimer = -1;
+            }
 
 
-
-
-
-        //sjekker om spilleren er på bakken
-        grounded = ((Physics2D.OverlapPointAll(groundCheckR.position, jumpMask).Length >= 1 && Physics2D.OverlapPointAll(groundCheckR.position, jumpMask)[0].isTrigger == false) || (Physics2D.OverlapPointAll(groundCheckL.position, jumpMask).Length >= 1 && Physics2D.OverlapPointAll(groundCheckL.position, jumpMask)[0].isTrigger == false)) && rgbd2d.velocity.y < 0.1f;
-        if (grounded)
-        {
-            Physics2D.gravity = gravity;
-            jumped = false;
-            jumpTimer = -1;
-        }
-
-
-        if ((Input.GetAxisRaw("AimingController") > 0.1f) && arrows > 0 && !Shielding)
-        {
-            if (rightTriggerFirstFrame)
+            if ((Input.GetAxisRaw("AimingController") > 0.1f) && arrows > 0 && !Shielding)
+            {
+                if (rightTriggerFirstFrame)
+                {
+                    StartAim();
+                    rightTriggerFirstFrame = false;
+                }
+                else if (aiming)
+                    Aiming();
+            }
+            else if (Input.GetButtonDown("Aiming") && arrows > 0 && !Shielding)
             {
                 StartAim();
-                rightTriggerFirstFrame = false;
             }
-            else if (aiming)
+            else if (Input.GetButton("Aiming") && aiming && arrows > 0 && !Shielding)
                 Aiming();
+            else if (aiming)
+                Shot();
+            else if ((Input.GetButtonDown("Aiming") || Input.GetAxisRaw("AimingController") > 0.1f) && arrows == 0 && rightTriggerFirstFrame)
+            {
+                GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+                GetComponent<AudioSource>().PlayOneShot(damn, 0.5f);
+
+
+                if (Input.GetAxisRaw("AimingController") > 0.1f)
+                    rightTriggerFirstFrame = false;
+            }
+
+
+            if (Input.GetAxisRaw("AimingController") == 0)
+                rightTriggerFirstFrame = true;
+
+
+
+
+
+            if (Input.GetButtonDown("Shield") && grounded)
+                StartShield();
+            else if (Input.GetButton("Shield") && grounded && Shielding)
+                Shield();
+            else
+                StopShield();
+
+
+            if (Input.GetButtonDown("PotionDrink") && !Shielding)
+                Potion();
+            else if (Input.GetButtonDown("PotionSwap"))
+            {
+                GameController.gameControllerInstance.SwapPotions();
+            }
+
+
+            if (Input.GetButtonDown("Attack") && attackTimer < 0 && !Shielding)
+            {
+                Attack();
+            }
+
+
+            if (jumped == false && Input.GetButtonDown("Jump") && !Shielding)
+                Jump();
+
+
+            //Cuts the jump of the player when the jump button is released
+            if (Input.GetButtonUp("Jump") && rgbd2d.velocity.y > 0)
+                StopJump();
+
+            if (!Input.GetButton("Jump") && jumpTimer < 0.2f && jumpTimer > 0)
+                StopJump();
+
+            if (Input.GetButtonDown("Pause"))
+            {
+                Pause();
+            }
+
+
+
+            if (horizontalDirection > 0)
+                Flip(1);
+            else if (horizontalDirection < 0)
+                Flip(-1);
+
+
+            if (jumpTimer >= 0)
+                jumpTimer += Time.deltaTime;
+
+            attackTimer -= Time.deltaTime;
+
+            potionTimer -= Time.deltaTime;
+
+            shieldTimer -= Time.deltaTime;
+
+
+            if (shieldTimer <= 0 && shieldTimer > -0.9f)
+            {
+                FixShield();
+                shieldTimer = -1;
+            }
+
+            /*anim.SetFloat("speed", Mathf.Abs(horizontalDirection));
+            anim.SetBool("grounded", grounded);*/
         }
-        else if (Input.GetButtonDown("Aiming") && arrows > 0 && !Shielding)
-        {
-            StartAim();
-        }
-        else if (Input.GetButton("Aiming") && aiming && arrows > 0 && !Shielding)
-            Aiming();
-        else if (aiming)
-            Shot();
-        else if ((Input.GetButtonDown("Aiming") || Input.GetAxisRaw("AimingController") > 0.1f) && arrows == 0 && rightTriggerFirstFrame)
-        {
-            GetComponent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
-            GetComponent<AudioSource>().PlayOneShot(damn, 0.5f);
-
-
-            if (Input.GetAxisRaw("AimingController") > 0.1f)
-                rightTriggerFirstFrame = false;
-        }
-
-
-        if (Input.GetAxisRaw("AimingController") == 0)
-            rightTriggerFirstFrame = true;
-
-
-
-
-
-        if (Input.GetButtonDown("Shield") && grounded)
-            StartShield();
-        else if (Input.GetButton("Shield") && grounded && Shielding)
-            Shield();
-        else
-            StopShield();
-
-
-        if (Input.GetButtonDown("PotionDrink") && !Shielding)
-            Potion();
-        else if (Input.GetButtonDown("PotionSwap"))
-        {
-            GameController.gameControllerInstance.SwapPotions();
-        }
-
-
-        if (Input.GetButtonDown("Attack") && attackTimer < 0 && !Shielding)
-        {
-            Attack();
-        }
-
-
-        if (jumped == false && Input.GetButtonDown("Jump") && !Shielding)
-            Jump();
-
-
-        //Cuts the jump of the player when the jump button is released
-        if (Input.GetButtonUp("Jump") && rgbd2d.velocity.y > 0)
-            StopJump();
-
-        if (!Input.GetButton("Jump") && jumpTimer < 0.2f && jumpTimer > 0)
-            StopJump();
-
-
-
-        if (horizontalDirection > 0)
-            Flip(1);
-        else if (horizontalDirection < 0)
-            Flip(-1);
-
-
-        if (jumpTimer >= 0)
-            jumpTimer += Time.deltaTime;
-
-        attackTimer -= Time.deltaTime;
-
-        potionTimer -= Time.deltaTime;
-
-        shieldTimer -= Time.deltaTime;
-
-
-        if (shieldTimer <= 0 && shieldTimer > -0.9f)
-        {
-            FixShield();
-            shieldTimer = -1;
-        }
-
-        /*anim.SetFloat("speed", Mathf.Abs(horizontalDirection));
-        anim.SetBool("grounded", grounded);*/
     }
 
     private void FixedUpdate()
@@ -215,6 +224,11 @@ public class PlatformInputs : MonoBehaviour
             else
                 transform.Translate(new Vector3(horizontalDirection, 0, 0) * speed * Time.deltaTime);
         }
+    }
+
+    private void Pause()
+    {
+        PauseMenu.SetActive(true);
     }
 
     private void StartShield()
