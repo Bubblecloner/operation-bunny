@@ -171,6 +171,7 @@ public class GameController : MonoBehaviour {
     {
         player = Instantiate(playerPrefab);
         player.transform.position = CarryOverInfo.carryOverInfoInstance.deathPosition;
+        player.GetComponent<PlayerVariables>().Invincible(2);
         Camera.main.GetComponent<CameraFollow>().target = player.transform;
     }
 

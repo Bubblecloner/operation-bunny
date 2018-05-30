@@ -93,11 +93,6 @@ public class CarryOverInfo : MonoBehaviour {
             UnlockLevel(nextUnlockingLevels[i]);
     }
 
-    public void SaveDeathPosition(Vector2 position)
-    {
-        deathPosition = position;
-    }
-
     public int[] Potions
     {
         get

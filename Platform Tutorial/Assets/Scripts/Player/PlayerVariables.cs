@@ -90,9 +90,6 @@ public class PlayerVariables : Entity {
 
     public override void Die()
     {
-        CarryOverInfo.carryOverInfoInstance.SaveDeathPosition(transform.position);
-
-
         Invoke("Respawn", 2);
 
         base.Die();
