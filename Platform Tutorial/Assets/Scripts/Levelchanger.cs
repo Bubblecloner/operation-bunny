@@ -5,7 +5,10 @@ public class Levelchanger : MonoBehaviour {
 
     public Animator animator;
 
-	void Update ()
+	void Update()
+    {
+
+    }
 
     private void OnTriggerEnter2D(Collider2D exit)
     {
