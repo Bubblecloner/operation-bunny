@@ -29,19 +29,6 @@ public class CarryOverInfo : MonoBehaviour {
     {
 
     }
-    
-
-
-    private void OnLevelWasLoaded(int level)
-    {
-        if (level == 6)
-        {
-            UnlockLevels();
-        }
-
-        Physics2D.gravity = gravity;
-        Save();
-    }
 
     public void UpdatePlayerStats(GameObject player)
     {
