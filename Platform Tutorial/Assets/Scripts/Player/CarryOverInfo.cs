@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarryOverInfo : MonoBehaviour {
 
@@ -13,6 +14,7 @@ public class CarryOverInfo : MonoBehaviour {
     private int[] pots;
     public int saveNumber;
     public string[] nextUnlockingLevels;
+    public Vector2 deathPosition;
 
     private Vector2 gravity;
 
@@ -91,7 +93,10 @@ public class CarryOverInfo : MonoBehaviour {
             UnlockLevel(nextUnlockingLevels[i]);
     }
 
-
+    public void SaveDeathPosition(Vector2 position)
+    {
+        deathPosition = position;
+    }
 
     public int[] Potions
     {
