@@ -91,7 +91,7 @@ public class DeathController : MonoBehaviour {
                 break;
 
             case 3:
-                CheckWin();
+                Invoke("CheckWin", 1.5f);
                 break;
         }
 	}

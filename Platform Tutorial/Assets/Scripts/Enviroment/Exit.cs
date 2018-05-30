@@ -11,6 +11,7 @@ public class Exit : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
+
             Invoke("LoadLevel",delay);
         }
     }
