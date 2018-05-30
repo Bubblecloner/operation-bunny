@@ -17,6 +17,7 @@ public class GameController : MonoBehaviour {
     public GameObject potionParent;
     public GameObject player;
     public GameObject potionSwapIcon;
+    public GameObject playerPrefab;
 
     public int playerHealth;
 
@@ -164,5 +165,17 @@ public class GameController : MonoBehaviour {
     public void ReloadLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void DeathHeal()
+    {
+        player = Instantiate(playerPrefab);
+        player.transform.position = CarryOverInfo.carryOverInfoInstance.deathPosition;
+        Camera.main.GetComponent<CameraFollow>().target = player.transform;
+    }
+
+    public void DeathGame()
+    {
+        SceneManager.LoadScene(15,LoadSceneMode.Additive);
     }
 }

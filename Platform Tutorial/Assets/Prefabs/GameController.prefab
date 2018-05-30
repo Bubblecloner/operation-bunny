@@ -66,6 +66,8 @@ MonoBehaviour:
   player: {fileID: 0}
   potionSwapIcon: {fileID: 1360533587627530, guid: ed8834005acefd9489d82670830957c7,
     type: 2}
+  playerPrefab: {fileID: 1429595871247458, guid: bd09b02ae3ef0d94a81bb3e62d4ce400,
+    type: 2}
   playerHealth: 0
   coins: 0
   potions: 
