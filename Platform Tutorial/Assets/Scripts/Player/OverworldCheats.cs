@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class OverworldCheats : MonoBehaviour {
 
     public GameObject CarryOver;
+    public OverworldController oWController;
 
 	void Start ()
     {
@@ -42,7 +43,13 @@ public class OverworldCheats : MonoBehaviour {
 
         if (Input.GetButtonDown("Cheat5"))
         {
-
+            CarryOverInfo.carryOverInfoInstance.nextUnlockingLevels = new string[4];
+            for (int i = 0; i < 4; i++)
+            {
+                if (oWController.choosenLevel.connections[i] != null)
+                    CarryOverInfo.carryOverInfoInstance.nextUnlockingLevels[i] = oWController.choosenLevel.connections[i].name;
+            }
+            CarryOverInfo.carryOverInfoInstance.UnlockLevels();
         }
     }
 }
