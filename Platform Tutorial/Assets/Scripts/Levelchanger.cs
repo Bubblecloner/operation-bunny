@@ -7,8 +7,7 @@ public class Levelchanger : MonoBehaviour {
 
 	void Update ()
 
-        private void OnTriggerEnter2D(Collider2D exit)
-
+    private void OnTriggerEnter2D(Collider2D exit)
     {
         FadeToLevel(6);    
     }
