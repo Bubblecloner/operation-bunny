@@ -137,7 +137,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 033a7d4d17055f148bf92b1b9217eb99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelToLoad: 2
+  levelToLoad: 6
+  delay: 1
 --- !u!212 &212016585294213522
 SpriteRenderer:
   m_ObjectHideFlags: 1

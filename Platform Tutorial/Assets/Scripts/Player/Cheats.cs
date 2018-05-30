@@ -44,12 +44,12 @@ public class Cheats : MonoBehaviour {
         if (Input.GetButtonDown("Cheat3"))
         {
             CarryOverInfo.carryOverInfoInstance.Load();
-            GameController.gameControllerInstance.LoadLevel(5);
+            GameController.gameControllerInstance.LoadLevel(6);
         }
 
         if (Input.GetButtonDown("Cheat4"))
         {
-            GameController.gameControllerInstance.LoadLevel(5);
+            GameController.gameControllerInstance.LoadLevel(6);
         }
 
         if (Input.GetButtonDown("Cheat5"))
