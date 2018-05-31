@@ -14368,7 +14368,7 @@ Prefab:
         type: 2}
       propertyPath: dialogue18
       value: 
-      objectReference: {fileID: 8300000, guid: 352db2b3c23067546881923b197bc2c1, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
         type: 2}
       propertyPath: dialogue11

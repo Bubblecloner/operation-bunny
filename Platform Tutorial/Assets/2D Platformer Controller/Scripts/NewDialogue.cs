@@ -127,9 +127,6 @@ public class NewDialogue : MonoBehaviour {
                     break;
                 case 9:
                     GetGary();
-                    myAudioSource = GetComponent<AudioSource>();
-                    myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue10, 1f);
                     break;
                 default:
                     Debug.Log("Switch broke");
@@ -155,41 +152,41 @@ public class NewDialogue : MonoBehaviour {
                     yield return new WaitForSeconds(4.0f);
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue11, 1f);
+                    myAudioSource.PlayOneShot(dialogue10, 1f);
                     break;
                 case 1:
                     PrintText("Yes, Grand master ?");
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue12, 1f);
+                    myAudioSource.PlayOneShot(dialogue11, 1f);
                     yield return new WaitForSeconds(4.0f);
                     break;
                 case 2:
                     PrintText("Go find the bunny and let her kill you");
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue13, 1f);
+                    myAudioSource.PlayOneShot(dialogue12, 1f);
                     yield return new WaitForSeconds(4.0f);
                     break;
                 case 3:
                     PrintText("Right, go kill the bunny.");
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue14, 1f);
+                    myAudioSource.PlayOneShot(dialogue13, 1f);
                     yield return new WaitForSeconds(4.0f);
                     break;
                 case 4:
                     PrintText("No! Let her kill you!");
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue15, 1f);
+                    myAudioSource.PlayOneShot(dialogue14, 1f);
                     yield return new WaitForSeconds(4.0f);
                     break;
                 case 5:
                     PrintText("Go get killed by the bunny. Right, got it.");
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue16, 1f);
+                    myAudioSource.PlayOneShot(dialogue15, 1f);
                     yield return new WaitForSeconds(4.0f);
                     break;
                 case 6:
@@ -197,14 +194,14 @@ public class NewDialogue : MonoBehaviour {
                     yield return new WaitForSeconds(4.0f);
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue17, 1f);
+                    myAudioSource.PlayOneShot(dialogue16, 1f);
                     break;
                 case 7:
                     PrintText("Yes, grand master!");
                     yield return new WaitForSeconds(4.0f);
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue18, 1f);
+                    myAudioSource.PlayOneShot(dialogue17, 1f);
                     // Animera Gary en gång till här, och sen en till switch när han kommer tillbaka
                     break;
                 default:
