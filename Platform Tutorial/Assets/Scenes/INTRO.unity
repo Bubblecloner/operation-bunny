@@ -14353,42 +14353,52 @@ Prefab:
         type: 2}
       propertyPath: dialogue12
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 445141254a893764e847cd45b44ea2ee, type: 3}
     - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
         type: 2}
       propertyPath: dialogue14
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 701e7e5f6f8ce664ea50f18b29a3ee78, type: 3}
     - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
         type: 2}
       propertyPath: dialogue16
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: fd7763e8b29d8d548aa3dd91ed77d7c4, type: 3}
     - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
         type: 2}
       propertyPath: dialogue18
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 352db2b3c23067546881923b197bc2c1, type: 3}
     - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
         type: 2}
       propertyPath: dialogue11
       value: 
-      objectReference: {fileID: 8300000, guid: 445141254a893764e847cd45b44ea2ee, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
         type: 2}
       propertyPath: dialogue13
       value: 
-      objectReference: {fileID: 8300000, guid: 701e7e5f6f8ce664ea50f18b29a3ee78, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
         type: 2}
       propertyPath: dialogue15
       value: 
-      objectReference: {fileID: 8300000, guid: fd7763e8b29d8d548aa3dd91ed77d7c4, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
         type: 2}
       propertyPath: dialogue17
       value: 
-      objectReference: {fileID: 8300000, guid: 352db2b3c23067546881923b197bc2c1, type: 3}
+      objectReference: {fileID: 0}
+    - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
+        type: 2}
+      propertyPath: dialogueYes
+      value: 
+      objectReference: {fileID: 8300000, guid: 5d8160d57f026314780b66a96719a862, type: 3}
+    - target: {fileID: 114775947202410752, guid: cec86cfcabcfc71429b94aea5f0ebf8a,
+        type: 2}
+      propertyPath: dialogueNo
+      value: 
+      objectReference: {fileID: 8300000, guid: 9e5d825b76d8dc84baf4c2a6e007e562, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cec86cfcabcfc71429b94aea5f0ebf8a, type: 2}
   m_IsPrefabParent: 0
