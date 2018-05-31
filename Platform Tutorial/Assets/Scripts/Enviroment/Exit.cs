@@ -11,7 +11,7 @@ public class Exit : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
-
+            other.GetComponentInParent<PlatformInputs>().canMove = false;
             Invoke("LoadLevel",delay);
         }
     }
