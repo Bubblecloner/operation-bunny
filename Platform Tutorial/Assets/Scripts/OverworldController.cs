@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class OverworldController : MonoBehaviour {
     
     public GameObject player;
     public OverworldLevel choosenLevel;
+    public Text coinText;
     public float moveTime = 1;
+    private int money;
 
     private Transform moveTarget;
     private bool moving = false;
@@ -19,11 +22,14 @@ public class OverworldController : MonoBehaviour {
             FindLevel(CarryOverInfo.carryOverInfoInstance.choosenLevel);
 
 
+        money = CarryOverInfo.carryOverInfoInstance.money;
+
         player.transform.position = choosenLevel.transform.position;
 	}
 	
 	void Update ()
     {
+        coinText.text = money.ToString();
         if (!moving)
         {
             if (Input.GetAxisRaw("Horizontal") > 0 && choosenLevel.connections[0])

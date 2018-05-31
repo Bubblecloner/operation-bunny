@@ -20,6 +20,6 @@ public class Exit : MonoBehaviour {
     private void LoadLevel()
     {
 
-        GameController.gameControllerInstance.LoadLevel(levelToLoad);
+        GameController.gameControllerInstance.ClearLevel();
     }
 }
