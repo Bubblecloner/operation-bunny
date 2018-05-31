@@ -1,19 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StoreController : MonoBehaviour {
 
+    public Text price;
+    public GameObject[] description;
     public GameObject[] listedItems;
     public GameObject cursor;
+    public Text coinText;
     private int selectedItem = 0;
     private int holdingDirection = 0;
+    private int money;
 
 	void Start () {
-		
+        Move(0);
 	}
 	
-	void Update () {
+	void Update ()
+    {
+        coinText.text = money.ToString();
 
         cursor.transform.position = (Vector2)listedItems[selectedItem].transform.position + new Vector2(0,100);
 
@@ -33,14 +41,24 @@ public class StoreController : MonoBehaviour {
         {
             PurchaseItem(selectedItem);
         }
+        else if (Input.GetButtonDown("Cancel"))
+        {
+
+        }
         //add exit method
+        
     }
 
     private void Move(int target)
     {
         if(target < listedItems.Length && target >= 0)
         {
+            description[selectedItem].SetActive(false);
+            description[target].SetActive(true);
+
             selectedItem = target;
+
+            price.text = listedItems[selectedItem].GetComponent<StoreItem>().Price.ToString();
         }
     }
 
@@ -50,5 +68,10 @@ public class StoreController : MonoBehaviour {
         {
             //runs if player does not have enough money
         }
+    }
+
+    private void Exit()
+    {
+        SceneManager.LoadScene(6);
     }
 }
