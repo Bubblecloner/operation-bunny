@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour {
 	void Update ()
     {
         arrowCount.text = arrows.ToString();
-        //coinText.text = coins.ToString();
+        coinText.text = coins.ToString();
         DisplayPotions();
 
 
@@ -153,13 +153,17 @@ public class GameController : MonoBehaviour {
 
     public void LoadLevel(int levelToLoad)
     {
+        SceneManager.LoadScene(levelToLoad);
+    }
+
+    public void ClearLevel()
+    {
         CarryOverInfo.carryOverInfoInstance.UpdatePlayerStats(GameObject.FindGameObjectWithTag("Player").GetComponentInParent<PlayerVariables>().gameObject);
+        CarryOverInfo.carryOverInfoInstance.money += coins;
+        CarryOverInfo.carryOverInfoInstance.UnlockLevels();
         CarryOverInfo.carryOverInfoInstance.Save();
 
-        /*int previousCoins = PlayerPrefs.GetInt("coins");
-        previousCoins += coins;
-        PlayerPrefs.SetInt("coins", previousCoins);*/
-        SceneManager.LoadScene(levelToLoad);
+        SceneManager.LoadScene(6);
     }
 
     public void ReloadLevel()

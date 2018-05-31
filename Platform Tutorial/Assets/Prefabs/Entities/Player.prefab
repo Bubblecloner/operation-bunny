@@ -93,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1429595871247458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8188663, y: -0.6590469, z: 0}
+  m_LocalPosition: {x: -0.871, y: -0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4479166337676772}
@@ -398,14 +398,14 @@ MonoBehaviour:
   speed: 6
   jumpHeight: 8
   minimumJumpTime: 0.1
-  attackCooldown: 0.5
+  attackCooldown: 0.8
   shotSpeed: 15
   potionDrink: 2
   shieldReapairTime: 4
   fastFallSpeed: 3
   slowFallSpeed: 0.2
   startArrows: 5
-  upgradeArrows: 05000000
+  upgradeArrows: 050000000a0000000f00000014000000
   groundCheckR: {fileID: 4479166337676772}
   groundCheckL: {fileID: 4840518931618262}
   PauseMenu: {fileID: 0}
@@ -453,8 +453,8 @@ MonoBehaviour:
     type: 2}
   invincibilityParticles: {fileID: 1066161328622114, guid: c3b74578094c4b74994615489a3dd3b5,
     type: 2}
-  healthUpgrades: 03000000
-  damageUpgrades: 01000000
+  healthUpgrades: 0300000004000000050000000600000007000000
+  damageUpgrades: 010000000200000003000000
 --- !u!114 &114489817775711492
 MonoBehaviour:
   m_ObjectHideFlags: 1
