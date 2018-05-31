@@ -10,7 +10,25 @@ public class NewDialogue : MonoBehaviour {
     public Canvas canvas;
     public Text textObject;
     public Text leftAnswer, rightAnswer;
-    public AudioClip dialogueTalk;
+    public AudioClip dialogue1;
+    public AudioClip dialogue2;
+    public AudioClip dialogue3;
+    public AudioClip dialogue4;
+    public AudioClip dialogue5;
+    public AudioClip dialogue6;
+    public AudioClip dialogue7;
+    public AudioClip dialogue8;
+    public AudioClip dialogue9;
+    public AudioClip dialogue10;
+    public AudioClip dialogue11;
+    public AudioClip dialogue12;
+    public AudioClip dialogue13;
+    public AudioClip dialogue14;
+    public AudioClip dialogue15;
+    public AudioClip dialogue16;
+    public AudioClip dialogue17;
+    public AudioClip dialogue18;
+    public AudioClip dialogueintro;
 
     private float readTime = 3.0f;
     private bool waitingForAnswer;
@@ -33,6 +51,8 @@ public class NewDialogue : MonoBehaviour {
         {
             canvas.enabled = true;
             PrintText(firstParagraph);
+            myAudioSource = GetComponent<AudioSource>();
+            myAudioSource.PlayOneShot(dialogueintro, 1f);
         }
 
         // Får svar från spelaren
@@ -40,6 +60,8 @@ public class NewDialogue : MonoBehaviour {
         {
             DisableAnswers();
             PrintText(secondParagraph);
+            myAudioSource = GetComponent<AudioSource>();
+            myAudioSource.PlayOneShot(dialogue1, 1f);
         }
 
         if (waitingForAnswer && Input.GetKeyDown(KeyCode.B) || waitingForAnswer && Input.GetKeyDown("joystick button 1"))
@@ -54,31 +76,47 @@ public class NewDialogue : MonoBehaviour {
                 case 1:
                     PrintText(thirdParagraph);
                     myAudioSource = GetComponent<AudioSource>();
-                    myAudioSource.PlayOneShot(dialogueTalk, 1f);
+                    myAudioSource.PlayOneShot(dialogue2, 1f);
                     break;
                 case 2:
                     PrintText(fourthParagraph);
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue3, 1f);
                     break;
                 case 3:
                     PrintText(fifthParagraph);
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue4, 1f);
                     break;
                 case 4:
                     PrintText(sixthParagraph);
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue5, 1f);
                     break;
                 case 5:
                     PrintText(seventhParagraph);
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue6, 1f);
                     break;
                 case 6:
                     PrintText(eightParagraph);
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue7, 1f);
                     break;
                 case 7:
                     PrintText(ninthParagraph);
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue8, 1f);
                     break;
                 case 8:
                     PrintText(tenthParagraph);
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue9, 1f);
                     break;
                 case 9:
                     GetGary();
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue10, 1f);
                     break;
                 default:
                     Debug.Log("Switch broke");
@@ -102,34 +140,50 @@ public class NewDialogue : MonoBehaviour {
                 case 0:
                     PrintText("Aaaaaaaaaargh… Gary!");
                     yield return new WaitForSeconds(4.0f);
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue11, 1f);
                     break;
                 case 1:
                     PrintText("Yes, Grand master ?");
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue12, 1f);
                     yield return new WaitForSeconds(4.0f);
                     break;
                 case 2:
                     PrintText("Go find the bunny and let her kill you");
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue13, 1f);
                     yield return new WaitForSeconds(4.0f);
                     break;
                 case 3:
                     PrintText("Right, go kill the bunny.");
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue14, 1f);
                     yield return new WaitForSeconds(4.0f);
                     break;
                 case 4:
                     PrintText("No! Let her kill you!");
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue15, 1f);
                     yield return new WaitForSeconds(4.0f);
                     break;
                 case 5:
                     PrintText("Go get killed by the bunny. Right, got it.");
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue16, 1f);
                     yield return new WaitForSeconds(4.0f);
                     break;
                 case 6:
                     PrintText("You understand, Gary?");
                     yield return new WaitForSeconds(4.0f);
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue17, 1f);
                     break;
                 case 7:
                     PrintText("Yes, grand master!");
                     yield return new WaitForSeconds(4.0f);
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogue18, 1f);
                     // Animera Gary en gång till här, och sen en till switch när han kommer tillbaka
                     break;
                 default:
