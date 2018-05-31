@@ -4,12 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class NewDialogue : MonoBehaviour {
+public class Ending1 : MonoBehaviour {
+
 
     public string firstParagraph, secondParagraph, thirdParagraph, fourthParagraph, fifthParagraph, sixthParagraph, seventhParagraph, eightParagraph, ninthParagraph, tenthParagraph;
     public Canvas canvas;
     public Text textObject;
-    public Text leftAnswer, rightAnswer;
+    public Text middleanswer;
     public AudioClip dialogue1;
     public AudioClip dialogue2;
     public AudioClip dialogue3;
@@ -18,60 +19,29 @@ public class NewDialogue : MonoBehaviour {
     public AudioClip dialogue6;
     public AudioClip dialogue7;
     public AudioClip dialogue8;
-    public AudioClip dialogue9;
-    public AudioClip dialogue10;
-    public AudioClip dialogue11;
-    public AudioClip dialogue12;
-    public AudioClip dialogue13;
-    public AudioClip dialogue14;
-    public AudioClip dialogue15;
-    public AudioClip dialogue16;
-    public AudioClip dialogue17;
-    public AudioClip dialogue18;
-    public AudioClip dialogueintro;
-    public AudioClip dialogueYes;
-    public AudioClip dialogueNo;
+
 
     private float readTime = 3.0f;
     private bool waitingForAnswer;
-    private int numberOfNos;
     private AudioSource myAudioSource;
 
-	void Start ()
+    void Start()
     {
         canvas.enabled = false;
-        leftAnswer.enabled = false;
-        rightAnswer.enabled = false;
+        middleanswer.enabled = false;
         waitingForAnswer = false;
-        numberOfNos = 0;
-	}
+    }
 
     private void Update()
     {
-        // Testar metoden
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            canvas.enabled = true;
-            PrintText(firstParagraph);
-        }
 
         // Får svar från spelaren
-        if(waitingForAnswer && Input.GetKeyDown(KeyCode.A) || waitingForAnswer && Input.GetKeyDown("joystick button 0"))
+        if (waitingForAnswer && Input.GetKeyDown(KeyCode.Space) || waitingForAnswer && Input.GetKeyDown("joystick button 0"))
         {
             DisableAnswers();
-            PrintText(secondParagraph);
             myAudioSource = GetComponent<AudioSource>();
             myAudioSource.Stop();
-            myAudioSource.PlayOneShot(dialogueYes, 1f);
-        }
-
-        if (waitingForAnswer && Input.GetKeyDown(KeyCode.B) || waitingForAnswer && Input.GetKeyDown("joystick button 1"))
-        {
-            Debug.Log("pre " + numberOfNos);
-            numberOfNos++;
-            Debug.Log("post " + numberOfNos);
-            myAudioSource = GetComponent<AudioSource>();
-            myAudioSource.PlayOneShot(dialogueNo, 1f);
+        
 
             //DisableAnswers();
 
@@ -81,52 +51,52 @@ public class NewDialogue : MonoBehaviour {
                     PrintText(thirdParagraph);
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue2, 1f);
+                    myAudioSource.PlayOneShot(dialogue1, 1f);
                     break;
                 case 2:
+                    GetGary();
+                    break;
+                case 3:
                     PrintText(fourthParagraph);
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.Stop();
+                    myAudioSource.PlayOneShot(dialogue2, 1f);
+                    break;
+                case 4:
+                    PrintText(fifthParagraph);
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
                     myAudioSource.PlayOneShot(dialogue3, 1f);
                     break;
-                case 3:
-                    PrintText(fifthParagraph);
+                case 5:
+                    PrintText(sixthParagraph);
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
                     myAudioSource.PlayOneShot(dialogue4, 1f);
                     break;
-                case 4:
-                    PrintText(sixthParagraph);
+                case 6:
+                    PrintText(seventhParagraph);
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
                     myAudioSource.PlayOneShot(dialogue5, 1f);
                     break;
-                case 5:
-                    PrintText(seventhParagraph);
+                case 7:
+                    PrintText(eightParagraph);
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
                     myAudioSource.PlayOneShot(dialogue6, 1f);
                     break;
-                case 6:
-                    PrintText(eightParagraph);
+                case 8:
+                    PrintText(ninthParagraph);
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
                     myAudioSource.PlayOneShot(dialogue7, 1f);
                     break;
-                case 7:
-                    PrintText(ninthParagraph);
-                    myAudioSource = GetComponent<AudioSource>();
-                    myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue8, 1f);
-                    break;
-                case 8:
+                case 9:
                     PrintText(tenthParagraph);
                     myAudioSource = GetComponent<AudioSource>();
                     myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue9, 1f);
-                    break;
-                case 9:
-                    GetGary();
+                    myAudioSource.PlayOneShot(dialogue8, 1f);
                     break;
                 default:
                     Debug.Log("Switch broke");
