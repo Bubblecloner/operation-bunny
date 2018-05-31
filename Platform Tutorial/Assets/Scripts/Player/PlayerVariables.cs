@@ -23,7 +23,7 @@ public class PlayerVariables : Entity {
         base.Start();
         COInfo = CarryOverInfo.carryOverInfoInstance;
         maxHealth = healthUpgrades[COInfo.upgrades[0]];
-        damage = damageUpgrades[COInfo.upgrades[2]];
+        damage = damageUpgrades[COInfo.upgrades[1]];
 
 
         health = maxHealth;
@@ -122,7 +122,6 @@ public class PlayerVariables : Entity {
     {
         if (other.gameObject.CompareTag("Coin"))
         {
-            Debug.Log("t");
             other.gameObject.SetActive(false);
             //Instantiate(coinParticles, other.transform.position, Quaternion.identity);
             GameController.gameControllerInstance.coins++;

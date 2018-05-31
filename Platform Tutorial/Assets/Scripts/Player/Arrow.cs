@@ -6,14 +6,20 @@ public class Arrow : MonoBehaviour {
 
     public LayerMask layerMask;
     public int penetration = 1;
+    public int[] damageUpgrades;
     public float pickChance = 0.5f;
 
+    private int damage;
     private bool flying = false;
     private bool pickable = false;
     private Vector2 hitPoint = Vector2.zero;
-    
-	
-	void Update ()
+
+    private void Start()
+    {
+        damage = damageUpgrades[CarryOverInfo.carryOverInfoInstance.upgrades[1]];
+    }
+
+    void Update ()
     {
         if (flying)
         {
@@ -35,7 +41,7 @@ public class Arrow : MonoBehaviour {
     {
         if(other.tag == "Enemy" && flying)
         {
-            other.GetComponent<Entity>().Harm(1,0,0,gameObject,0.1f);
+            other.GetComponent<Entity>().Harm(damage,0,0,gameObject,0.1f);
             penetration--;
         }
 
