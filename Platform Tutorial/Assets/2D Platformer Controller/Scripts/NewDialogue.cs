@@ -10,10 +10,12 @@ public class NewDialogue : MonoBehaviour {
     public Canvas canvas;
     public Text textObject;
     public Text leftAnswer, rightAnswer;
+    public AudioClip dialogueTalk;
 
     private float readTime = 3.0f;
     private bool waitingForAnswer;
     private int numberOfNos;
+    private AudioSource myAudioSource;
 
 	void Start ()
     {
@@ -51,6 +53,8 @@ public class NewDialogue : MonoBehaviour {
             {
                 case 1:
                     PrintText(thirdParagraph);
+                    myAudioSource = GetComponent<AudioSource>();
+                    myAudioSource.PlayOneShot(dialogueTalk, 1f);
                     break;
                 case 2:
                     PrintText(fourthParagraph);
