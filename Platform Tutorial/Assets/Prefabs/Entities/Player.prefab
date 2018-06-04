@@ -93,7 +93,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1429595871247458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.871, y: -0.08, z: 0}
+  m_LocalPosition: {x: -3.8188663, y: -0.6590469, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4479166337676772}
@@ -446,7 +446,7 @@ MonoBehaviour:
   hitStun: 2
   paused: 0
   coinParticles: {fileID: 0}
-  coinPickup: {fileID: 8300000, guid: 4598c3c11f2519b4f9f59409704ca20f, type: 3}
+  coinPickup: {fileID: 8300000, guid: c537ccc2316fbda46951df734aa2f787, type: 3}
   hurt: {fileID: 8300000, guid: 289d07001cc69e64f9b478c9bddf740d, type: 3}
   fallDeath: {fileID: 8300000, guid: 19882e3c4901d3144a4e3b0fb0ffa139, type: 3}
   bonusDamageParticles: {fileID: 1066161328622114, guid: 9737cb32bd9179147ad0a258725aa3c8,
