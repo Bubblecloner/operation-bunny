@@ -125,7 +125,6 @@ public class PlayerVariables : Entity {
             other.gameObject.SetActive(false);
             //Instantiate(coinParticles, other.transform.position, Quaternion.identity);
             GameController.gameControllerInstance.coins++;
-            myAudioSource.pitch = Random.Range(0.5f, 1.5f);
             myAudioSource.PlayOneShot(coinPickup, 0.5f);
         }
     }
