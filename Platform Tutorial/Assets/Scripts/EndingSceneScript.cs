@@ -135,6 +135,6 @@ public class EndingSceneScript : MonoBehaviour {
     private void LoadNextScene()
     {
         // Ändra scennummer här!
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(20);
     }
 }
