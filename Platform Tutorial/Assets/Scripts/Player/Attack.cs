@@ -11,6 +11,8 @@ public class Attack : MonoBehaviour {
 
 	void Start ()
     {
+        if (transform.parent.transform.position.x > transform.position.x)
+            transform.localScale *= new Vector2(-1, 1);
         damage = GetComponentInParent<Entity>().Damage;
     }
 	
