@@ -838,7 +838,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1429595871247458}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.8188663, y: -0.6590469, z: 0}
+  m_LocalPosition: {x: -0.871, y: -0.08, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4479166337676772}
@@ -1343,7 +1343,7 @@ MonoBehaviour:
   jumpHeight: 8
   minimumJumpTime: 0.1
   attackDelay: 0.4
-  attackCooldown: 1.3
+  attackCooldown: 0.8
   shotSpeed: 15
   potionDrink: 2
   shieldReapairTime: 4
