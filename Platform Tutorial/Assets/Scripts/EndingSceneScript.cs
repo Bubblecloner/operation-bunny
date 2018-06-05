@@ -5,13 +5,14 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using DG.Tweening;
 
-public class EndingSceneScript : MonoBehaviour {
+public class EndingSceneScript : MonoBehaviour
+{
 
     public Canvas canvas;
     public Text textObject;
     public string[] dialogue;
     public AudioClip[] sounds;
-    public AudioClip explosionSound;
+    public AudioClip explosionSound, bunnySound;
     public GameObject explosions;
     public GameObject gary;
     public Image fadeImage;
@@ -22,7 +23,7 @@ public class EndingSceneScript : MonoBehaviour {
     private AudioSource audio;
     private bool garyLeft;
 
-	void Start ()
+    void Start()
     {
         garyLeft = false;
         explosions.SetActive(false);
@@ -67,6 +68,7 @@ public class EndingSceneScript : MonoBehaviour {
         PlaySound(2);
         PrintText("Even Gary knew what I fucking meant…", Color.black, duration);
         Invoke("DisableCanvas", duration + 2.0f);
+        Invoke("PlayBunnySound", duration + 3.5f);
     }
 
     private void Part4()
@@ -105,7 +107,7 @@ public class EndingSceneScript : MonoBehaviour {
 
     private void MoveGary()
     {
-        if(garyLeft)
+        if (garyLeft)
         {
             gary.transform.localScale = new Vector3(-0.1335431f, 0.1335431f, 0.1335431f);
         }
@@ -130,6 +132,11 @@ public class EndingSceneScript : MonoBehaviour {
     private void FadeToBlack()
     {
         fadeImage.DOFade(1, 1.5f);
+    }
+
+    private void PlayBunnySound()
+    {
+        audio.PlayOneShot(bunnySound);
     }
 
     private void LoadNextScene()

@@ -21288,6 +21288,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 352db2b3c23067546881923b197bc2c1, type: 3}
   - {fileID: 8300000, guid: b9933f046de11fc42a751a4a9da65c8d, type: 3}
   explosionSound: {fileID: 8300000, guid: ec7adae78c86d804ba87c648ddd8e97f, type: 3}
+  bunnySound: {fileID: 8300000, guid: cd461cc1f5a44114cba0aaff71ff95d0, type: 3}
   explosions: {fileID: 1756202416}
   gary: {fileID: 22748321}
   fadeImage: {fileID: 1836090006}
