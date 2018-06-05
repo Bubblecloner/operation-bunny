@@ -61,11 +61,7 @@ public class CandyBoss : Entity {
         grounded = ((Physics2D.OverlapPointAll(fallCheck.position, wallMask).Length >= 1) || (Physics2D.OverlapPointAll(fallCheck.position, wallMask).Length >= 1)) && rgbd2d.velocity.y < 0.1f;
         anim.SetBool("Grounded", grounded);
 
-
-        if (Input.GetKeyDown(KeyCode.Keypad9))
-        {
-            SpecialStart();
-        }
+        
 
             attackTimer -= Time.deltaTime;
 

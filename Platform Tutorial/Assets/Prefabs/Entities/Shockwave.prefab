@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4683202284980186}
   - component: {fileID: 212921687222362030}
-  - component: {fileID: 70893986252503198}
   - component: {fileID: 114315687491560952}
   - component: {fileID: 114329733540824302}
+  - component: {fileID: 70344658129904610}
   m_Layer: 9
   m_Name: Shockwave
   m_TagString: Enemy
@@ -37,13 +37,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1874447654800494}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.9177847, y: -2.783302, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 0}
+  m_LocalPosition: {x: -0.9739449, y: -1.0571, z: 0}
+  m_LocalScale: {x: 0.24082032, y: 0.33799344, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!70 &70893986252503198
+--- !u!70 &70344658129904610
 CapsuleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -52,11 +52,11 @@ CapsuleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.86, y: 2.08}
+  m_Size: {x: 2.11, y: 4.83}
   m_Direction: 0
 --- !u!114 &114315687491560952
 MonoBehaviour:
@@ -118,7 +118,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c36f787eb59ae4c4f870ae25431178f2, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18eab4f3d0239e3428d719f99093cd71, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

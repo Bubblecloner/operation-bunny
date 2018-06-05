@@ -9,6 +9,7 @@ public class PlatformInputs : MonoBehaviour
     public float speed = 10.0f;
     public float jumpHeight = 4.0f;
     public float minimumJumpTime = 2;
+    public float attackDelay = 0.4f;
     public float attackCooldown = 2;
     public float shotSpeed = 4;
     public float potionDrink = 2;
@@ -168,7 +169,8 @@ public class PlatformInputs : MonoBehaviour
 
             if (Input.GetButtonDown("Attack") && attackTimer < 0 && !Shielding)
             {
-                Attack();
+                anim.SetBool("Attacking", true);
+                Invoke("Attack",attackDelay);
             }
 
 
@@ -382,7 +384,6 @@ public class PlatformInputs : MonoBehaviour
 
         attackTimer = attackCooldown;
 
-        anim.SetBool("Attacking", true);
 
         StopShot();
     }
