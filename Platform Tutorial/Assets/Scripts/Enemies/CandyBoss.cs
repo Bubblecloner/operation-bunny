@@ -16,6 +16,14 @@ public class CandyBoss : Entity {
     public LayerMask wallMask;
 
 
+    protected AudioSource audioSrcs;
+    public AudioClip attackSound;
+    public AudioClip specialAttack;
+    public AudioClip start;
+    public AudioClip takeDmg;
+    public AudioClip death;
+
+
     public Vector2 attackSize;
     public GameObject attack;
     public GameObject shockWave;
@@ -38,6 +46,8 @@ public class CandyBoss : Entity {
 
     protected override void Start()
     {
+        audioSrcs = GetComponent<AudioSource>();
+        Play(start);
         maxHealth = scalingHealth[CarryOverInfo.carryOverInfoInstance.upgrades[1]];
         base.Start();
         anim = GetComponentInChildren<Animator>();
@@ -100,29 +110,33 @@ public class CandyBoss : Entity {
                 break;
 
             case 3:
-                if (specialTimer < 0)
-                {
-                    fightPhase = 4;
-                    break;
-                }
 
                 if (targetSpot.position.x > transform.position.x)
                     rgbd2d.velocity = new Vector2(6*(targetSpot.position.x - transform.position.x), rgbd2d.velocity.y);
                 else
                     rgbd2d.velocity = new Vector2(-6*(transform.position.x - targetSpot.position.x), rgbd2d.velocity.y);
 
-                if(Mathf.Abs(Mathf.Abs(targetSpot.position.x)-Mathf.Abs(transform.position.x)) < 0.1f && specialTimer > 1)
+                if(Mathf.Abs(Mathf.Abs(targetSpot.position.x)-Mathf.Abs(transform.position.x)) < 0.1f)
                 {
-
-                    int temp = Random.Range(0, landingSpots.Length);
-                    while (temp == random)
+                    if (specialTimer > 1)
                     {
-                        temp = Random.Range(0, landingSpots.Length);
+
+                        int temp = Random.Range(0, landingSpots.Length);
+                        while (temp == random)
+                        {
+                            temp = Random.Range(0, landingSpots.Length);
+                        }
+                        random = temp;
+
+
+                        targetSpot = landingSpots[random];
                     }
-                    random = temp;
-
-
-                    targetSpot = landingSpots[random];
+                    else
+                    {
+                        Play(specialAttack);
+                        fightPhase = 5;
+                        break;
+                    }
                 }
                 specialTimer -= Time.deltaTime;
                 break;
@@ -137,6 +151,18 @@ public class CandyBoss : Entity {
                 }
 
 
+                break;
+
+            case 5:
+
+                if (specialTimer < 0)
+                {
+                    fightPhase = 4;
+                    break;
+                }
+
+
+                specialTimer -= Time.deltaTime;
                 break;
         }
     }
@@ -203,7 +229,7 @@ public class CandyBoss : Entity {
 
         temp.GetComponent<Attack>().targetTag = "Player";
 
-
+        Play(attackSound);
     }
 
     protected virtual void Flip()
@@ -213,5 +239,25 @@ public class CandyBoss : Entity {
         facingRight = !facingRight;
         fallCheck.localPosition = new Vector2(-fallCheck.localPosition.x, fallCheck.localPosition.y);
         frontCheck.localPosition = new Vector2(-frontCheck.localPosition.x, frontCheck.localPosition.y);
+    }
+
+    public override void Die()
+    {
+        base.Die();
+        Play(death);
+        GameController.gameControllerInstance.ClearLevel();
+    }
+
+    public override void Harm(int dmg, float knockBack, float knockUp, GameObject source)
+    {
+        Play(takeDmg);
+        base.Harm(dmg, knockBack, knockUp, source);
+    }
+
+    private void Play(AudioClip clip)
+    {
+
+        audioSrcs.Stop();
+        audioSrcs.PlayOneShot(clip);
     }
 }

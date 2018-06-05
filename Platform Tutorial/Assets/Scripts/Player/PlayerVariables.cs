@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerVariables : Entity {
 
 
+    public bool bossFight;
     public GameObject coinParticles;
     public AudioClip coinPickup;
     public AudioClip hurt;
@@ -97,7 +98,10 @@ public class PlayerVariables : Entity {
 
     public void Respawn()
     {
-        GameController.gameControllerInstance.DeathGame();
+        if (!bossFight)
+            GameController.gameControllerInstance.DeathGame();
+        else
+            GameController.gameControllerInstance.ReloadLevel();
     }
 
     public void FallDeath()
