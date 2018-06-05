@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class EndingSceneScript : MonoBehaviour {
@@ -10,8 +11,10 @@ public class EndingSceneScript : MonoBehaviour {
     public Text textObject;
     public string[] dialogue;
     public AudioClip[] sounds;
+    public AudioClip explosionSound;
     public GameObject explosions;
     public GameObject gary;
+    public Image fadeImage;
 
     private float garyMoveTime;
     private Vector3 garyDestination;
@@ -83,6 +86,9 @@ public class EndingSceneScript : MonoBehaviour {
     private void Explosions()
     {
         explosions.SetActive(true);
+        audio.PlayOneShot(explosionSound);
+        FadeToBlack();
+        Invoke("LoadNextScene", 3.0f);
     }
 
     private void PrintText(string textToPrint, Color textColor, float duration)
@@ -119,5 +125,16 @@ public class EndingSceneScript : MonoBehaviour {
     private void EnableCanvas()
     {
         canvas.enabled = true;
+    }
+
+    private void FadeToBlack()
+    {
+        fadeImage.DOFade(1, 1.5f);
+    }
+
+    private void LoadNextScene()
+    {
+        // Ändra scennummer här!
+        SceneManager.LoadScene(0);
     }
 }
