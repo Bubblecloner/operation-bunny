@@ -245,6 +245,12 @@ public class CandyBoss : Entity {
     {
         base.Die();
         Play(death);
+        Invoke("FinishLevel", 3);
+    }
+
+    protected void FinishLevel()
+    {
+
         GameController.gameControllerInstance.ClearLevel();
     }
 
