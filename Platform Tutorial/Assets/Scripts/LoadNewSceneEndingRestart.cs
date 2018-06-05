@@ -7,7 +7,7 @@ public class LoadNewSceneEndingRestart : MonoBehaviour {
 
     
 
-    private void LoadNextScene()
+    public void LoadNextScene()
     {
         // Ändra scennummer här!
         SceneManager.LoadScene(2);
