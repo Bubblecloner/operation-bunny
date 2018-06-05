@@ -56,7 +56,7 @@ public class PlatformInputs : MonoBehaviour
         startArrows = upgradeArrows[CarryOverInfo.carryOverInfoInstance.upgrades[2]];
         arrows = startArrows;
         rgbd2d = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        anim = GetComponentInChildren<Animator>();
 
         gravity = Physics2D.gravity;
 
@@ -70,6 +70,10 @@ public class PlatformInputs : MonoBehaviour
     {
         if (!GetComponent<PlayerVariables>().paused)
         {
+            anim.SetBool("Attacking", false);
+            anim.SetBool("Shoot", false);
+
+
             if (!canMove)
                 return;
 
@@ -224,7 +228,14 @@ public class PlatformInputs : MonoBehaviour
                 transform.Translate(new Vector3(horizontalDirection, 0, 0).normalized * speed * Time.deltaTime);
             else
                 transform.Translate(new Vector3(horizontalDirection, 0, 0) * speed * Time.deltaTime);
+
+            if (horizontalDirection != 0)
+                anim.SetBool("Moving", true);
+            else
+                anim.SetBool("Moving", false);
         }
+        else
+            anim.SetBool("Moving", false);
     }
 
     private void Pause()
@@ -326,6 +337,7 @@ public class PlatformInputs : MonoBehaviour
 
     private void Shot()
     {
+        anim.SetBool("Shoot", true);
         aiming = false;
         arrows--;
 
@@ -370,7 +382,7 @@ public class PlatformInputs : MonoBehaviour
 
         attackTimer = attackCooldown;
 
-
+        anim.SetBool("Attacking", true);
 
         StopShot();
     }
@@ -390,7 +402,7 @@ public class PlatformInputs : MonoBehaviour
 
         hiddenRightBool = facingRight > 0;
 
-
+        anim.transform.localScale = new Vector2(facingRight *Mathf.Abs( anim.transform.localScale.x), anim.transform.localScale.y);
 
         /*Vector3 myScale = transform.localScale;
         myScale.x = facingRight;
