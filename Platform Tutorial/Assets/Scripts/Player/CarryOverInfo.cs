@@ -9,6 +9,7 @@ public class CarryOverInfo : MonoBehaviour {
     public int maxPotions = 3;
     public int money;
     public int[] upgrades = new int[3];
+    //0 health, 1 damage, 2 arrows
     public Vector2 choosenLevel;
     public List<string> unlockedLevels;
     private int[] pots;
