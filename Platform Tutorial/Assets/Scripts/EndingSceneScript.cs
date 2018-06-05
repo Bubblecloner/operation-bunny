@@ -11,17 +11,20 @@ public class EndingSceneScript : MonoBehaviour {
     public string[] dialogue;
     public AudioClip[] sounds;
     public GameObject explosions;
+    public GameObject gary;
 
-    private float readTime, waitTime;
+    private float garyMoveTime;
+    private Vector3 garyDestination;
     private int dialogueNumber;
     private AudioSource audio;
+    private bool garyLeft;
 
 	void Start ()
     {
+        garyLeft = false;
         explosions.SetActive(false);
         audio = GetComponent<AudioSource>();
         dialogueNumber = 0;
-        waitTime = 2.0f;
         Invoke("Part1", 1.0f);
         Invoke("Part2", 6.0f);
         Invoke("Part3", 29.0f);
@@ -35,6 +38,10 @@ public class EndingSceneScript : MonoBehaviour {
         PlaySound(0);
         PrintText("Aaaaaaaaaargh… Gary!", Color.black, duration);
         // Move gary
+        garyDestination = new Vector3(-2.2f, -4.06f, 0);
+        garyMoveTime = 2.0f;
+        garyLeft = false;
+        Invoke("MoveGary", 2.0f);
     }
 
     private void Part2()
@@ -44,6 +51,10 @@ public class EndingSceneScript : MonoBehaviour {
         PrintText("Gary: Yes, Grand master? \nGM: Go find the bunny and let her kill you \nGary: Right, go kill the bunny. \nGM: No!Let her kill you! \nGary: Go get killed by the bunny.Right, got it. \nGM: You understand, Gary ? \nGary : Yes, grand master!", Color.black, duration + 3.0f);
         Invoke("DisableCanvas", duration + 5.0f);
         // Move gary
+        garyDestination = new Vector3(-12.2f, -4.06f, 0);
+        garyMoveTime = 8.0f;
+        garyLeft = true;
+        Invoke("MoveGary", duration + 2.0f);
     }
 
     private void Part3()
@@ -57,6 +68,10 @@ public class EndingSceneScript : MonoBehaviour {
 
     private void Part4()
     {
+        garyDestination = new Vector3(-2.2f, -4.06f, 0);
+        garyMoveTime = 3.0f;
+        garyLeft = false;
+        Invoke("MoveGary", 0.0f);
         EnableCanvas();
         float duration = sounds[3].length;
         PlaySound(3);
@@ -84,10 +99,16 @@ public class EndingSceneScript : MonoBehaviour {
 
     private void MoveGary()
     {
-        dialogueNumber = 0;
-        Debug.Log("Gary");
-        // Animate gary moving
-        Invoke("StartSecondDialogue", 3.0f);
+        if(garyLeft)
+        {
+            gary.transform.localScale = new Vector3(-0.1335431f, 0.1335431f, 0.1335431f);
+        }
+        else
+        {
+            gary.transform.localScale = new Vector3(0.1335431f, 0.1335431f, 0.1335431f);
+        }
+
+        gary.GetComponent<GaryEnding>().Movement(garyDestination, garyMoveTime);
     }
 
     private void DisableCanvas()
