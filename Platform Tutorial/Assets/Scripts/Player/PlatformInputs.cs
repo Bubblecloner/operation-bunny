@@ -410,7 +410,7 @@ public class PlatformInputs : MonoBehaviour
         transform.localScale = myScale;*/
 
 
-        Invoke("EndFlip", 0.2f);
+        Invoke("EndFlip", 0);
     }
 
     private void EndFlip()
