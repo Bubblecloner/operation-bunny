@@ -24,11 +24,11 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial.unity
     guid: 47f6935b80b56cd4687ef3479c981ae1
   - enabled: 1
-    path: Assets/Scenes/Store.unity
-    guid: 1ff093874ad0fba48b02a5447082c9fe
-  - enabled: 1
     path: Assets/Scenes/Overworld.unity
     guid: 1755eb8a1bcf83f4eadd8aba4e0c39f5
+  - enabled: 1
+    path: Assets/Scenes/Store.unity
+    guid: 1ff093874ad0fba48b02a5447082c9fe
   - enabled: 1
     path: Assets/Scenes/scene03.unity
     guid: 2675b8283b2932d4ca5d45a03867854f
