@@ -163,7 +163,7 @@ public class GameController : MonoBehaviour {
         CarryOverInfo.carryOverInfoInstance.UnlockLevels();
         CarryOverInfo.carryOverInfoInstance.Save();
 
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(5);
     }
 
     public void ReloadLevel()
@@ -181,6 +181,6 @@ public class GameController : MonoBehaviour {
 
     public void DeathGame()
     {
-        SceneManager.LoadScene(15,LoadSceneMode.Additive);
+        SceneManager.LoadScene(13,LoadSceneMode.Additive);
     }
 }

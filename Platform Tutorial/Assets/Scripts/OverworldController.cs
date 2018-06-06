@@ -103,6 +103,6 @@ public class OverworldController : MonoBehaviour {
     {
         CarryOverInfo.carryOverInfoInstance.choosenLevel = choosenLevel.transform.position;
 
-        SceneManager.LoadScene(7);
+        SceneManager.LoadScene(6);
     }
 }

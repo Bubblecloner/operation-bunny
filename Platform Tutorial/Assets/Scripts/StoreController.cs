@@ -72,6 +72,6 @@ public class StoreController : MonoBehaviour {
 
     private void Exit()
     {
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(5);
     }
 }

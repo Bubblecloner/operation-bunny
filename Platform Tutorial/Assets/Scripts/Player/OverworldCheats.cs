@@ -38,7 +38,7 @@ public class OverworldCheats : MonoBehaviour {
 
         if (Input.GetButtonDown("Cheat4"))
         {
-            SceneManager.LoadScene(6);
+            SceneManager.LoadScene(5);
         }
 
         if (Input.GetButtonDown("Cheat5"))

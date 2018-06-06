@@ -23,6 +23,6 @@ public class LoadGameMenuController : MonoBehaviour {
         CarryOverInfo.carryOverInfoInstance.saveNumber = saveNumber;
         CarryOverInfo.carryOverInfoInstance.Load();
 
-        SceneManager.LoadScene(6);
+        SceneManager.LoadScene(5);
     }
 }

@@ -47,7 +47,7 @@ public class PauseMenuController : MonoBehaviour {
     public void ExitLevel()
     {
         //exit level
-        GameController.gameControllerInstance.LoadLevel(6);
+        GameController.gameControllerInstance.LoadLevel(5);
     }
 
     public void UnPauseGame()
