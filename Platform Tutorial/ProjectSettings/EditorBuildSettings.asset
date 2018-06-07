@@ -74,4 +74,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Ending1-2.unity
     guid: 7b4e666fbdd6ec849aaf0145461cad50
+  - enabled: 1
+    path: Assets/Scenes/TopDownScene01.unity
+    guid: dd6a37965bcbb8043a97766800da73f9
   m_configObjects: {}

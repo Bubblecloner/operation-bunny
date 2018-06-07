@@ -720,7 +720,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 2069505392}
   - {fileID: 0}
-  levelScene: 23
+  levelScene: 21
   unlocked: 1
 --- !u!4 &245898178
 Transform:
@@ -1662,7 +1662,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  levelScene: 22
+  levelScene: 21
   unlocked: 1
 --- !u!4 &870711660
 Transform:
