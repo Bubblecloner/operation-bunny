@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour {
+public class EnemySpawnerTopDown : MonoBehaviour {
 
     public enum SpawnState { SPAWNING, WAITING, COUNTING};
 
@@ -21,6 +21,7 @@ public class EnemySpawner : MonoBehaviour {
     private int nextWave = 0;
     public Transform[] spawnPoints;
     public float timeBetweenWaves = 5f;
+    public GameObject door;
 
 
     private float waveCountdown;
@@ -31,6 +32,8 @@ public class EnemySpawner : MonoBehaviour {
 
 	void Start ()
     {
+        door.SetActive(false);
+
         waveCountdown = timeBetweenWaves;
 
         if (spawnPoints.Length == 0)
@@ -65,9 +68,9 @@ public class EnemySpawner : MonoBehaviour {
 		if(waveCountdown <= 0)
         {
 
-            if(state != SpawnState.SPAWNING)
+            if (state != SpawnState.SPAWNING && nextWave < 3)
             {
-                StartCoroutine( SpawnWave ( waves[nextWave] ) );
+                StartCoroutine(SpawnWave(waves[nextWave]));
             }
         }
 
@@ -86,8 +89,13 @@ public class EnemySpawner : MonoBehaviour {
 
         if (nextWave + 1 > waves.Length - 1)
         {
-            //Change nextWave = 0; to whatever you want to happen AFTER waves are done
-            nextWave = 0;
+            //Change to whatever you want to happen AFTER waves are done
+            door.SetActive(true);
+            nextWave++;
+            StopCoroutine(SpawnWave(waves[nextWave-1]));
+            return;
+            
+
         }
         else
         {
@@ -112,18 +120,20 @@ public class EnemySpawner : MonoBehaviour {
 
     IEnumerator SpawnWave(Wave _wave)
     {
-        state = SpawnState.SPAWNING;
+        while (nextWave < 4) {
+            state = SpawnState.SPAWNING;
 
-        for (int i = 0; i <_wave.count; i++)
-        {
-            SpawnEnemy(_wave.enemy);
-            yield return new WaitForSeconds(1f / _wave.rate);
+            for (int i = 0; i < _wave.count; i++)
+            {
+                SpawnEnemy(_wave.enemy);
+                yield return new WaitForSeconds(1f / _wave.rate);
+            }
+
+            state = SpawnState.WAITING;
+
+
+            yield break;
         }
-
-        state = SpawnState.WAITING;
-
-
-        yield break;
     }
 
     void SpawnEnemy(Transform _enemy)
