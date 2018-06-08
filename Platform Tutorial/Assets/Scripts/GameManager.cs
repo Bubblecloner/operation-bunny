@@ -65,4 +65,8 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    public void ExitTopDown()
+    {
+        SceneManager.LoadScene(5);
+    }
 }
