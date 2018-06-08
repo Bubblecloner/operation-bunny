@@ -52,7 +52,7 @@ public class EndingSceneScript : MonoBehaviour
     {
         float duration = sounds[1].length;
         PlaySound(1);
-        PrintText("Gary: Yes, Grand master? \nGM: Go find the bunny and let her kill you \nGary: Right, go kill the bunny. \nGM: No!Let her kill you! \nGary: Go get killed by the bunny.Right, got it. \nGM: You understand, Gary ? \nGary : Yes, grand master!", Color.black, duration + 3.0f);
+        PrintText("Gary: Yes, Grand master? \nGM: Go find the bunny and let her kill you \nGary: Go kill the bunny. \nGM: No!Let her kill you! \nGary: Go get killed by the bunny. \nGM: You understand, Gary ? \nGary : Yes, grand master!", Color.black, duration + 3.0f);
         Invoke("DisableCanvas", duration + 5.0f);
         // Move gary
         garyDestination = new Vector3(-12.2f, -4.06f, 0);
@@ -80,7 +80,7 @@ public class EndingSceneScript : MonoBehaviour
         EnableCanvas();
         float duration = sounds[3].length;
         PlaySound(3);
-        PrintText("GM: Gary… did you kill the bunny?\nGary: Yes.\nGM: Fuck’s sake.You were supposed to be killed by the bunny!\nGary: I was supposed to be what now ? ", Color.black, duration + 2.0f);
+        PrintText("GM: Gary… did you kill the bunny?\nGary: Yes Grand Master. You should have seen it. It was a magnificent battle. It lasted for about... 2 seconds. What I did was, I jumped in and (weird sounds) and then I carved out his heart and ate it-\nGM: Fuck’s sake.You were supposed to be killed by the bunny!\nGary: I was supposed to what now ? ", Color.black, duration + 2.0f);
         Invoke("DisableCanvas", duration + 2.0f);
         Invoke("Explosions", duration + 2.1f);
     }
