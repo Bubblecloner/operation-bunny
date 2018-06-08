@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using DG.Tweening;
 
 public class NewDialogue : MonoBehaviour {
@@ -126,91 +127,13 @@ public class NewDialogue : MonoBehaviour {
                     myAudioSource.PlayOneShot(dialogue9, 1f);
                     break;
                 case 9:
-                    GetGary();
+                    SceneManager.LoadScene(22);
                     break;
                 default:
                     Debug.Log("Switch broke");
                     break;
             }
         }
-    }
-
-    private void GetGary()
-    {
-        //Animera gary och vänta, gå sen igenom dialogen (ändra 1.0f till tiden det tar för animationen)
-        StartCoroutine("GaryDialogue", 1.0f);
-    }
-
-    private IEnumerator GaryDialogue()
-    {
-        for (int i = 0; i < 8; i++)
-        {
-            switch (i)
-            {
-                case 0:
-                    PrintText("Aaaaaaaaaargh… Gary!");
-                    yield return new WaitForSeconds(4.0f);
-                    myAudioSource = GetComponent<AudioSource>();
-                    myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue10, 1f);
-                    break;
-                case 1:
-                    PrintText("Yes, Grand master ?");
-                    myAudioSource = GetComponent<AudioSource>();
-                    myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue11, 1f);
-                    yield return new WaitForSeconds(4.0f);
-                    break;
-                case 2:
-                    PrintText("Go find the bunny and let her kill you");
-                    myAudioSource = GetComponent<AudioSource>();
-                    myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue12, 1f);
-                    yield return new WaitForSeconds(4.0f);
-                    break;
-                case 3:
-                    PrintText("Right, go kill the bunny.");
-                    myAudioSource = GetComponent<AudioSource>();
-                    myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue13, 1f);
-                    yield return new WaitForSeconds(4.0f);
-                    break;
-                case 4:
-                    PrintText("No! Let her kill you!");
-                    myAudioSource = GetComponent<AudioSource>();
-                    myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue14, 1f);
-                    yield return new WaitForSeconds(4.0f);
-                    break;
-                case 5:
-                    PrintText("Go get killed by the bunny. Right, got it.");
-                    myAudioSource = GetComponent<AudioSource>();
-                    myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue15, 1f);
-                    yield return new WaitForSeconds(4.0f);
-                    break;
-                case 6:
-                    PrintText("You understand, Gary?");
-                    yield return new WaitForSeconds(4.0f);
-                    myAudioSource = GetComponent<AudioSource>();
-                    myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue16, 1f);
-                    break;
-                case 7:
-                    PrintText("Yes, grand master!");
-                    yield return new WaitForSeconds(4.0f);
-                    myAudioSource = GetComponent<AudioSource>();
-                    myAudioSource.Stop();
-                    myAudioSource.PlayOneShot(dialogue17, 1f);
-                    // Animera Gary en gång till här, och sen en till switch när han kommer tillbaka
-                    break;
-                default:
-                    Debug.Log("Switch 2 broke");
-                    break;
-            }
-        }
-
-        yield break;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
