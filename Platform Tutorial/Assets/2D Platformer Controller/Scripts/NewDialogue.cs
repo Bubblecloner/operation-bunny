@@ -34,7 +34,7 @@ public class NewDialogue : MonoBehaviour {
     public AudioClip dialogueNo;
 
     private float readTime = 3.0f;
-    private bool waitingForAnswer;
+    private bool waitingForAnswer, hasAnswered;
     private int numberOfNos;
     private AudioSource myAudioSource;
 
@@ -45,6 +45,7 @@ public class NewDialogue : MonoBehaviour {
         rightAnswer.enabled = false;
         waitingForAnswer = false;
         numberOfNos = 0;
+        hasAnswered = false;
 	}
 
     private void Update()
@@ -64,6 +65,8 @@ public class NewDialogue : MonoBehaviour {
             myAudioSource = GetComponent<AudioSource>();
             myAudioSource.Stop();
             myAudioSource.PlayOneShot(dialogueYes, 1f);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformInputs>().canMove = true;
+            hasAnswered = true;
         }
 
         if (waitingForAnswer && Input.GetKeyDown(KeyCode.B) || waitingForAnswer && Input.GetKeyDown("joystick button 1"))
@@ -138,13 +141,19 @@ public class NewDialogue : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Stoppa spelaren
-        GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformInputs>().canMove = false;
-        canvas.enabled = true;
-        PrintText(firstParagraph);
-        myAudioSource = GetComponent<AudioSource>();
-        myAudioSource.Stop();
-        myAudioSource.PlayOneShot(dialogueintro, 1f);
+        if (!hasAnswered)
+        {
+            //Stoppa spelaren
+            GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformInputs>().canMove = false;
+            canvas.enabled = true;
+            PrintText(firstParagraph);
+            myAudioSource = GetComponent<AudioSource>();
+            myAudioSource.Stop();
+            myAudioSource.PlayOneShot(dialogueintro, 1f);
+        }
+
+        else
+            return;
     }
 
     private void PrintText(string textToPrint)
