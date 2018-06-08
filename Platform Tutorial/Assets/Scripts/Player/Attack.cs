@@ -6,6 +6,7 @@ public class Attack : MonoBehaviour {
 
     public float knockback;
     public string targetTag = "Enemy";
+    public AudioClip swordAttack;
 
     private int damage = 1;
 
@@ -14,12 +15,14 @@ public class Attack : MonoBehaviour {
         if (transform.parent.transform.position.x > transform.position.x)
             transform.localScale *= new Vector2(-1, 1);
         damage = GetComponentInParent<Entity>().Damage;
+        GetComponentInParent<AudioSource>().pitch = Random.Range(0.9f, 1.1f);
+        GetComponentInParent<AudioSource>().PlayOneShot(swordAttack, 0.5f);
     }
 	
 	void Update ()
     {
-		
-	}
+
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {

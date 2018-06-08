@@ -10,6 +10,7 @@ public class PlayerVariables : Entity {
     public AudioClip coinPickup;
     public AudioClip hurt;
     public AudioClip fallDeath;
+    public AudioClip swordAttack;
     public GameObject bonusDamageParticles;
     public GameObject invincibilityParticles;
 
