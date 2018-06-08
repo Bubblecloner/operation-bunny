@@ -58,15 +58,17 @@ public class NewDialogue : MonoBehaviour {
         }
 
         // Får svar från spelaren
-        if(waitingForAnswer && Input.GetKeyDown(KeyCode.A) || waitingForAnswer && Input.GetKeyDown("joystick button 0"))
+        if(waitingForAnswer && Input.GetKeyDown(KeyCode.A) && !hasAnswered || waitingForAnswer && Input.GetKeyDown("joystick button 0") && !hasAnswered)
         {
-            DisableAnswers();
             PrintText(secondParagraph);
             myAudioSource = GetComponent<AudioSource>();
             myAudioSource.Stop();
             myAudioSource.PlayOneShot(dialogueYes, 1f);
             GameObject.FindGameObjectWithTag("Player").GetComponent<PlatformInputs>().canMove = true;
             hasAnswered = true;
+            Invoke("PlayPositiveGM", 1.0f);
+            Invoke("DisableAnswers", 1.1f);
+            Invoke("DisableCanvas", 9.0f);
         }
 
         if (waitingForAnswer && Input.GetKeyDown(KeyCode.B) || waitingForAnswer && Input.GetKeyDown("joystick button 1"))
@@ -174,6 +176,19 @@ public class NewDialogue : MonoBehaviour {
     {
         leftAnswer.enabled = false;
         rightAnswer.enabled = false;
+        waitingForAnswer = false;
+    }
+
+    private void PlayPositiveGM()
+    {
+        myAudioSource = GetComponent<AudioSource>();
+        myAudioSource.Stop();
+        myAudioSource.PlayOneShot(dialogue1, 1f);
+    }
+
+    private void DisableCanvas()
+    {
+        canvas.enabled = false;
         waitingForAnswer = false;
     }
 }
