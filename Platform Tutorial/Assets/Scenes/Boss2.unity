@@ -18540,6 +18540,11 @@ Prefab:
       propertyPath: swordAttack
       value: 
       objectReference: {fileID: 8300000, guid: e9c55a3e509bcd54686e6a0a8e396501, type: 3}
+    - target: {fileID: 114107194608421346, guid: bd09b02ae3ef0d94a81bb3e62d4ce400,
+        type: 2}
+      propertyPath: attackCooldown
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd09b02ae3ef0d94a81bb3e62d4ce400, type: 2}
   m_IsPrefabParent: 0

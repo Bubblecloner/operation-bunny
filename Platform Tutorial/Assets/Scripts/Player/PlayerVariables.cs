@@ -20,6 +20,11 @@ public class PlayerVariables : Entity {
     private AudioSource myAudioSource;
     private CarryOverInfo COInfo;
 
+    public void PlayAttackSound()
+    {
+        myAudioSource.PlayOneShot(swordAttack, 0.5f);
+    }
+
     protected override void Start ()
     {
         base.Start();
